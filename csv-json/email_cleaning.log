@@ -1,0 +1,352 @@
+2025-07-07 01:19:08,437 - ERROR - Could not import Lead model. Please adjust the import path.
+2025-07-07 01:21:15,258 - ERROR - Django setup failed: Requested setting LOGGING_CONFIG, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.
+2025-07-07 01:22:16,754 - WARNING - Invalid line: MODEL = "gpt-4o-mini"  # or "gpt-4-turbo" or "gpt-4"
+2025-07-07 01:22:17,488 - ERROR - Django setup failed: name 'self' is not defined
+2025-07-07 01:24:45,465 - INFO - Django setup successful
+2025-07-07 01:24:45,473 - INFO - Starting email cleaning process...
+2025-07-07 01:24:45,473 - INFO - Mode: LIVE CLEANING
+2025-07-07 01:24:45,474 - INFO - API validation: DISABLED
+2025-07-07 01:24:45,474 - INFO - Batch size: 1000
+2025-07-07 01:24:45,475 - INFO - Max workers: 4
+2025-07-07 01:24:45,487 - INFO - Found 379 leads with email addresses
+2025-07-07 01:24:45,498 - INFO - Processing batch 1 (379 leads)
+2025-07-07 01:25:08,685 - WARNING - Invalid email: support-a@fitcoach.fit (ID: 152) - No MX or A record (non-deliverable domain)
+2025-07-07 01:25:10,922 - WARNING - Invalid email: bellathebuilder@bellancafitness.co (ID: 163) - No MX or A record (non-deliverable domain)
+2025-07-07 01:25:23,143 - WARNING - Invalid email: boosters-social-share@1.0.0 (ID: 169) - Django validation failed
+2025-07-07 01:25:23,158 - WARNING - Invalid email: user@domain.com (ID: 173) - Contains blacklisted substring: @domain
+2025-07-07 01:25:25,334 - WARNING - Invalid email: splitsections@3.2.012 (ID: 175) - Django validation failed
+2025-07-07 01:25:29,679 - WARNING - Invalid email: benutzer@domain.com (ID: 182) - Contains blacklisted substring: @domain
+2025-07-07 01:25:41,467 - WARNING - Invalid email: calumn@cdfitness.co.uk (ID: 186) - No MX or A record (non-deliverable domain)
+2025-07-07 01:26:04,152 - WARNING - Invalid email: asxvmprobertest@gmail.com (ID: 221) - Contains blacklisted substring: test
+2025-07-07 01:26:06,276 - WARNING - Invalid email: viniciuscaamposs_personal@instagram.placeholder (ID: 239) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:06,288 - WARNING - Invalid email: seo@instagram.placeholder (ID: 240) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:06,301 - WARNING - Invalid email: jamiebarnes_personaltrainer@instagram.placeholder (ID: 241) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:08,797 - WARNING - Invalid email: deportivosfollowarnoldfitness17@arnoldfitnessfollowacademiapro.fitacademia (ID: 242) - No MX or A record (non-deliverable domain)
+2025-07-07 01:26:14,469 - WARNING - Invalid email: yaspersonaltrainer@instagram.placeholder (ID: 244) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:16,750 - WARNING - Invalid email: bluefit.pg.cantodoforte@personaltrainer.bianca (ID: 245) - No MX or A record (non-deliverable domain)
+2025-07-07 01:26:16,752 - WARNING - Invalid email: thaisbrito.personal@instagram.placeholder (ID: 246) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:16,754 - WARNING - Invalid email: mayconcavallinipersonal_@instagram.placeholder (ID: 247) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:16,756 - WARNING - Invalid email: josiana.personaltrainer@instagram.placeholder (ID: 248) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:26,631 - WARNING - Invalid email: personaltrainertje@gmail.combookings (ID: 250) - No MX or A record (non-deliverable domain)
+2025-07-07 01:26:29,118 - WARNING - Invalid email: joss@endoftheroadfestival.co.ukgeneral (ID: 251) - No MX or A record (non-deliverable domain)
+2025-07-07 01:26:29,121 - WARNING - Invalid email: _marilarunapersonal@instagram.placeholder (ID: 252) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:29,125 - WARNING - Invalid email: murilloramonl@instagram.placeholder (ID: 253) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:29,129 - WARNING - Invalid email: _movewithciara@instagram.placeholder (ID: 254) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:29,132 - WARNING - Invalid email: gperk_fit@instagram.placeholder (ID: 255) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,313 - WARNING - Invalid email: sakura_personaltrainer@instagram.placeholder (ID: 257) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,316 - WARNING - Invalid email: samaraquino_personal@instagram.placeholder (ID: 258) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,319 - WARNING - Invalid email: eduarda_krauspenhar_personal@instagram.placeholder (ID: 259) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,321 - WARNING - Invalid email: coachmollyfitness@instagram.placeholder (ID: 260) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,324 - WARNING - Invalid email: team.maatheus_personal@instagram.placeholder (ID: 261) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,336 - WARNING - Invalid email: iarleygpersonaltrainer@instagram.placeholder (ID: 263) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,340 - WARNING - Invalid email: davidias_personal@instagram.placeholder (ID: 264) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,344 - WARNING - Invalid email: kfitnesslb@instagram.placeholder (ID: 265) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,348 - WARNING - Invalid email: flaviosoares.personaltrainer@instagram.placeholder (ID: 266) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,351 - WARNING - Invalid email: _cod3_blue@instagram.placeholder (ID: 267) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,355 - WARNING - Invalid email: lbpersonal_trainer@instagram.placeholder (ID: 268) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,359 - WARNING - Invalid email: personalotaviolenzi@instagram.placeholder (ID: 269) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,361 - WARNING - Invalid email: prof.kelianesantos@instagram.placeholder (ID: 270) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,362 - WARNING - Invalid email: igorlimapersonal_@instagram.placeholder (ID: 271) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,364 - WARNING - Invalid email: juliaandrezzapersonal_@instagram.placeholder (ID: 272) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,365 - WARNING - Invalid email: tiagoguimaraesfitness@instagram.placeholder (ID: 273) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,367 - WARNING - Invalid email: jbperformanceenhancement@instagram.placeholder (ID: 274) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:31,369 - WARNING - Invalid email: filipemoraistreinador@instagram.placeholder (ID: 275) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:33,507 - WARNING - Invalid email: personal.trainer.caba@instagram.placeholder (ID: 278) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:33,508 - INFO - Processed 100/379 leads...
+2025-07-07 01:26:33,509 - WARNING - Invalid email: roberta.personaltrainer@instagram.placeholder (ID: 279) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:33,510 - WARNING - Invalid email: trainerjoefitness@instagram.placeholder (ID: 280) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:33,511 - WARNING - Invalid email: personaltrainerwanita@instagram.placeholder (ID: 281) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:33,513 - WARNING - Invalid email: jorge_bfitness@instagram.placeholder (ID: 282) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:33,514 - WARNING - Invalid email: lovelucyfit_@instagram.placeholder (ID: 283) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:33,515 - WARNING - Invalid email: fit_with_mackenzie@instagram.placeholder (ID: 284) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:33,516 - WARNING - Invalid email: pfeiffer_jenny_onlinecoaching@instagram.placeholder (ID: 285) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:33,517 - WARNING - Invalid email: bodybyals@instagram.placeholder (ID: 286) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:33,519 - WARNING - Invalid email: emmafituk_@instagram.placeholder (ID: 287) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:33,520 - WARNING - Invalid email: saraisbranco@instagram.placeholder (ID: 288) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:33,521 - WARNING - Invalid email: yourfitness_c0ach@instagram.placeholder (ID: 289) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:33,522 - WARNING - Invalid email: nipunfitness@instagram.placeholder (ID: 290) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:33,523 - WARNING - Invalid email: ely_fitnesscoach@instagram.placeholder (ID: 291) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:33,524 - WARNING - Invalid email: jessiegwenfit@instagram.placeholder (ID: 292) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:33,526 - WARNING - Invalid email: fitness__kaykay@instagram.placeholder (ID: 293) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:35,969 - WARNING - Invalid email: linktree@fitness.coach.appyour (ID: 294) - No MX or A record (non-deliverable domain)
+2025-07-07 01:26:35,972 - WARNING - Invalid email: kate_beyondfitness@instagram.placeholder (ID: 295) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:35,975 - WARNING - Invalid email: danfounder@instagram.placeholder (ID: 296) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:35,978 - WARNING - Invalid email: sergiogarciafitness@instagram.placeholder (ID: 297) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:35,981 - WARNING - Invalid email: becksliveshealthy@instagram.placeholder (ID: 298) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:35,984 - WARNING - Invalid email: charliejohnsonfitness@instagram.placeholder (ID: 299) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:35,988 - WARNING - Invalid email: christian.fleenor@instagram.placeholder (ID: 300) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:35,992 - WARNING - Invalid email: caitlinwilson.fit@instagram.placeholder (ID: 301) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:35,995 - WARNING - Invalid email: thefitnesschef_@instagram.placeholder (ID: 302) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:35,998 - WARNING - Invalid email: themodernmuslimman@instagram.placeholder (ID: 303) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:36,001 - WARNING - Invalid email: sageyfitt@instagram.placeholder (ID: 304) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:36,031 - WARNING - Invalid email: thestrongwai@instagram.placeholder (ID: 306) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:36,033 - WARNING - Invalid email: jogagnetrainer@instagram.placeholder (ID: 307) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:36,034 - WARNING - Invalid email: maurofitnesscoach@instagram.placeholder (ID: 308) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:36,036 - WARNING - Invalid email: kesavan70@instagram.placeholder (ID: 309) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:36,037 - WARNING - Invalid email: zohaib_fitness_official@instagram.placeholder (ID: 310) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:36,039 - WARNING - Invalid email: jamiecorso@instagram.placeholder (ID: 311) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:38,221 - WARNING - Invalid email: hello@coachkrystal.comshop (ID: 312) - No MX or A record (non-deliverable domain)
+2025-07-07 01:26:38,224 - WARNING - Invalid email: wrkwithleah@instagram.placeholder (ID: 313) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:38,227 - WARNING - Invalid email: hussein.fht@instagram.placeholder (ID: 314) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:43,832 - WARNING - Invalid email: thegirlwithabs16@instagram.placeholder (ID: 316) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:43,835 - WARNING - Invalid email: thefitkingg@instagram.placeholder (ID: 317) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,012 - WARNING - Invalid email: annapiotrowski@instagram.placeholder (ID: 319) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,013 - WARNING - Invalid email: alexxandra.fitt@instagram.placeholder (ID: 320) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,014 - WARNING - Invalid email: onlinetrainingcoach@instagram.placeholder (ID: 321) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,015 - WARNING - Invalid email: gimnasioenerfitperu@instagram.placeholder (ID: 322) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,016 - WARNING - Invalid email: mitch_saraczewski@instagram.placeholder (ID: 323) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,017 - WARNING - Invalid email: the_naturalcoach@instagram.placeholder (ID: 324) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,018 - WARNING - Invalid email: aefitnessig@instagram.placeholder (ID: 325) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,019 - WARNING - Invalid email: get_fit_with_robert@instagram.placeholder (ID: 326) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,021 - WARNING - Invalid email: hiteshfitnesscoach@instagram.placeholder (ID: 327) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,021 - WARNING - Invalid email: chanchalsharma1346@instagram.placeholder (ID: 328) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,023 - WARNING - Invalid email: iron_bites@instagram.placeholder (ID: 329) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,024 - WARNING - Invalid email: jsj_fitness_hub@instagram.placeholder (ID: 330) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,025 - WARNING - Invalid email: jhindghuman@instagram.placeholder (ID: 331) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,026 - WARNING - Invalid email: _youthfitness_@instagram.placeholder (ID: 332) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,026 - WARNING - Invalid email: herbalife_wellness_coach_fit@instagram.placeholder (ID: 333) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,027 - WARNING - Invalid email: coachamjad@instagram.placeholder (ID: 334) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,028 - WARNING - Invalid email: lawyerlifts.in@instagram.placeholder (ID: 335) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,040 - WARNING - Invalid email: indian_fitness__coach@instagram.placeholder (ID: 338) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,047 - WARNING - Invalid email: calysta_ifbbpro@instagram.placeholder (ID: 340) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,048 - WARNING - Invalid email: fitsznn_@instagram.placeholder (ID: 341) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,058 - WARNING - Invalid email: ravinagill_02@instagram.placeholder (ID: 344) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,069 - WARNING - Invalid email: fitwithvaishalibassi@instagram.placeholder (ID: 347) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:46,070 - WARNING - Invalid email: bullstrongfit@instagram.placeholder (ID: 348) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:48,520 - WARNING - Invalid email: makkah@mariam.motivatesclipevery (ID: 352) - No MX or A record (non-deliverable domain)
+2025-07-07 01:26:50,702 - WARNING - Invalid email: linktree@dylan.kolakmorning (ID: 353) - No MX or A record (non-deliverable domain)
+2025-07-07 01:26:50,788 - WARNING - Invalid email: dr.godric@instagram.placeholder (ID: 363) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,243 - WARNING - Invalid email: teamskip1@gmail.comfollowbrandon (ID: 366) - No MX or A record (non-deliverable domain)
+2025-07-07 01:26:55,250 - WARNING - Invalid email: briannametzgerfitness@gmail.comall (ID: 368) - Contains blacklisted substring: amet
+2025-07-07 01:26:55,261 - WARNING - Invalid email: mg235@instagram.placeholder (ID: 371) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,262 - WARNING - Invalid email: tristan.huseby@instagram.placeholder (ID: 372) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,263 - WARNING - Invalid email: Avaaxe@instagram.placeholder (ID: 373) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,264 - WARNING - Invalid email: muktigautam@instagram.placeholder (ID: 374) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,266 - WARNING - Invalid email: ifbbpro_hanysaeed@instagram.placeholder (ID: 375) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,267 - WARNING - Invalid email: db.personal_trainer@instagram.placeholder (ID: 376) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,268 - WARNING - Invalid email: coach_megvourantonis_@instagram.placeholder (ID: 377) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,269 - WARNING - Invalid email: mc_personal_trainer@instagram.placeholder (ID: 378) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,270 - INFO - Processed 200/379 leads...
+2025-07-07 01:26:55,270 - WARNING - Invalid email: hugomramalho_personaltrainer@instagram.placeholder (ID: 379) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,272 - WARNING - Invalid email: thehungrycoach@instagram.placeholder (ID: 380) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,273 - WARNING - Invalid email: dubai_personal_fitness_trainer@instagram.placeholder (ID: 381) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,274 - WARNING - Invalid email: personal_trainer_savova.strong@instagram.placeholder (ID: 382) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,275 - WARNING - Invalid email: alessiaprincipato_fitnesscoach@instagram.placeholder (ID: 383) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,276 - WARNING - Invalid email: personal_trainer_david@instagram.placeholder (ID: 384) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,277 - WARNING - Invalid email: missionfit_d@instagram.placeholder (ID: 385) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,278 - WARNING - Invalid email: andreromao.personaltrainer@instagram.placeholder (ID: 386) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,280 - WARNING - Invalid email: myonlinepersonaltrainer@instagram.placeholder (ID: 387) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,281 - WARNING - Invalid email: omar.personaltrainer@instagram.placeholder (ID: 388) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,282 - WARNING - Invalid email: guh_personal_trainer@instagram.placeholder (ID: 389) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,283 - WARNING - Invalid email: coach.jwebb@instagram.placeholder (ID: 390) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,284 - WARNING - Invalid email: iamtiwara@instagram.placeholder (ID: 391) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,285 - WARNING - Invalid email: personal.trainer.uruguay@instagram.placeholder (ID: 392) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,286 - WARNING - Invalid email: carollopespersonal@instagram.placeholder (ID: 393) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,287 - WARNING - Invalid email: kokoleeshis@instagram.placeholder (ID: 394) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,288 - WARNING - Invalid email: douglas.personaltrainer@instagram.placeholder (ID: 395) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,289 - WARNING - Invalid email: fitnesscasee@instagram.placeholder (ID: 396) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,298 - WARNING - Invalid email: personal_trainer_julia@instagram.placeholder (ID: 398) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,299 - WARNING - Invalid email: fitlucsg@instagram.placeholder (ID: 399) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,305 - WARNING - Invalid email: daysouzapersonaltrainer@instagram.placeholder (ID: 401) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,307 - WARNING - Invalid email: personal_trainer_indonesia@instagram.placeholder (ID: 402) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,308 - WARNING - Invalid email: joanadarcpersonaltrainer@instagram.placeholder (ID: 403) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,309 - WARNING - Invalid email: youfit.peru@instagram.placeholder (ID: 404) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,310 - WARNING - Invalid email: maira_personaltrainer@instagram.placeholder (ID: 405) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,311 - WARNING - Invalid email: personaltrainerynutriciondanto@instagram.placeholder (ID: 406) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,312 - WARNING - Invalid email: yp.trainer@instagram.placeholder (ID: 407) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,313 - WARNING - Invalid email: trainerlindsay@instagram.placeholder (ID: 408) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,314 - WARNING - Invalid email: copilotsearch@instagram.placeholder (ID: 409) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,315 - WARNING - Invalid email: travel@instagram.placeholder (ID: 410) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,316 - WARNING - Invalid email: maps@instagram.placeholder (ID: 411) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,317 - WARNING - Invalid email: videos@instagram.placeholder (ID: 412) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,319 - WARNING - Invalid email: news@instagram.placeholder (ID: 413) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:55,320 - WARNING - Invalid email: deionsanders@instagram.placeholder (ID: 414) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:57,571 - WARNING - Invalid email: coachsvrvh.fit@gmail.comyou (ID: 415) - No MX or A record (non-deliverable domain)
+2025-07-07 01:26:57,572 - WARNING - Invalid email: sculptphysique@instagram.placeholder (ID: 416) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:57,573 - WARNING - Invalid email: _ruthcl@instagram.placeholder (ID: 417) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:59,791 - WARNING - Invalid email: sandy.fitnesshero@gmail.comsubmitthanks (ID: 419) - No MX or A record (non-deliverable domain)
+2025-07-07 01:26:59,797 - WARNING - Invalid email: bellabaileybarnes@instagram.placeholder (ID: 421) - Contains blacklisted substring: placeholder
+2025-07-07 01:26:59,798 - WARNING - Invalid email: leanbeefpatty@instagram.placeholder (ID: 422) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:02,116 - WARNING - Invalid email: shwetabhaskar8@gmail.comtoronto (ID: 423) - No MX or A record (non-deliverable domain)
+2025-07-07 01:27:04,259 - WARNING - Invalid email: nitinraghav_@instagram.placeholder (ID: 427) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:04,260 - WARNING - Invalid email: marcus__rice@instagram.placeholder (ID: 428) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:06,386 - WARNING - Invalid email: aldafreitass@instagram.placeholder (ID: 430) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:06,387 - WARNING - Invalid email: marandalunaa@instagram.placeholder (ID: 431) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:08,503 - WARNING - Invalid email: bodysculptorben@instagram.placeholder (ID: 433) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:08,504 - WARNING - Invalid email: ryanmxxre@instagram.placeholder (ID: 434) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:10,623 - WARNING - Invalid email: ariellrosenblad@instagram.placeholder (ID: 436) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:10,720 - WARNING - Invalid email: stephaniebuchanan_fwtfl@instagram.placeholder (ID: 437) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:12,843 - WARNING - Invalid email: coach.katz@instagram.placeholder (ID: 439) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:12,845 - WARNING - Invalid email: mackenziemckee@instagram.placeholder (ID: 440) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:12,849 - WARNING - Invalid email: lenarybakina@instagram.placeholder (ID: 441) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:14,965 - WARNING - Invalid email: innately_nourished@instagram.placeholder (ID: 443) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:17,141 - WARNING - Invalid email: noahsharpe@instagram.placeholder (ID: 445) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:17,143 - WARNING - Invalid email: zburnsfat@instagram.placeholder (ID: 446) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,331 - WARNING - Invalid email: mattwest_roadtoaesthetics@instagram.placeholder (ID: 448) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,332 - WARNING - Invalid email: angela_gargano@instagram.placeholder (ID: 449) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,333 - WARNING - Invalid email: dr.joeymunoz@instagram.placeholder (ID: 450) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,342 - WARNING - Invalid email: Huneybakedmelons@instagram.placeholder (ID: 452) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,344 - WARNING - Invalid email: coachginakim@instagram.placeholder (ID: 453) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,352 - WARNING - Invalid email: pamela_rf@instagram.placeholder (ID: 455) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,353 - WARNING - Invalid email: cbum@instagram.placeholder (ID: 456) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,355 - WARNING - Invalid email: christian_kroemer@instagram.placeholder (ID: 457) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,358 - WARNING - Invalid email: a.mdiaz@instagram.placeholder (ID: 458) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,360 - WARNING - Invalid email: transform_fitness_coach@instagram.placeholder (ID: 459) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,361 - WARNING - Invalid email: samokunola@instagram.placeholder (ID: 460) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,363 - WARNING - Invalid email: fitnessxsav@instagram.placeholder (ID: 461) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,369 - WARNING - Invalid email: fitness_coach_dee@instagram.placeholder (ID: 463) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,370 - WARNING - Invalid email: fitness_coach_imk@instagram.placeholder (ID: 464) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,377 - WARNING - Invalid email: peanutphysique@instagram.placeholder (ID: 466) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,378 - WARNING - Invalid email: fitness_coach_age@instagram.placeholder (ID: 467) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,379 - WARNING - Invalid email: d_fitness_club04@instagram.placeholder (ID: 468) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,380 - WARNING - Invalid email: nikokatsuyoshi@instagram.placeholder (ID: 469) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,381 - WARNING - Invalid email: coach.darwin@instagram.placeholder (ID: 470) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,383 - WARNING - Invalid email: falconerfitness@instagram.placeholder (ID: 471) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,385 - WARNING - Invalid email: jtbodyconcept@instagram.placeholder (ID: 472) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,386 - WARNING - Invalid email: praveen_goyar_@instagram.placeholder (ID: 473) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,394 - WARNING - Invalid email: claudia_krebs@instagram.placeholder (ID: 474) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,396 - WARNING - Invalid email: coachlittlejoe@instagram.placeholder (ID: 475) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,398 - WARNING - Invalid email: coachcaprice@instagram.placeholder (ID: 476) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,402 - WARNING - Invalid email: ryan_jourv@instagram.placeholder (ID: 477) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,410 - WARNING - Invalid email: fitness_coach_kamni_24@instagram.placeholder (ID: 478) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,414 - INFO - Processed 300/379 leads...
+2025-07-07 01:27:19,415 - WARNING - Invalid email: fitness_coach_lima@instagram.placeholder (ID: 479) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,416 - WARNING - Invalid email: aidan_aesthetics@instagram.placeholder (ID: 480) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,417 - WARNING - Invalid email: surajlifestylecoach@instagram.placeholder (ID: 481) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,417 - WARNING - Invalid email: angierrios@instagram.placeholder (ID: 482) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,418 - WARNING - Invalid email: janae_ifbbpro@instagram.placeholder (ID: 483) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,420 - WARNING - Invalid email: o.c.deans_fitness@instagram.placeholder (ID: 484) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,421 - WARNING - Invalid email: mariagloriamg@instagram.placeholder (ID: 485) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,423 - WARNING - Invalid email: myptrainer@instagram.placeholder (ID: 486) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,424 - WARNING - Invalid email: workoutwithhayley@instagram.placeholder (ID: 487) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,426 - WARNING - Invalid email: personal_trainer_surabaya@instagram.placeholder (ID: 488) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,427 - WARNING - Invalid email: neilfit_@instagram.placeholder (ID: 489) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,428 - WARNING - Invalid email: mayju_training@instagram.placeholder (ID: 490) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,429 - WARNING - Invalid email: dani.personaltrainer@instagram.placeholder (ID: 491) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,431 - WARNING - Invalid email: p_k_fitness@instagram.placeholder (ID: 492) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,432 - WARNING - Invalid email: la_colagenofit@instagram.placeholder (ID: 493) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,433 - WARNING - Invalid email: alaa.rabbat@instagram.placeholder (ID: 494) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:19,434 - WARNING - Invalid email: igmiisu@instagram.placeholder (ID: 495) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:23,808 - WARNING - Invalid email: victoria@startperformancetraining.com (ID: 499) - No MX or A record (non-deliverable domain)
+2025-07-07 01:27:25,980 - WARNING - Invalid email: allgainsnopains@instagram.placeholder (ID: 501) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:25,981 - WARNING - Invalid email: leeabberton.personal_trainer@instagram.placeholder (ID: 502) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:25,994 - WARNING - Invalid email: goshaanhealth@instagram.placeholder (ID: 505) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:25,995 - WARNING - Invalid email: little_wolf_fitness@instagram.placeholder (ID: 506) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:25,996 - WARNING - Invalid email: andytofit@instagram.placeholder (ID: 507) - Contains blacklisted substring: placeholder
+2025-07-07 01:27:30,532 - WARNING - Invalid email: recreation@nomade.nutella (ID: 509) - No MX or A record (non-deliverable domain)
+2025-07-07 01:27:38,238 - WARNING - Invalid email: clip@picante.agency (ID: 512) - No MX or A record (non-deliverable domain)
+2025-07-07 01:27:49,075 - WARNING - Invalid email: marketing@repsuae.com (ID: 516) - No MX or A record (non-deliverable domain)
+2025-07-07 01:27:57,969 - WARNING - Invalid email: omayogastudio@gmail.comclipto (ID: 520) - No MX or A record (non-deliverable domain)
+2025-07-07 01:28:00,120 - WARNING - Invalid email: info@roottocrownhealing.com (ID: 529) - Contains blacklisted substring: root
+2025-07-07 01:28:00,122 - WARNING - Invalid email: admin@glittersforever.com (ID: 531) - Contains blacklisted substring: admin
+2025-07-07 01:28:04,626 - WARNING - Invalid email: yogawithchristy4u@gmail.comsummer (ID: 536) - No MX or A record (non-deliverable domain)
+2025-07-07 01:28:06,815 - WARNING - Invalid email: ebooks@amazon.com.yoga (ID: 538) - No MX or A record (non-deliverable domain)
+2025-07-07 01:28:09,082 - WARNING - Invalid email: spurvalleyadv@gmail.comclipa (ID: 541) - No MX or A record (non-deliverable domain)
+2025-07-07 01:28:13,415 - WARNING - Invalid email: eyescarousel@sun.contemporary (ID: 560) - Contains blacklisted substring: temp
+2025-07-07 01:28:15,598 - WARNING - Invalid email: linktree@ad.hairrulesthe (ID: 564) - No MX or A record (non-deliverable domain)
+2025-07-07 01:28:17,914 - WARNING - Invalid email: info@senhalom.comwe (ID: 565) - No MX or A record (non-deliverable domain)
+2025-07-07 01:28:35,407 - WARNING - Invalid email: trainerinstagraminstagramyoutubeyoutubetiktoktiktokemailemail@evolve.hc (ID: 575) - No MX or A record (non-deliverable domain)
+2025-07-07 01:28:37,693 - WARNING - Invalid email: feyoluleye.nil@gmail.cominstagram (ID: 584) - No MX or A record (non-deliverable domain)
+2025-07-07 01:28:39,851 - WARNING - Invalid email: deannaod@dfyne.official (ID: 586) - No MX or A record (non-deliverable domain)
+2025-07-07 01:28:39,853 - WARNING - Invalid email: abuse@mailchimp.com (ID: 591) - Contains blacklisted substring: @mail
+2025-07-07 01:28:46,333 - INFO - Email cleaning completed. Processed 379 leads.
+2025-07-07 01:28:46,333 - INFO - 
+============================================================
+2025-07-07 01:28:46,334 - INFO - EMAIL VALIDATION STATISTICS
+2025-07-07 01:28:46,334 - INFO - ============================================================
+2025-07-07 01:28:46,335 - INFO - Total processed: 379
+2025-07-07 01:28:46,335 - INFO - Valid emails: 143
+2025-07-07 01:28:46,335 - INFO - Corrected typos: 0
+2025-07-07 01:28:46,336 - INFO - Invalid format: 2
+2025-07-07 01:28:46,336 - INFO - Blacklisted: 206
+2025-07-07 01:28:46,337 - INFO - Suspicious TLD: 0
+2025-07-07 01:28:46,337 - INFO - Too long: 0
+2025-07-07 01:28:46,337 - INFO - MX record failed: 28
+2025-07-07 01:28:46,338 - INFO - Cleaned/removed: 236
+2025-07-07 01:28:46,339 - INFO - Valid email rate: 37.73%
+2025-07-07 01:28:46,339 - INFO - ============================================================
+2025-07-07 01:28:46,382 - INFO - Cleaned 236 invalid emails
+2025-07-07 01:28:46,382 - INFO - Corrected 0 typos
+2025-07-08 04:38:50,434 - INFO - Django setup successful
+2025-07-08 04:38:50,440 - INFO - Starting email cleaning process...
+2025-07-08 04:38:50,442 - INFO - Mode: LIVE CLEANING
+2025-07-08 04:38:50,442 - INFO - API validation: DISABLED
+2025-07-08 04:38:50,442 - INFO - Batch size: 1000
+2025-07-08 04:38:50,443 - INFO - Max workers: 4
+2025-07-08 04:38:50,451 - INFO - Found 291 leads with email addresses
+2025-07-08 04:38:50,463 - INFO - Processing batch 1 (291 leads)
+2025-07-08 04:40:05,189 - WARNING - Invalid email: linktree@fitness.coach.appyour (ID: 294) - No MX or A record (non-deliverable domain)
+2025-07-08 04:40:28,388 - INFO - Processed 100/291 leads...
+2025-07-08 04:40:58,391 - WARNING - Invalid email: ebooks@amazon.com.yoga (ID: 538) - No MX or A record (non-deliverable domain)
+2025-07-08 04:41:05,073 - WARNING - Invalid email: linktree@ad.hairrulesthe (ID: 564) - No MX or A record (non-deliverable domain)
+2025-07-08 04:41:07,372 - WARNING - Invalid email: info@senhalom.comwe (ID: 565) - No MX or A record (non-deliverable domain)
+2025-07-08 04:41:13,968 - WARNING - Invalid email: trainerinstagraminstagramyoutubeyoutubetiktoktiktokemailemail@evolve.hc (ID: 575) - No MX or A record (non-deliverable domain)
+2025-07-08 04:41:16,202 - WARNING - Invalid email: feyoluleye.nil@gmail.cominstagram (ID: 584) - No MX or A record (non-deliverable domain)
+2025-07-08 04:41:16,205 - WARNING - Invalid email: abuse@mailchimp.com.if (ID: 591) - Contains blacklisted substring: @mail
+2025-07-08 04:41:22,727 - WARNING - Invalid email: jquery@2.2.3 (ID: 641) - Django validation failed
+2025-07-08 04:41:22,731 - WARNING - Invalid email: index@2.png (ID: 642) - Contains blacklisted substring: .png
+2025-07-08 04:41:22,734 - WARNING - Invalid email: qrcode-hover@2x-f9b106a848.png (ID: 643) - Contains blacklisted substring: .png
+2025-07-08 04:41:22,739 - WARNING - Invalid email: qrcode@2x-daf987ad02.png (ID: 645) - Contains blacklisted substring: .png
+2025-07-08 04:41:22,743 - WARNING - Invalid email: sarah@strongwithsarah.com? (ID: 647) - Invalid format
+2025-07-08 04:41:27,123 - WARNING - Invalid email: wght@300..900 (ID: 649) - Invalid format
+2025-07-08 04:41:27,124 - WARNING - Invalid email: beyondspace-snippets@0.0.44 (ID: 650) - Django validation failed
+2025-07-08 04:41:27,126 - WARNING - Invalid email: gsap@3.12.5 (ID: 651) - Django validation failed
+2025-07-08 04:41:34,815 - WARNING - Invalid email: vanilla-lazyload@17.8.3 (ID: 654) - Django validation failed
+2025-07-08 04:41:41,357 - WARNING - Invalid email: splide-extension-auto-scroll@0.5.3 (ID: 659) - Django validation failed
+2025-07-08 04:41:49,834 - WARNING - Invalid email: core@2.1.2 (ID: 666) - Django validation failed
+2025-07-08 04:41:49,835 - WARNING - Invalid email: leslie@riselean.com. (ID: 667) - Invalid format
+2025-07-08 04:41:51,955 - WARNING - Invalid email: membership@joincalibrate.com. (ID: 669) - Invalid format
+2025-07-08 04:41:54,122 - WARNING - Invalid email: bootstrap@5.3.2 (ID: 672) - Django validation failed
+2025-07-08 04:41:54,125 - WARNING - Invalid email: froala-editor@4.0.5 (ID: 674) - Django validation failed
+2025-07-08 04:41:56,275 - WARNING - Invalid email: brand-lego@2x.png (ID: 676) - Contains blacklisted substring: .png
+2025-07-08 04:41:56,277 - WARNING - Invalid email: brand-disney@2x.png (ID: 677) - Contains blacklisted substring: .png
+2025-07-08 04:41:58,397 - WARNING - Invalid email: securityblock@mindbodyonline.com?subject=security%20block%3a%2095b8cf6a79a4658a (ID: 681) - Invalid format
+2025-07-08 04:41:58,399 - WARNING - Invalid email: fill@20..24 (ID: 682) - Invalid format
+2025-07-08 04:42:02,853 - WARNING - Invalid email: bootstrap-select@1.13.9 (ID: 692) - Django validation failed
+2025-07-08 04:42:02,862 - INFO - Processed 200/291 leads...
+2025-07-08 04:42:05,015 - WARNING - Invalid email: wght@300..900 (ID: 701) - Invalid format
+2025-07-08 04:42:05,021 - WARNING - Invalid email: gsap@3.12.5 (ID: 703) - Django validation failed
+2025-07-08 04:42:05,022 - WARNING - Invalid email: sarah@strongwithsarah.com? (ID: 704) - Invalid format
+2025-07-08 04:42:05,024 - WARNING - Invalid email: beyondspace-snippets@0.0.44 (ID: 705) - Django validation failed
+2025-07-08 04:42:05,036 - WARNING - Invalid email: vanilla-lazyload@17.8.3 (ID: 708) - Django validation failed
+2025-07-08 04:42:05,039 - WARNING - Invalid email: splide@4.1.4 (ID: 709) - Django validation failed
+2025-07-08 04:42:05,045 - WARNING - Invalid email: splide-extension-auto-scroll@0.5.3 (ID: 711) - Django validation failed
+2025-07-08 04:42:05,056 - WARNING - Invalid email: js-cookie@3.0.5 (ID: 714) - Django validation failed
+2025-07-08 04:42:13,694 - WARNING - Invalid email: mindyfitnc@gmaill.com (ID: 716) - No MX or A record (non-deliverable domain)
+2025-07-08 04:42:13,695 - WARNING - Invalid email: friends@stanwith.me. (ID: 717) - Invalid format
+2025-07-08 04:42:22,358 - WARNING - Invalid email: js-client@1.0.0 (ID: 724) - Django validation failed
+2025-07-08 04:42:26,959 - WARNING - Invalid email: u002f@wiktoria.fitness (ID: 725) - No MX or A record (non-deliverable domain)
+2025-07-08 04:42:31,206 - WARNING - Invalid email: bb-consent@2.2.6 (ID: 728) - Django validation failed
+2025-07-08 04:43:02,446 - WARNING - Invalid email: venuti@rslnt.coaching (ID: 745) - No MX or A record (non-deliverable domain)
+2025-07-08 04:43:12,378 - WARNING - Invalid email: girl@nishafollowharmeet.fitlifeharmeet (ID: 748) - No MX or A record (non-deliverable domain)
+2025-07-08 04:43:12,381 - WARNING - Invalid email: admin@owningyourmenopause.com (ID: 753) - Contains blacklisted substring: admin
+2025-07-08 04:43:19,002 - WARNING - Invalid email: deannaod@dfyne.official (ID: 770) - No MX or A record (non-deliverable domain)
+2025-07-08 04:43:21,269 - WARNING - Invalid email: hardikyogi@gmail.comfounder (ID: 774) - No MX or A record (non-deliverable domain)
+2025-07-08 04:43:27,861 - WARNING - Invalid email: emailegyptofficialbooking@yahoo.comicon (ID: 785) - No MX or A record (non-deliverable domain)
+2025-07-08 04:43:42,135 - WARNING - Invalid email: linktree@teshia.kinguse (ID: 804) - No MX or A record (non-deliverable domain)
+2025-07-08 04:43:53,959 - WARNING - Invalid email: saket@monk-e.in (ID: 828) - No MX or A record (non-deliverable domain)
+2025-07-08 04:43:56,119 - WARNING - Invalid email: sara@striveelitefitness.comcarousel (ID: 830) - No MX or A record (non-deliverable domain)
+2025-07-08 04:43:58,487 - WARNING - Invalid email: jameshadley77@gmail.comas (ID: 836) - No MX or A record (non-deliverable domain)
+2025-07-08 04:44:00,674 - WARNING - Invalid email: jameshadley77@gmail.comclipcalling (ID: 837) - No MX or A record (non-deliverable domain)
+2025-07-08 04:44:02,886 - WARNING - Invalid email: aspencerfitness@gmail.comclipkinetix (ID: 845) - No MX or A record (non-deliverable domain)
+2025-07-08 04:44:09,368 - WARNING - Invalid email: spurvalleyadv@gmail.comclipa (ID: 867) - No MX or A record (non-deliverable domain)
+2025-07-08 04:44:11,572 - WARNING - Invalid email: giftedstaycarousel@by.billie (ID: 870) - No MX or A record (non-deliverable domain)
+2025-07-08 04:44:22,422 - WARNING - Invalid email: support@pupsyogavancouver.compinned (ID: 882) - No MX or A record (non-deliverable domain)
+2025-07-08 04:44:22,425 - INFO - Email cleaning completed. Processed 291 leads.
+2025-07-08 04:44:22,427 - INFO - 
+============================================================
+2025-07-08 04:44:22,428 - INFO - EMAIL VALIDATION STATISTICS
+2025-07-08 04:44:22,431 - INFO - ============================================================
+2025-07-08 04:44:22,432 - INFO - Total processed: 291
+2025-07-08 04:44:22,434 - INFO - Valid emails: 236
+2025-07-08 04:44:22,436 - INFO - Corrected typos: 0
+2025-07-08 04:44:22,437 - INFO - Invalid format: 26
+2025-07-08 04:44:22,438 - INFO - Blacklisted: 7
+2025-07-08 04:44:22,439 - INFO - Suspicious TLD: 0
+2025-07-08 04:44:22,440 - INFO - Too long: 0
+2025-07-08 04:44:22,441 - INFO - MX record failed: 22
+2025-07-08 04:44:22,442 - INFO - Cleaned/removed: 55
+2025-07-08 04:44:22,443 - INFO - Valid email rate: 81.10%
+2025-07-08 04:44:22,444 - INFO - ============================================================
+2025-07-08 04:44:22,491 - INFO - Cleaned 55 invalid emails
+2025-07-08 04:44:22,491 - INFO - Corrected 0 typos

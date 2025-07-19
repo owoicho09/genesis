@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Genesis AI Chatbot</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; }
+    #chat { border: 1px solid #ccc; padding: 15px; height: 400px; overflow-y: scroll; margin-bottom: 15px; background: #f9f9f9; }
+    .message { margin: 8px 0; }
+    .user { color: #0b5ed7; }
+    .bot { color: #198754; }
+    input[type="text"] { width: 70%; padding: 10px; }
+    button { padding: 10px; }
+  </style>
+</head>
+<body>
+
+  <h2>🤖 Genesis AI Assistant</h2>
+  <div id="chat"></div>
+
+  <input type="text" id="userInput" placeholder="Type a request like: scrape google map for gym owners">
+  <button onclick="sendMessage()">Send</button>
+
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById("userInput");
+      const chat = document.getElementById("chat");
+      const message = input.value.trim();
+      if (!message) return;
+
+      // Display user message
+      chat.innerHTML += `<div class="message user"><strong>You:</strong> ${message}</div>`;
+      input.value = "";
+
+      try {
+        const response = await fetch("/api/chatbot/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ user_input: message })
+        });
+
+        const data = await response.json();
+        const reply = JSON.stringify(data.response ?? data.message ?? "No reply");
+        chat.innerHTML += `<div class="message bot"><strong>Genesis:</strong> ${reply}</div>`;
+      } catch (err) {
+        chat.innerHTML += `<div class="message bot"><strong>Error:</strong> ${err}</div>`;
+      }
+
+      chat.scrollTop = chat.scrollHeight;
+    }
+  </script>
+
+</body>
+</html>

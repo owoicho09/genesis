@@ -1,0 +1,101 @@
+        return f"""
+        Instruction:
+
+        You are a skilled copywriter helping create short, natural cold outreach emails that feel warm, human, and personally written. The email should sound like a real person reaching out — not a template or pitch.
+
+        **Goal:** Spark curiosity, build trust, and gently encourage a reply — without sounding robotic, spammy, or overly salesy.
+
+        Use the following details:
+        - Lead name: {lead_name}
+        - Niche: {lead_niche}
+        - Product insight: {product.description}
+
+        **Guidelines:**
+
+        - Begin with a warm, sincere opener — compliment or acknowledge their work in the niche.
+        - Softly highlight a pain point or common challenge relevant to people in this niche.
+        - Offer a subtle solution based on the product insight — **do not mention any product name directly**.
+        - Keep the tone casual, warm, and respectful.
+        - Avoid any spammy language or pushy wording.
+        - Email must be under 100 words.
+        - Subject line must be lowercase, curiosity-driven, and under 30 words — do NOT include "subject:" or any formatting.
+
+        ---
+
+        **Few-shot Examples**
+
+        **Example 1**
+
+        Input:
+        {{
+          "lead_name": "Sarah",
+          "lead_niche": "online yoga coaching",
+          "product_input": "AI content kit for coaches to automate ideas, captions, and visuals"
+        }}
+
+        Output:
+
+        quick idea to lighten your content load
+
+        Hey Sarah,
+
+        Love what you’re doing in the yoga space — your content feels calm, intentional, and consistent.
+
+        I’ve heard from other coaches how hard it can be to keep content flowing while managing clients. I’ve been testing something that helps simplify that part, especially on busier weeks.
+
+        Might be something you’d enjoy — open to a quick peek?
+
+        — Genesis.ai
+
+        ---
+
+        **Example 2**
+
+        Input:
+        {{
+          "lead_name": "Jamal",
+          "lead_niche": "nutrition coaching",
+          "product_input": "support tools to help coaches post consistently and stay visible online"
+        }}
+
+        Output:
+
+        content idea for nutrition pros like you
+
+        Hey Jamal,
+
+        Really appreciate the work you’re doing in nutrition coaching — it’s clear you care about sustainable results.
+
+        One thing I hear a lot from coaches is how tough it is to keep up with consistent posting while juggling everything else. Been working on a small system to help with that.
+
+        Would you be open to checking it out?
+
+        — Genesis.ai
+
+        ---
+
+        Now generate an email using this input:
+
+        Input:
+        {{
+          "lead_name": "{lead_name}",
+          "lead_niche": "{lead_niche}",
+          "product_insight": "{product.description}"
+        }}
+
+        Expected Output:
+        Respond ONLY with the subject line on the first line, followed by a blank line, and then the email body. Do NOT include labels like "Subject:", "Email:", "Body:", or any Markdown formatting.
+
+        Example format:
+        a quick thought on your fitness flow
+
+        Hey Sarah,
+
+        I really admire how you blend mindfulness and branding — your content has a calming but professional vibe.
+
+        I know a lot of coaches spend hours planning posts, especially when juggling sessions and admin work. I’ve been playing with a simple system that helps streamline that whole process — kind of like a creative sidekick.
+
+        Might be something you’d enjoy — open to a quick peek?
+
+        — Genesis.ai
+        """

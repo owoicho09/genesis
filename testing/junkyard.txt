@@ -1,0 +1,89 @@
+"{niche}" "@gmail.com"
+"{niche}" "email" "contact me"
+"{niche}" site:about.me
+"{niche}" site:linkedin.com/in/
+"{niche}" site:github.com
+
+
+"fitness coach" "@gmail.com" site:linkedin.com
+"real estate" "contact me" "@gmail.com"
+"branding expert" site:about.me
+
+
+ENHANCED_DORKS = [
+    # 🧑‍💼 Portfolio-based leads
+    '"{niche}" site:about.me "@gmail.com"',
+    '"{niche}" site:behance.net "@gmail.com"',
+    '"{niche}" site:dribbble.com "contact" "@gmail.com"',
+    '"{niche}" site:github.com "@gmail.com"',
+
+    # 🧾 Contact/About page leads
+    '"{niche}" inurl:contact "@gmail.com"',
+    '"{niche}" inurl:about "@gmail.com"',
+    '"{niche}" "contact me" "@gmail.com"',
+
+    # 🌐 Blogger / creator leads
+    '"{niche}" inurl:blog "@gmail.com"',
+    '"{niche}" "work with me" "@gmail.com"',
+    '"{niche}" "email me" "@gmail.com"',
+
+    # 📱 Freelancers/Consultants
+    '"{niche}" site:linkedin.com/in/ "email"',
+    '"{niche}" site:clarity.fm "@gmail.com"',
+    '"{niche}" site:upwork.com "contact"',
+
+    # 🛍️ Business owners
+    '"{niche}" site:shopify.com "@gmail.com"',
+    '"{niche}" site:gumroad.com "@gmail.com"',
+    '"{niche}" site:etsy.com "contact me" "@gmail.com"',
+]
+python agent/tools/backdoor/email_fetcher/duck_dork_scraper.py --niche "personal trainer" --limit 30 --export leads.csv
+
+python agent/tools/backdoor/email_fetcher/duck_dork_scraper.py --niche "personal trainer" "online fitness coach" --limit 50 --export trainer.csv
+python agent/tools/backdoor/email_fetcher/twitter_swipe.py
+python agent/tools/backdoor/email_fetcher/save_session.py
+
+python agent/tools/backdoor/email_fetcher/duck_dork_scraper.py --dork "\"personal trainer\" site:linktr.ee contact" --niche "personal trainer" --limit 15 --export leads.csv
+python agent/tools/backdoor/email_fetcher/insta_scrape.py
+python agent/tools/backdoor/email_fetcher/ig_sweep.py
+
+python sagent/tools/backdoor/email_analysis/export_valid_emails.py
+
+Lead priority scoring: assign scores based on website keywords (e.g., “1-on-1 coaching”).
+
+Webhook/pipeline export: push emails directly to Google Sheets, CRM, or Mailchimp.
+
+Proxy and rate-limiting control: for larger batch scrapes.
+
+
+
+
+ig bio div
+<div class="x7a106z x972fbf x10w94by x1qhh985 x14e42zd x9f619 x78zum5 xdt5ytf x2lah0s xdj266r x14z9mp xat24cr x1lziwak xexx8yu xyri2b x18d9i69 x1c1uobl x1n2onr6 x11njtxf xskmkbu x1pjya6o x14cbv0q x8lfjv9 x9v3v6d xqhfuz7 x1q548z6"><div class="x9f619 xjbqb8w x15mokao x1ga7v0g x16uus16 xbiv7yw x1uhb9sk x1plvlek xryxfnj x1c4vz4f x2lah0s x1q0g3np xqjyukv x1oa3qoh x6s0dn4 x1amjocr x78zum5 xl56j7k"><span class="x1lliihq x1plvlek xryxfnj x1n2onr6 x1ji0vk5 x18bv5gf x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x1i0vuye xvs91rp x1s688f x5n08af x10wh9bi xpm28yp x8viiok x1o7cslx" dir="auto" style="----base-line-clamp-line-height: 18px; --lineHeight: 18px;">Fit Szn| Online Fitness Coach</span></div><div class="x9f619 xjbqb8w x78zum5 x15mokao x1ga7v0g x16uus16 xbiv7yw x1uhb9sk x1plvlek xryxfnj x1c4vz4f x2lah0s x1q0g3np xqjyukv x6s0dn4 x1oa3qoh x1nhvcw1 xfex06f"></div><div><div class="x9f619 xjbqb8w x78zum5 x15mokao x1ga7v0g x16uus16 xbiv7yw x1n2onr6 x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1"><div class="_ap3a _aaco _aacu _aacy _aad6 _aade" dir="auto">Personal Coach</div></div><div><span class="_ap3a _aaco _aacu _aacx _aad7 _aade" dir="auto"><div style="display: inline;"><span class="_ap3a _aaco _aacu _aacx _aad7 _aade" dir="auto">-110lbs down | Let’s Win together💕🙌 <br>📲DM Me “GUIDE” to lose 30lbs in 3 weeks<br>Apply for 1:1 COACHING (link in bio/Dm me)</span></div><span>...&nbsp;<div aria-disabled="false" role="button" tabindex="0" style="cursor: pointer; display: inline-block;"><span class="x1lliihq x1plvlek xryxfnj x1n2onr6 x1ji0vk5 x18bv5gf x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x1i0vuye xvs91rp xo1l8bm x1roi4f4 x1yc453h x10wh9bi xpm28yp x8viiok x1o7cslx" dir="auto" style="----base-line-clamp-line-height: 18px; --lineHeight: 18px;">more</span></div></span></span></div> </div><button class=" _acan _acao _acas _aj1- _ap30" type="button"><div class="x3nfvp2 x193iq5w"><span class="xcknrev xyqdw3p"><svg aria-label="Link icon" class="x1lliihq x1n2onr6 x7l2uk3" fill="currentColor" height="12" role="img" viewBox="0 0 24 24" width="12"><title>Link icon</title><path d="m9.726 5.123 1.228-1.228a6.47 6.47 0 0 1 9.15 9.152l-1.227 1.227m-4.603 4.603-1.228 1.228a6.47 6.47 0 0 1-9.15-9.152l1.227-1.227" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="8.471" x2="15.529" y1="15.529" y2="8.471"></line></svg></span><div class="_ap3a _aaco _aacw _aacz _aada _aade" dir="auto">docs.google.com/forms/d/e/1FAIpQLScmzWvJjS-Ndvmd0QVaI_Jp6WVCM0cy9tvpxYIBE-FAjYSc8g/viewform + 2</div></div></button></div>
+
+
+username div
+<div class="x9f619 xjbqb8w x15mokao x1ga7v0g x16uus16 xbiv7yw x1uhb9sk x1plvlek xryxfnj x1c4vz4f x2lah0s x1q0g3np xqjyukv x1oa3qoh x6s0dn4 x1amjocr x78zum5 xl56j7k"><span class="x1lliihq x1plvlek xryxfnj x1n2onr6 x1ji0vk5 x18bv5gf x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x x1i0vuye xvs91rp x1s688f x5n08af x10wh9bi xpm28yp x8viiok x1o7cslx" dir="auto" style="----base-line-clamp-line-height: 18px; --lineHeight: 18px;">Fit Szn| Online Fitness Coach</span></div>	
+
+
+
+business name div
+<div class="_ap3a _aaco _aacu _aacy _aad6 _aade" dir="auto">Personal Coach</div>
+
+
+main bio div
+<span class="_ap3a _aaco _aacu _aacx _aad7 _aade" dir="auto">-110lbs down | Let’s Win together💕🙌 <br>📲DM Me “GUIDE” to lose 30lbs in 3 weeks<br>Apply for 1:1 COACHING (link in bio/Dm me)</span>
+
+
+profile link div
+<div class="_ap3a _aaco _aacw _aacz _aada _aade" dir="auto">docs.google.com/forms/d/e/1FAIpQLScmzWvJjS-Ndvmd0QVaI_Jp6WVCM0cy9tvpxYIBE-FAjYSc8g/viewform + 2</div>
+
+
+profile link button div
+<button class=" _acan _acao _acas _aj1- _ap30" type="button">
+<div class="x3nfvp2 x193iq5w"><span class="xcknrev xyqdw3p">
+<svg aria-label="Link icon" class="x1lliihq x1n2onr6 x7l2uk3" fill="currentColor" height="12" role="img" viewBox="0 0 24 24" width="12"><title>Link icon</title>
+<path d="m9.726 5.123 1.228-1.228a6.47 6.47 0 0 1 9.15 9.152l-1.227 1.227m-4.603 4.603-1.228 1.228a6.47 6.47 0 0 1-9.15-9.152l1.227-1.227" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<line fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" x1="8.471" x2="15.529" y1="15.529" y2="8.471"></line></svg></span>
+<div class="_ap3a _aaco _aacw _aacz _aada _aade" dir="auto">docs.google.com/forms/d/e/1FAIpQLScmzWvJjS-Ndvmd0QVaI_Jp6WVCM0cy9tvpxYIBE-FAjYSc8g/viewform + 2</div>
+</div></button>

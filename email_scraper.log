@@ -1,0 +1,235 @@
+2025-07-11 03:06:49,670 - INFO - Starting Business Information Extractor
+2025-07-11 03:06:49,670 - INFO - ==================================================
+2025-07-11 03:06:50,782 - INFO - Django setup successful
+2025-07-11 03:06:50,799 - INFO - Starting extraction for 204 leads
+2025-07-11 03:06:50,799 - INFO - Processing lead 1/204: viniciuscaamposs_personal
+2025-07-11 03:06:56,004 - INFO - Processing lead 2/204: jamiebarnes_personaltrainer
+2025-07-11 03:07:04,934 - INFO - Processing lead 3/204: yaspersonaltrainer
+2025-07-11 03:07:08,427 - INFO - Processing lead 4/204: personaltrainer.bianca
+2025-07-11 03:07:18,293 - INFO - Processing lead 5/204: thaisbrito.personal
+2025-07-11 03:07:20,714 - INFO - Processing lead 6/204: mayconcavallinipersonal_
+2025-07-11 03:07:29,188 - INFO - Processing lead 7/204: josiana.personaltrainer
+2025-07-11 03:07:33,762 - INFO - Processing lead 8/204: personaltrainertheband
+2025-07-11 03:07:39,898 - INFO - Processing lead 9/204: personaltrainertheband
+2025-07-11 03:07:44,497 - INFO - Processing lead 10/204: murilloramonl
+2025-07-11 03:07:46,698 - INFO - Processing lead 11/204: gperk_fit
+2025-07-11 03:07:53,973 - INFO - Processing lead 12/204: sakura_personaltrainer
+2025-07-11 03:07:55,238 - INFO - Processing lead 13/204: coachmollyfitness
+2025-07-11 03:08:01,795 - INFO - Processing lead 14/204: iarleygpersonaltrainer
+2025-07-11 03:08:04,737 - INFO - Processing lead 15/204: davidias_personal
+2025-07-11 03:08:06,682 - INFO - Processing lead 16/204: kfitnesslb
+2025-07-11 03:08:30,484 - INFO - Processing lead 17/204: flaviosoares.personaltrainer
+2025-07-11 03:08:37,187 - INFO - Processing lead 18/204: _cod3_blue
+2025-07-11 03:08:42,871 - INFO - Processing lead 19/204: lbpersonal_trainer
+2025-07-11 03:08:47,182 - INFO - Processing lead 20/204: prof.kelianesantos
+2025-07-11 03:08:49,907 - INFO - Processing lead 21/204: igorlimapersonal_
+2025-07-11 03:09:09,860 - INFO - Processing lead 22/204: juliaandrezzapersonal_
+2025-07-11 03:09:17,404 - INFO - Processing lead 23/204: tiagoguimaraesfitness
+2025-07-11 03:09:25,283 - INFO - Processing lead 24/204: filipemoraistreinador
+2025-07-11 03:09:29,338 - INFO - Processing lead 25/204: roberta.personaltrainer
+2025-07-11 03:09:37,779 - INFO - Processing lead 26/204: trainerjoefitness
+2025-07-11 03:09:43,781 - INFO - Processing lead 27/204: personaltrainerwanita
+2025-07-11 03:09:46,994 - INFO - Processing lead 28/204: jorge_bfitness
+2025-07-11 03:10:00,714 - INFO - Processing lead 29/204: lovelucyfit_
+2025-07-11 03:10:05,657 - INFO - Processing lead 30/204: bodybyals
+2025-07-11 03:10:10,404 - INFO - Processing lead 31/204: nipunfitness
+2025-07-11 03:10:13,103 - INFO - Processing lead 32/204: ely_fitnesscoach
+2025-07-11 03:10:17,421 - INFO - Processing lead 33/204: fitness__kaykay
+2025-07-11 03:10:31,035 - INFO - Processing lead 34/204: fitness.coach.app
+2025-07-11 03:10:33,147 - INFO - Updated email for lead 294: linktree@fitness.coach.appyour
+2025-07-11 03:10:36,063 - INFO - Processing lead 35/204: kate_beyondfitness
+2025-07-11 03:10:42,828 - INFO - Processing lead 36/204: danfounder
+2025-07-11 03:10:55,682 - INFO - Processing lead 37/204: sergiogarciafitness
+2025-07-11 03:11:04,903 - INFO - Processing lead 38/204: becksliveshealthy
+2025-07-11 03:11:15,904 - INFO - Processing lead 39/204: charliejohnsonfitness
+2025-07-11 03:11:20,525 - INFO - Processing lead 40/204: christian.fleenor
+2025-07-11 03:11:28,944 - INFO - Processing lead 41/204: caitlinwilson.fit
+2025-07-11 03:11:36,813 - INFO - Processing lead 42/204: thefitnesschef_
+2025-07-11 03:11:43,370 - INFO - Processing lead 43/204: themodernmuslimman
+2025-07-11 03:11:50,852 - INFO - Processing lead 44/204: sageyfitt
+2025-07-11 03:11:55,559 - INFO - Processing lead 45/204: jogagnetrainer
+2025-07-11 03:12:05,160 - INFO - Processing lead 46/204: maurofitnesscoach
+2025-07-11 03:12:12,443 - INFO - Processing lead 47/204: kesavan70
+2025-07-11 03:12:27,243 - INFO - Processing lead 48/204: zohaib_fitness_official
+2025-07-11 03:12:29,835 - INFO - Processing lead 49/204: coachkrystal_
+2025-07-11 03:12:36,229 - INFO - Processing lead 50/204: wrkwithleah
+2025-07-11 03:12:41,375 - INFO - Processing lead 51/204: hussein.fht
+2025-07-11 03:12:50,277 - INFO - Processing lead 52/204: thegirlwithabs16
+2025-07-11 03:12:59,886 - INFO - Processing lead 53/204: thefitkingg
+2025-07-11 03:13:03,258 - INFO - Processing lead 54/204: annapiotrowski
+2025-07-11 03:13:16,518 - INFO - Processing lead 55/204: onlinetrainingcoach
+2025-07-11 03:13:21,323 - INFO - Processing lead 56/204: gimnasioenerfitperu
+2025-07-11 03:13:24,291 - INFO - Processing lead 57/204: mitch_saraczewski
+2025-07-11 03:13:28,389 - INFO - Processing lead 58/204: the_naturalcoach
+2025-07-11 03:13:37,493 - INFO - Processing lead 59/204: get_fit_with_robert
+2025-07-11 03:13:42,424 - INFO - Processing lead 60/204: chanchalsharma1346
+2025-07-11 03:13:46,642 - INFO - Processing lead 61/204: iron_bites
+2025-07-11 03:14:00,924 - INFO - Processing lead 62/204: calysta_ifbbpro
+2025-07-11 03:14:06,725 - INFO - Processing lead 63/204: fitwithvaishalibassi
+2025-07-11 03:14:10,700 - INFO - Processing lead 64/204: bullstrongfit
+2025-07-11 03:14:15,325 - INFO - Processing lead 65/204: mariam.motivates
+2025-07-11 03:14:22,039 - INFO - Processing lead 66/204: dylan.kolak
+2025-07-11 03:14:27,520 - INFO - Processing lead 67/204: dr.godric
+2025-07-11 03:14:33,263 - INFO - Processing lead 68/204: briannametzgerfit
+2025-07-11 03:14:37,817 - INFO - Processing lead 69/204: tristan.huseby
+2025-07-11 03:14:40,823 - INFO - Processing lead 70/204: Avaaxe
+2025-07-11 03:14:57,745 - WARNING - Error scraping contact page https://www.tkqlhce.com/click-101140812-13067763?url=https%3A%2F%2Fwww.nike.com%2Ft%2Ffree-metcon-6-womens-workout-shoes-T7WdM6%2FFJ7126-100: 404 Client Error: Not Found for url: https://www.nike.com/t/free-metcon-6-womens-workout-shoes-T7WdM6/FJ7126-100?_android_redirect=https%3A%2F%2Fwww.nike.com%2Ft%2Ffree-metcon-6-womens-workout-shoes-T7WdM6%2FFJ7126-100&_fallback_redirect=https%3A%2F%2Fwww.nike.com%2Ft%2Ffree-metcon-6-womens-workout-shoes-T7WdM6%2FFJ7126-100&_ios_redirect=https%3A%2F%2Fwww.nike.com%2Ft%2Ffree-metcon-6-womens-workout-shoes-T7WdM6%2FFJ7126-100&cid=4942550&cjevent=d328e6f55dfc11f08348002c0a18b8fc&cl=d328e6f55dfc11f08348002c0a18b8fc&cp=usns_aff_nike__PID_101140812_Ava+Axelrood&pcn=cj_mobile_inactivity-0d&pcrid=13067763&pcrn=CJ&psid=101140812&psn=Ava+Axelrood&referrer=singular_click_id%3D32c752d0-bae9-4874-9888-f5717ad6ea6e&sl_id=jjo0
+2025-07-11 03:15:02,842 - WARNING - Error scraping contact page https://www.kqzyfj.com/click-101140812-13067763?url=https%3A%2F%2Fwww.nike.com%2Ft%2Ffree-metcon-5-womens-workout-shoes-h4Zl5h%2FDV3950-103: 404 Client Error: Not Found for url: https://www.nike.com/t/free-metcon-5-womens-workout-shoes-h4Zl5h/DV3950-103?_android_redirect=https%3A%2F%2Fwww.nike.com%2Ft%2Ffree-metcon-5-womens-workout-shoes-h4Zl5h%2FDV3950-103&_fallback_redirect=https%3A%2F%2Fwww.nike.com%2Ft%2Ffree-metcon-5-womens-workout-shoes-h4Zl5h%2FDV3950-103&_ios_redirect=https%3A%2F%2Fwww.nike.com%2Ft%2Ffree-metcon-5-womens-workout-shoes-h4Zl5h%2FDV3950-103&cid=4942550&cjevent=d9c45aed5dfc11f08259002c0a18b8f9&cl=d9c45aed5dfc11f08259002c0a18b8f9&cp=usns_aff_nike__PID_101140812_Ava+Axelrood&pcn=cj_mobile_inactivity-0d&pcrid=13067763&pcrn=CJ&psid=101140812&psn=Ava+Axelrood&referrer=singular_click_id%3Dd21e43d4-23a0-48d1-8b47-2d0c3d41f30d&sl_id=jjo0
+2025-07-11 03:15:04,895 - INFO - Processing lead 71/204: ifbbpro_hanysaeed
+2025-07-11 03:15:08,358 - INFO - Processing lead 72/204: db.personal_trainer
+2025-07-11 03:15:13,214 - INFO - Processing lead 73/204: dubai_personal_fitness_trainer
+2025-07-11 03:15:17,669 - INFO - Processing lead 74/204: andreromao.personaltrainer
+2025-07-11 03:15:18,916 - INFO - Processing lead 75/204: myonlinepersonaltrainer
+2025-07-11 03:15:22,230 - INFO - Processing lead 76/204: coach.jwebb
+2025-07-11 03:15:31,837 - INFO - Processing lead 77/204: iamtiwara
+2025-07-11 03:15:37,255 - INFO - Processing lead 78/204: personal.trainer.uruguay
+2025-07-11 03:15:50,481 - INFO - Processing lead 79/204: carollopespersonal
+2025-07-11 03:16:20,383 - INFO - Processing lead 80/204: kokoleeshis
+2025-07-11 03:16:25,291 - WARNING - Error scraping contact page https://balancelabfitness.com/training-services/ola/services/training-consultation: HTTPSConnectionPool(host='balancelabfitness.com', port=443): Max retries exceeded with url: /training-services/ola/services/training-consultation (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001B31C4D0EF0>: Failed to resolve 'balancelabfitness.com' ([Errno 11001] getaddrinfo failed)"))
+2025-07-11 03:16:28,052 - INFO - Processing lead 81/204: personal_trainer_julia
+2025-07-11 03:16:33,600 - INFO - Processing lead 82/204: fitlucsg
+2025-07-11 03:16:46,025 - INFO - Processing lead 83/204: daysouzapersonaltrainer
+2025-07-11 03:16:50,311 - INFO - Processing lead 84/204: personal_trainer_indonesia
+2025-07-11 03:16:55,525 - INFO - Processing lead 85/204: joanadarcpersonaltrainer
+2025-07-11 03:17:07,144 - INFO - Processing lead 86/204: maira_personaltrainer
+2025-07-11 03:17:13,794 - INFO - Processing lead 87/204: svrvh.fit
+2025-07-11 03:17:14,946 - INFO - Processing lead 88/204: sculptphysique
+2025-07-11 03:17:20,452 - INFO - Processing lead 89/204: bellabaileybarnes
+2025-07-11 03:17:25,644 - INFO - Processing lead 90/204: nitinraghav_
+2025-07-11 03:17:30,223 - INFO - Processing lead 91/204: marcus__rice
+2025-07-11 03:17:35,304 - INFO - Processing lead 92/204: ariellrosenblad
+2025-07-11 03:17:51,011 - INFO - Processing lead 93/204: coach.katz
+2025-07-11 03:17:57,184 - INFO - Processing lead 94/204: mackenziemckee
+2025-07-11 03:18:02,488 - INFO - Processing lead 95/204: innately_nourished
+2025-07-11 03:18:07,129 - INFO - Processing lead 96/204: zburnsfat
+2025-07-11 03:18:11,405 - INFO - Processing lead 97/204: mattwest_roadtoaesthetics
+2025-07-11 03:18:15,449 - INFO - Processing lead 98/204: angela_gargano
+2025-07-11 03:18:19,162 - INFO - Processing lead 99/204: dr.joeymunoz
+2025-07-11 03:18:27,248 - INFO - Processing lead 100/204: Huneybakedmelons
+2025-07-11 03:18:34,915 - INFO - Processing lead 101/204: christian_kroemer
+2025-07-11 03:18:37,901 - INFO - Processing lead 102/204: a.mdiaz
+2025-07-11 03:18:42,749 - INFO - Processing lead 103/204: fitnessxsav
+2025-07-11 03:18:47,269 - INFO - Processing lead 104/204: fitness_coach_dee
+2025-07-11 03:18:51,970 - INFO - Processing lead 105/204: peanutphysique
+2025-07-11 03:18:56,786 - INFO - Processing lead 106/204: coach.darwin
+2025-07-11 03:19:08,474 - INFO - Processing lead 107/204: falconerfitness
+2025-07-11 03:19:11,522 - INFO - Processing lead 108/204: jtbodyconcept
+2025-07-11 03:19:15,537 - INFO - Processing lead 109/204: praveen_goyar_
+2025-07-11 03:19:18,895 - INFO - Processing lead 110/204: claudia_krebs
+2025-07-11 03:19:24,580 - INFO - Processing lead 111/204: ryan_jourv
+2025-07-11 03:19:28,768 - INFO - Processing lead 112/204: aidan_aesthetics
+2025-07-11 03:19:33,627 - INFO - Processing lead 113/204: surajlifestylecoach
+2025-07-11 03:19:42,485 - INFO - Processing lead 114/204: angierrios
+2025-07-11 03:19:50,108 - INFO - Processing lead 115/204: myptrainer
+2025-07-11 03:19:53,289 - INFO - Processing lead 116/204: workoutwithhayley
+2025-07-11 03:19:57,542 - INFO - Processing lead 117/204: personal_trainer_surabaya
+2025-07-11 03:20:02,702 - INFO - Processing lead 118/204: neilfit_
+2025-07-11 03:20:06,256 - INFO - Processing lead 119/204: p_k_fitness
+2025-07-11 03:20:15,677 - INFO - Processing lead 120/204: la_colagenofit
+2025-07-11 03:20:18,872 - INFO - Processing lead 121/204: alaa.rabbat
+2025-07-11 03:20:23,791 - INFO - Processing lead 122/204: swimcoach__vic
+2025-07-11 03:20:28,657 - INFO - Processing lead 123/204: allgainsnopains
+2025-07-11 03:20:38,704 - INFO - Processing lead 124/204: leeabberton.personal_trainer
+2025-07-11 03:20:41,102 - INFO - Processing lead 125/204: goshaanhealth
+2025-07-11 03:20:45,758 - INFO - Processing lead 126/204: andytofit
+2025-07-11 03:20:57,969 - INFO - Processing lead 127/204: rocio.scagliusi
+2025-07-11 03:20:59,359 - INFO - Processing lead 128/204: akuatwumlmhc
+2025-07-11 03:21:23,569 - INFO - Processing lead 129/204: polarislearningcollective
+2025-07-11 03:21:28,842 - INFO - Processing lead 130/204: bcdinashville
+2025-07-11 03:21:34,250 - INFO - Processing lead 131/204: natalieoquin
+2025-07-11 03:21:37,576 - INFO - Processing lead 132/204: yogawithmelissasilva
+2025-07-11 03:21:42,197 - INFO - Processing lead 133/204: cassandrasawyerart
+2025-07-11 03:21:46,774 - INFO - Processing lead 134/204: loveathletica_adelaide
+2025-07-11 03:21:52,340 - INFO - Processing lead 135/204: markstephensyoga
+2025-07-11 03:21:57,224 - INFO - Updated email for lead 538: ebooks@amazon.com.yoga
+2025-07-11 03:21:58,481 - INFO - Processing lead 136/204: spurvalleyadventures
+2025-07-11 03:22:06,200 - INFO - Processing lead 137/204: leylaeraybar
+2025-07-11 03:22:11,257 - INFO - Processing lead 138/204: rebecca_sisson
+2025-07-11 03:22:15,376 - INFO - Processing lead 139/204: transyogateacher
+2025-07-11 03:22:31,434 - INFO - Processing lead 140/204: yogawithlyss
+2025-07-11 03:22:36,361 - INFO - Processing lead 141/204: leahmaurizio
+2025-07-11 03:22:39,276 - INFO - Processing lead 142/204: _kellyoga_
+2025-07-11 03:22:45,244 - INFO - Processing lead 143/204: thetreeyogacoop
+2025-07-11 03:22:56,195 - INFO - Processing lead 144/204: denverfashionweek
+2025-07-11 03:22:59,188 - INFO - Processing lead 145/204: yogabysteff
+2025-07-11 03:23:07,080 - INFO - Processing lead 146/204: hazelton.company
+2025-07-11 03:23:20,052 - INFO - Processing lead 147/204: alexandrayogi
+2025-07-11 03:23:26,763 - WARNING - Error scraping contact page http://www.theheartisaneye.com/: 401 Client Error: Unauthorized for url: https://www.theheartisaneye.com/
+2025-07-11 03:23:32,003 - INFO - Processing lead 148/204: yoga_by_devin
+2025-07-11 03:23:36,634 - INFO - Processing lead 149/204: originalhotyogaassociation
+2025-07-11 03:23:40,508 - INFO - Processing lead 150/204: dickeyrules
+2025-07-11 03:23:43,063 - INFO - Updated email for lead 564: linktree@ad.hairrulesthe
+2025-07-11 03:23:45,236 - INFO - Processing lead 151/204: senhalom
+2025-07-11 03:24:02,047 - INFO - Updated email for lead 565: info@senhalom.comwe
+2025-07-11 03:24:03,697 - INFO - Processing lead 152/204: awo_yoga
+2025-07-11 03:24:08,623 - INFO - Processing lead 153/204: juliafisheryoga
+2025-07-11 03:24:13,188 - INFO - Processing lead 154/204: katiejfit
+2025-07-11 03:24:22,664 - INFO - Processing lead 155/204: ob_health.fit
+2025-07-11 03:24:28,112 - INFO - Processing lead 156/204: tewnmaclean
+2025-07-11 03:24:34,199 - INFO - Processing lead 157/204: robbiesic
+2025-07-11 03:24:47,484 - INFO - Processing lead 158/204: emmarredmann
+2025-07-11 03:24:49,015 - INFO - Updated email for lead 575: emma@evolvehealthcoaching.com.au
+2025-07-11 03:24:50,172 - INFO - Processing lead 159/204: aoifetabb
+2025-07-11 03:25:01,906 - INFO - Processing lead 160/204: amberalexisss
+2025-07-11 03:25:10,657 - INFO - Processing lead 161/204: terelpzj
+2025-07-11 03:25:15,455 - INFO - Processing lead 162/204: feyoluleye
+2025-07-11 03:25:18,342 - INFO - Updated email for lead 584: feyoluleye.nil@gmail.cominstagram
+2025-07-11 03:25:19,627 - INFO - Processing lead 163/204: jennifersarbone
+2025-07-11 03:25:29,395 - INFO - Processing lead 164/204: growwithgab_x
+2025-07-11 03:25:38,174 - INFO - Processing lead 165/204: realecurrivan
+2025-07-11 03:25:44,111 - INFO - Processing lead 166/204: lainey_fitt
+2025-07-11 03:25:51,500 - INFO - Processing lead 167/204: mklassfitness
+2025-07-11 03:26:02,369 - INFO - Updated email for lead 591: abuse@mailchimp.com
+2025-07-11 03:26:04,948 - INFO - Processing lead 168/204: henleyfitness
+2025-07-11 03:26:09,282 - INFO - Processing lead 169/204: nikgfitness
+2025-07-11 03:26:15,217 - INFO - Processing lead 170/204: anggiebonaccorso
+2025-07-11 03:26:21,267 - INFO - Processing lead 171/204: juliexfit
+2025-07-11 03:26:25,842 - INFO - Processing lead 172/204: lewisparisfitness
+2025-07-11 03:26:32,706 - INFO - Processing lead 173/204: colbyiverson_
+2025-07-11 03:26:35,783 - INFO - Processing lead 174/204: nikki_fitnesscoach
+2025-07-11 03:26:46,027 - INFO - Processing lead 175/204: madcoaching
+2025-07-11 03:26:58,878 - INFO - Processing lead 176/204: gabriellenikorabaker
+2025-07-11 03:27:06,654 - INFO - Processing lead 177/204: kieranthecoach
+2025-07-11 03:27:12,755 - INFO - Processing lead 178/204: madsfitttt
+2025-07-11 03:27:18,980 - INFO - Processing lead 179/204: ___hari_krish___
+2025-07-11 03:27:28,096 - INFO - Processing lead 180/204: iamcoachnina
+2025-07-11 03:27:36,716 - INFO - Processing lead 181/204: travis_yfwb_online_fit_coach
+2025-07-11 03:27:43,487 - INFO - Processing lead 182/204: wdunfit
+2025-07-11 03:27:47,287 - INFO - Processing lead 183/204: tillyhulse_fit
+2025-07-11 03:27:54,785 - INFO - Processing lead 184/204: bootyandbarbellscoach
+2025-07-11 03:27:59,192 - INFO - Processing lead 185/204: iampeachfit
+2025-07-11 03:28:05,592 - INFO - Processing lead 186/204: fitnesstransformationclub
+2025-07-11 03:28:10,698 - INFO - Processing lead 187/204: fitpaupow
+2025-07-11 03:28:13,765 - INFO - Processing lead 188/204: fitnesswithadriana
+2025-07-11 03:28:19,784 - INFO - Processing lead 189/204: boldnix
+2025-07-11 03:28:22,164 - INFO - Processing lead 190/204: thefoodnutritioncoach
+2025-07-11 03:28:30,753 - INFO - Processing lead 191/204: built_nutrition
+2025-07-11 03:28:35,575 - INFO - Processing lead 192/204: nerinutritioncoach
+2025-07-11 03:28:40,846 - INFO - Processing lead 193/204: scaseyfitness
+2025-07-11 03:28:45,956 - INFO - Processing lead 194/204: patricia.fitnesscoach
+2025-07-11 03:28:50,890 - INFO - Processing lead 195/204: arianfitnesscoach
+2025-07-11 03:28:56,440 - INFO - Processing lead 196/204: enerjenicfitness
+2025-07-11 03:29:28,389 - INFO - Processing lead 197/204: pro_fitness_coach
+2025-07-11 03:29:32,533 - INFO - Processing lead 198/204: tanyavahi_
+2025-07-11 03:29:43,074 - INFO - Processing lead 199/204: shanu.fitness.coach
+2025-07-11 03:29:48,779 - INFO - Processing lead 200/204: vanessa.vfit
+2025-07-11 03:29:56,243 - INFO - Processing lead 201/204: deannaodfit
+2025-07-11 03:30:04,965 - INFO - Processing lead 202/204: evolvefitness95
+2025-07-11 03:30:13,574 - INFO - Processing lead 203/204: evolvefitness95
+2025-07-11 03:30:19,499 - INFO - Processing lead 204/204: spurvalleyadventures
+2025-07-11 03:30:24,769 - INFO - Extraction Summary:
+2025-07-11 03:30:24,769 - INFO -   Total leads: 204
+2025-07-11 03:30:24,770 - INFO -   Successful extractions: 103
+2025-07-11 03:30:24,770 - INFO -   Failed extractions: 101
+2025-07-11 03:30:24,770 - INFO -   Database updates: 103
+2025-07-11 03:30:24,771 - INFO -   Success rate: 50.5%
+2025-07-11 03:30:24,771 - INFO -   Duration: 1414.0s
+2025-07-11 03:30:24,777 - INFO - Results saved to extraction_results.json
+2025-07-11 03:30:24,778 - INFO - 
+Sample successful results:
+2025-07-11 03:30:24,778 - INFO -   Lead 247: None | Linktree. Make your link do more.
+2025-07-11 03:30:24,779 - INFO -   Lead 248: None | Vou te ajudar a conquistar resultados de forma saudável, segura e eficiente!
+2025-07-11 03:30:24,779 - INFO -   Lead 250: None | All you need
+2025-07-11 03:30:24,780 - INFO -   Lead 251: None | All you need
+2025-07-11 03:30:24,780 - INFO -   Lead 255: None | Linktree. Make your link do more.
+2025-07-11 03:30:24,780 - INFO - Extraction completed successfully!
