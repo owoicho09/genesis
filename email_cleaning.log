@@ -1619,3 +1619,4 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000
 2025-07-19 03:34:46,772 - INFO - C:\Users\HP\Desktop\genesis.ai\core\settings.py changed, reloading.
 2025-07-19 03:35:02,746 - INFO - Django setup successful
 2025-07-19 03:35:09,436 - WARNING - Not Found: /favicon.ico
+2025-07-19 04:44:14,406 - INFO - C:\Users\HP\Desktop\genesis.ai\core\settings.py changed, reloading.
