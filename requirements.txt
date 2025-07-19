@@ -14,7 +14,7 @@ click==8.2.1
 cloudinary==1.44.0
 coloredlogs==15.0.1
 dataclasses-json==0.6.7
-dateparser==1.2.1
+dateparser>=1.2.1  # requires pytz>=2024.2
 dj-database-url==3.0.1
 Django==5.2.3
 django-cloudinary-storage==0.3.0
@@ -72,7 +72,7 @@ pydantic-settings==2.9.1
 PyJWT==2.9.0
 python-dateutil==2.9.0.post0
 python-dotenv==1.1.0
-pytz==2023.3
+pytz>=2024.2,<2026.0  # ✅ compatible with dateparser>=1.2.1
 PyYAML==6.0.2
 regex==2024.11.6
 requests==2.32.4
