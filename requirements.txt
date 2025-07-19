@@ -156,7 +156,6 @@ PySocks
 python-dateutil==2.9.0.post0
 python-dotenv
 pytz
-pywin32
 PyYAML
 pyzmq
 referencing
