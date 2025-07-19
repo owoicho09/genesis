@@ -8,9 +8,9 @@ from langchain.tools import tool
 from langgraph.graph.message import add_messages
 from langchain.output_parsers import StructuredOutputParser,PydanticOutputParser
 
-from langchain.pydantic_v1 import BaseModel, Field
+from pydantic import BaseModel,Field
 from langgraph.graph import StateGraph,END
-from langchain.chat_models import ChatOpenAI
+from langchain_community.chat_models import ChatOpenAI
 from langchain_core.messages import HumanMessage
 from typing import TypedDict, Optional, Dict, Any
 

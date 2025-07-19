@@ -1621,3 +1621,16 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000
 2025-07-19 03:35:09,436 - WARNING - Not Found: /favicon.ico
 2025-07-19 04:44:14,406 - INFO - C:\Users\HP\Desktop\genesis.ai\core\settings.py changed, reloading.
 2025-07-19 04:44:36,311 - INFO - Django setup successful
+2025-07-19 05:10:53,362 - WARNING - Not Found: /favicon.ico
+2025-07-19 05:11:01,565 - WARNING - Could not reverse url from auth.user
+2025-07-19 05:11:01,585 - WARNING - Could not reverse url from auth.user
+2025-07-19 05:11:01,591 - WARNING - Could not reverse url from auth.user
+2025-07-19 05:11:01,592 - WARNING - Could not reverse url from auth.user
+2025-07-19 05:11:01,595 - WARNING - Could not reverse url from auth.user
+2025-07-19 05:13:47,656 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\langgraph.py changed, reloading.
+2025-07-19 05:14:07,901 - INFO - Django setup successful
+2025-07-19 05:14:30,080 - INFO - C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\langchain_community\__init__.py changed, reloading.
+2025-07-19 05:15:08,038 - INFO - Django setup successful
+2025-07-19 05:15:26,507 - INFO - C:\Users\HP\Desktop\genesis.ai\core\settings.py changed, reloading.
+2025-07-19 05:15:49,152 - INFO - Django setup successful
+2025-07-19 05:16:19,898 - INFO - Django setup successful
