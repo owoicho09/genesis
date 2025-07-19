@@ -1650,3 +1650,4 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000
 2025-07-19 23:32:06,491 - INFO - C:\Users\HP\Desktop\genesis.ai\core\wsgi.py changed, reloading.
 2025-07-19 23:32:27,968 - INFO - Django setup successful
 2025-07-19 23:35:59,645 - INFO - C:\Users\HP\Desktop\genesis.ai\core\settings.py changed, reloading.
+2025-07-19 23:36:22,831 - INFO - Django setup successful
