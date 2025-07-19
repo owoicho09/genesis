@@ -1636,3 +1636,17 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000
 2025-07-19 05:16:19,898 - INFO - Django setup successful
 2025-07-19 05:39:24,337 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\rag_setup.py changed, reloading.
 2025-07-19 05:39:44,777 - INFO - Django setup successful
+2025-07-19 23:00:54,815 - INFO - Django setup successful
+2025-07-19 23:01:00,792 - WARNING - Could not reverse url from auth.user
+2025-07-19 23:01:01,037 - WARNING - Could not reverse url from auth.user
+2025-07-19 23:01:01,047 - WARNING - Could not reverse url from auth.user
+2025-07-19 23:01:01,051 - WARNING - Could not reverse url from auth.user
+2025-07-19 23:01:01,058 - WARNING - Could not reverse url from auth.user
+2025-07-19 23:01:40,782 - WARNING - Not Found: /favicon.ico
+2025-07-19 23:03:11,151 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-19 23:04:49,874 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-19 23:25:34,604 - INFO - C:\Users\HP\Desktop\genesis.ai\core\settings.py changed, reloading.
+2025-07-19 23:25:58,638 - INFO - Django setup successful
+2025-07-19 23:32:06,491 - INFO - C:\Users\HP\Desktop\genesis.ai\core\wsgi.py changed, reloading.
+2025-07-19 23:32:27,968 - INFO - Django setup successful
+2025-07-19 23:35:59,645 - INFO - C:\Users\HP\Desktop\genesis.ai\core\settings.py changed, reloading.

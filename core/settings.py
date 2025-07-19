@@ -37,7 +37,7 @@ SITE_URL = os.getenv("SITE_URL", "http://localhost:8000")
 SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "genesis-1-snd7.onrender.com",  # ✅ no scheme (https://)
@@ -333,3 +333,4 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Allow requests from frontend
     "https://unitoriamvp.vercel.app"
 ]
+print("✅ settings.py loaded ✅")

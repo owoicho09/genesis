@@ -11,6 +11,12 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
+
+print("✅ WSGI: Starting Django via Gunicorn...")
+
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings")
 
 application = get_wsgi_application()
+
+
+print("✅ WSGI: Django app loaded successfully.")
