@@ -13,7 +13,6 @@ from langchain.text_splitter import CharacterTextSplitter,RecursiveCharacterText
 from langchain.schema import Document
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_chroma import Chroma
-import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
 import numpy as np
 import plotly.graph_objects as go
