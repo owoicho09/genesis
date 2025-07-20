@@ -59,7 +59,7 @@ test_leads = [
 # === 1. SHARED STATE ===
 class CampaignAgentState(TypedDict):
     user_input: str
-    intent: str  # e.g. "launch_campaign", "get_metrics", etc.
+    detected_intent: str  # e.g. "launch_campaign", "get_metrics", etc.
     product_name: Optional[str]
     budget: float
     campaign_id: Optional[str]
@@ -89,7 +89,7 @@ llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
 
 # === 3. INTENT PARSER MODEL ===
 class IntentSchema(BaseModel):
-    intent: str = Field(..., description="The type of action to perform")
+    detected_intent: str = Field(..., description="The type of action to perform")
     product_name: Optional[str] = ""
     budget: Optional[float] = 10.0
     campaign_id: Optional[str] = ""
@@ -112,7 +112,7 @@ def intent_node(state: CampaignAgentState) -> CampaignAgentState:
         Classify the user request and extract relevant fields.
         Return as JSON like:
         {{
-          "intent": "launch_campaign", "optimize_campaign", "get_metrics", "revise_offer", "summarize_campaign", "refresh_audience", "send_outreach", "send_email" ,"google_scrape", "instagram_scrape","warmup_emails"
+          "detected_intent": "launch_campaign", "optimize_campaign", "get_metrics", "revise_offer", "summarize_campaign", "refresh_audience", "send_outreach", "send_email" ,"google_scrape", "instagram_scrape","warmup_emails"
          "product_name": "...",         // e.g. "Flyer Prompt Pack", "Marketing Toolkit", optional
           "budget": float (optional),
           "campaign_id": "...", 
@@ -482,7 +482,7 @@ def instagram_scraping_node(state: dict) -> dict:
 graph = StateGraph(CampaignAgentState)
 
 # Add all nodes
-graph.add_node("intent", intent_node)
+graph.add_node("intent_node", intent_node)
 graph.add_node("fetch_product", fetch_product_node)
 graph.add_node("analyze_audience", analyze_audience_node)
 graph.add_node("create_campaign", create_campaign_node)
@@ -507,12 +507,12 @@ graph.add_node("send_email", send_email_node)
 
 
 # Entry Point
-graph.set_entry_point("intent")
+graph.set_entry_point("intent_node")
 
 # Intent Branching
 graph.add_conditional_edges(
-    "intent",
-    lambda state: state["intent"],
+    "intent_node",
+    lambda state: state["detected_intent"],
     {
         "launch_campaign": "fetch_product",
         "get_metrics": "fetch_metrics",
