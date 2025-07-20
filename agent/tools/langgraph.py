@@ -496,7 +496,7 @@ graph.add_node("fetch_metrics", fetch_metrics_node)
 graph.add_node("metrics_analyzer", metrics_analyzer_node)
 graph.add_node("decide_campaign_action", decide_campaign_action_node)
 graph.add_node("modify_campaign_from_decision", modify_campaign_from_decision_node)
-graph.add_node("optimize_campaign_node", optimize_campaign_node)
+#graph.add_node("optimize_campaign_node", optimize_campaign_node)
 graph.add_node("send_outreach", email_outreach_node)
 graph.add_node("warmup_emails", warmup_email_node)
 
@@ -543,7 +543,7 @@ graph.add_edge("summarize_campaign", END)
 
 # Get Metrics add func or tool to provide campaign id used to fetch metrics
 #graph.add_edge("get_campaign","fetch_metrics")
-graph.add_edge("fetch_metrics", END)
+#graph.add_edge("fetch_metrics", END)
 
 
 #Send Email Outreach
