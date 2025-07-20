@@ -1,1144 +1,208 @@
-< !DOCTYPE
-html >
-< html
-lang = "en" >
-< head >
-< meta
-charset = "UTF-8" / >
-< meta
-name = "viewport"
-content = "width=device-width, initial-scale=1.0" / >
-< title > Genesis
-AI
-Chatbot < / title >
-< link
-href = "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-rel = "stylesheet" >
-< link
-href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-rel = "stylesheet" >
-
-< style >
-:root
-{
-    --primary - color:  # 667eea;
-        --primary - dark:  # 5a6fd8;
---secondary - color:  # 764ba2;
---accent - color:  # f093fb;
---success - color:  # 10b981;
---error - color:  # ef4444;
---text - primary:  # 1f2937;
---text - secondary:  # 6b7280;
---bg - primary:  # ffffff;
---bg - secondary:  # f8fafc;
---border - color:  # e5e7eb;
---shadow - sm: 0
-1
-px
-2
-px
-0
-rgb(0
-0
-0 / 0.05);
---shadow - md: 0
-4
-px
-6
-px - 1
-px
-rgb(0
-0
-0 / 0.1);
---shadow - lg: 0
-10
-px
-15
-px - 3
-px
-rgb(0
-0
-0 / 0.1);
---shadow - xl: 0
-20
-px
-25
-px - 5
-px
-rgb(0
-0
-0 / 0.1);
-}
-
-*{
-    box - sizing: border - box;
-}
-
-body
-{
-    font - family: 'Inter', sans - serif;
-background: linear - gradient(135
-deg,  # 667eea 0%, #764ba2 100%);
-min - height: 100
-vh;
-margin: 0;
-padding: 20
-px;
-display: flex;
-justify - content: center;
-align - items: center;
-}
-
-.chat - container
-{
-    width: 100 %;
-max - width: 800
-px;
-height: 90
-vh;
-background: var(--bg - primary);
-border - radius: 20
-px;
-box - shadow: var(--shadow - xl);
-display: flex;
-flex - direction: column;
-overflow: hidden;
-position: relative;
-}
-
-.chat - header
-{
-    background: linear - gradient(135deg, var(--primary - color), var(--secondary - color));
-color: white;
-padding: 20
-px
-25
-px;
-display: flex;
-align - items: center;
-gap: 15
-px;
-position: relative;
-}
-
-.chat - header::before
-{
-    content: '';
-position: absolute;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: linear - gradient(45
-deg, rgba(255, 255, 255, 0.1), transparent);
-pointer - events: none;
-}
-
-.ai - avatar
-{
-    width: 50px;
-height: 50
-px;
-border - radius: 50 %;
-background: linear - gradient(135
-deg, var(--accent - color),  # f093fb);
-display: flex;
-align - items: center;
-justify - content: center;
-font - size: 24
-px;
-box - shadow: 0
-4
-px
-12
-px
-rgba(0, 0, 0, 0.2);
-animation: pulse
-2
-s
-infinite;
-}
-
-@keyframes
-
-
-pulse
-{
-    0 %, 100 % {transform: scale(1);}
-50 % {transform: scale(1.05);}
-}
-
-.header - info
-h2
-{
-    margin: 0;
-font - size: 24
-px;
-font - weight: 600;
-}
-
-.header - info.status
-{
-    font - size: 14px;
-opacity: 0.9;
-display: flex;
-align - items: center;
-gap: 8
-px;
-}
-
-.status - dot
-{
-    width: 8px;
-height: 8
-px;
-border - radius: 50 %;
-background:  # 10b981;
-animation: blink
-1.5
-s
-infinite;
-}
-
-@keyframes
-
-
-blink
-{
-    0 %, 50 % {opacity: 1;}
-51 %, 100 % {opacity: 0.5;}
-}
-
-.chat - actions
-{
-    margin - left: auto;
-display: flex;
-gap: 10
-px;
-}
-
-.action - btn
-{
-    background: rgba(255, 255, 255, 0.2);
-border: none;
-color: white;
-padding: 8
-px
-12
-px;
-border - radius: 8
-px;
-cursor: pointer;
-transition: all
-0.2
-s
-ease;
-font - size: 14
-px;
-}
-
-.action - btn: hover
-{
-    background: rgba(255, 255, 255, 0.3);
-transform: translateY(-1
-px);
-}
-
-# chat {
-flex: 1;
-overflow - y: auto;
-padding: 20
-px;
-background: var(--bg - secondary);
-scroll - behavior: smooth;
-position: relative;
-}
-
-# chat::-webkit-scrollbar {
-width: 6
-px;
-}
-
-# chat::-webkit-scrollbar-track {
-background: transparent;
-}
-
-# chat::-webkit-scrollbar-thumb {
-background: var(--border - color);
-border - radius: 3
-px;
-}
-
-.message
-{
-    display: flex;
-margin: 15
-px
-0;
-animation: messageSlide
-0.3
-s
-ease - out;
-}
-
-@keyframes
-
-
-messageSlide
-{
-from
-
-{
-opacity: 0;
-transform: translateY(10
-px);
-}
-to
-{
-opacity: 1;
-transform: translateY(0);
-}
-}
-
-.message.user
-{
-    justify - content: flex - end;
-}
-
-.message.bot
-{
-    justify - content: flex - start;
-}
-
-.message - content
-{
-    max - width: 70 %;
-padding: 15
-px
-20
-px;
-border - radius: 18
-px;
-font - size: 15
-px;
-line - height: 1.5;
-white - space: pre - wrap;
-position: relative;
-box - shadow: var(--shadow - sm);
-}
-
-.user.message - content
-{
-    background: linear - gradient(135deg, var(--primary - color), var(--primary - dark));
-color: white;
-border - bottom - right - radius: 6
-px;
-}
-
-.bot.message - content
-{
-    background: var(--bg - primary);
-color: var(--text - primary);
-border: 1
-px
-solid
-var(--border - color);
-border - bottom - left - radius: 6
-px;
-}
-
-.message - time
-{
-    font - size: 12px;
-opacity: 0.6;
-margin - top: 5
-px;
-text - align: right;
-}
-
-.bot.message - time
-{
-    text - align: left;
-}
-
-.typing - indicator
-{
-    display: flex;
-align - items: center;
-gap: 10
-px;
-padding: 15
-px
-20
-px;
-background: var(--bg - primary);
-border - radius: 18
-px;
-border - bottom - left - radius: 6
-px;
-max - width: 70 %;
-border: 1
-px
-solid
-var(--border - color);
-box - shadow: var(--shadow - sm);
-}
-
-.typing - dots
-{
-    display: flex;
-gap: 4
-px;
-}
-
-.typing - dot
-{
-    width: 8px;
-height: 8
-px;
-border - radius: 50 %;
-background: var(--text - secondary);
-animation: typing
-1.4
-s
-infinite;
-}
-
-.typing - dot: nth - child(1)
-{animation - delay: 0s;}
-.typing - dot: nth - child(2)
-{animation - delay: 0.2s;}
-.typing - dot: nth - child(3)
-{animation - delay: 0.4s;}
-
-@keyframes
-
-
-typing
-{
-    0 %, 60 %, 100 % {transform: scale(1);
-opacity: 0.5;}
-30 % {transform: scale(1.2);
-opacity: 1;}
-}
-
-.input - container
-{
-    padding: 20px;
-background: var(--bg - primary);
-border - top: 1
-px
-solid
-var(--border - color);
-}
-
-.input - group
-{
-    display: flex;
-gap: 12
-px;
-align - items: flex - end;
-background: var(--bg - secondary);
-border - radius: 25
-px;
-padding: 8
-px;
-border: 2
-px
-solid
-transparent;
-transition: all
-0.2
-s
-ease;
-}
-
-.input - group: focus - within
-{
-    border - color: var(--primary - color);
-box - shadow: 0
-0
-0
-3
-px
-rgba(102, 126, 234, 0.1);
-}
-
-# userInput {
-flex: 1;
-border: none;
-background: transparent;
-padding: 12
-px
-16
-px;
-font - size: 15
-px;
-color: var(--text - primary);
-resize: none;
-outline: none;
-font - family: inherit;
-min - height: 20
-px;
-max - height: 120
-px;
-overflow - y: auto;
-}
-
-# userInput::placeholder {
-color: var(--text - secondary);
-}
-
-.send - btn
-{
-    background: linear - gradient(135deg, var(--primary - color), var(--primary - dark));
-color: white;
-border: none;
-padding: 12
-px
-20
-px;
-border - radius: 20
-px;
-font - weight: 600;
-cursor: pointer;
-transition: all
-0.2
-s
-ease;
-display: flex;
-align - items: center;
-gap: 8
-px;
-font - size: 14
-px;
-box - shadow: var(--shadow - md);
-}
-
-.send - btn: hover:not (:disabled)
-{
-    transform: translateY(-1px);
-box - shadow: var(--shadow - lg);
-}
-
-.send - btn: disabled
-{
-    opacity: 0.6;
-cursor: not -allowed;
-}
-
-.error - message
-{
-    background:  # fee2e2;
-        border: 1
-px
-solid  # fecaca;
-color: var(--error - color);
-padding: 12
-px;
-border - radius: 8
-px;
-margin: 10
-px
-0;
-display: flex;
-align - items: center;
-gap: 8
-px;
-}
-
-.welcome - message
-{
-    text - align: center;
-color: var(--text - secondary);
-margin: 40
-px
-0;
-font - size: 16
-px;
-}
-
-.welcome - message.emoji
-{
-    font - size: 48px;
-margin - bottom: 16
-px;
-display: block;
-}
-
-.quick - actions
-{
-    display: flex;
-gap: 10
-px;
-flex - wrap: wrap;
-margin - top: 15
-px;
-}
-
-.quick - action
-{
-    background: var(--bg - primary);
-border: 1
-px
-solid
-var(--border - color);
-padding: 8
-px
-16
-px;
-border - radius: 20
-px;
-font - size: 14
-px;
-cursor: pointer;
-transition: all
-0.2
-s
-ease;
-}
-
-.quick - action: hover
-{
-    background: var(--primary - color);
-color: white;
-transform: translateY(-1
-px);
-}
-
-@media(max - width
-
-: 768
-px) {
-    body
-{
-    padding: 10px;
-}
-
-.chat - container
-{
-    height: 95vh;
-border - radius: 15
-px;
-}
-
-.chat - header
-{
-    padding: 15px 20px;
-}
-
-.header - info
-h2
-{
-    font - size: 20px;
-}
-
-.message - content
-{
-    max - width: 85 %;
-padding: 12
-px
-16
-px;
-}
-
-.input - container
-{
-    padding: 15px;
-}
-
-.quick - actions
-{
-    justify - content: center;
-}
-}
-< / style >
-    < / head >
-        < body >
-
-        < div
-
-
-class ="chat-container" >
-
-< div
-
-
-class ="chat-header" >
-
-< div
-
-
-class ="ai-avatar" >
-
-< i
-
-
-class ="fas fa-robot" > < / i >
-
-< / div >
-< div
-
-
-class ="header-info" >
-
-< h2 > Genesis
-AI < / h2 >
-< div
-
-
-class ="status" >
-
-< span
-
-
-class ="status-dot" > < / span >
-
-
-Up & Active
-< / div >
-< / div >
-< div
-
-
-class ="chat-actions" >
-
-< button
-
-
-class ="action-btn" onclick="clearChat()" >
-
-< i
-
-
-class ="fas fa-trash" > < / i >
-
-< / button >
-< button
-
-
-class ="action-btn" onclick="exportChat()" >
-
-< i
-
-
-class ="fas fa-download" > < / i >
-
-< / button >
-< / div >
-< / div >
-
-< div
-id = "chat" >
-< div
-
-
-class ="welcome-message" >
-
-< span
-
-
-class ="emoji" > 🤖 < / span >
-
-< div > I
-'m Genesis, your AI assistant.</div>
-< br >
-< div > Get
-up and busy < / div >
-< div
-
-
-class ="quick-actions" >
-
-< div
-
-
-class ="quick-action" onclick="sendQuickMessage('What can you help me with?')" >
-
-
-Send
-emails?
-< / div >
-< div
-
-
-class ="quick-action" onclick="sendQuickMessage('Tell me a joke')" >
-
-
-Scrape
-google
-map?
-< / div >
-< div
-
-
-class ="quick-action" onclick="sendQuickMessage('Help me brainstorm ideas')" >
-
-
-Launch
-Meta
-Campaign
-< / div >
-< / div >
-< / div >
-< / div >
-
-< div
-
-
-class ="input-container" >
-
-< div
-
-
-class ="input-group" >
-
-< textarea
-id = "userInput"
-placeholder = "owoicho, what's the move?"
-rows = "1"
-autofocus
-> < / textarea >
-< button
-
-
-class ="send-btn" onclick="sendMessage()" id="sendBtn" >
-
-< i
-
-
-class ="fas fa-paper-plane" > < / i >
-
-
-Send
-< / button >
-< / div >
-< / div >
-< / div >
-
-< script >
-let
-messageCount = 0;
-let
-isTyping = false;
-
-// Auto - resize
-textarea
-const
-textarea = document.getElementById('userInput');
-textarea.addEventListener('input', function()
-{
-    this.style.height = 'auto';
-this.style.height = this.scrollHeight + 'px';
-});
-
-// Handle
-Enter
-key(Shift + Enter for new line)
-textarea.addEventListener('keydown', function(e)
-{
-if (e.key === 'Enter' & & !e.shiftKey)
-{
-    e.preventDefault();
-sendMessage();
-}
-});
-
-function
-getCurrentTime()
-{
-return new
-Date().toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
-}
-
-function
-showTypingIndicator()
-{
-const
-chat = document.getElementById('chat');
-const
-typingDiv = document.createElement('div');
-typingDiv.className = 'message bot';
-typingDiv.id = 'typing-indicator';
-typingDiv.innerHTML = `
-< div
-
-
-class ="typing-indicator" >
-
-< div
-
-
-class ="typing-dots" >
-
-< div
-
-
-class ="typing-dot" > < / div >
-
-< div
-
-
-class ="typing-dot" > < / div >
-
-< div
-
-
-class ="typing-dot" > < / div >
-
-< / div >
-< span > Genesis is typing... < / span >
-< / div >
-`;
-chat.appendChild(typingDiv);
-chat.scrollTop = chat.scrollHeight;
-}
-
-function
-hideTypingIndicator()
-{
-const
-typingIndicator = document.getElementById('typing-indicator');
-if (typingIndicator) {
-typingIndicator.remove();
-}
-}
-
-function
-addMessage(content, isUser=false)
-{
-const
-chat = document.getElementById('chat');
-const
-messageDiv = document.createElement('div');
-messageDiv.className = `message ${isUser ? 'user': 'bot'}`;
-
-const
-time = getCurrentTime();
-messageDiv.innerHTML = `
-< div
-
-
-class ="message-content" >
-
-${content}
-< div
-
-
-class ="message-time" > ${time} < / div >
-
-< / div >
-`;
-
-chat.appendChild(messageDiv);
-chat.scrollTop = chat.scrollHeight;
-messageCount + +;
-
-// Remove
-welcome
-message
-after
-first
-interaction
-if (messageCount === 1) {
-const welcomeMsg = document.querySelector('.welcome-message');
-if (welcomeMsg) {
-welcomeMsg.style.animation = 'messageSlide 0.3s ease-out reverse';
-setTimeout(() = > welcomeMsg.remove(), 300);
-}
-}
-}
-
-function
-showError(message)
-{
-const
-chat = document.getElementById('chat');
-const
-errorDiv = document.createElement('div');
-errorDiv.className = 'error-message';
-errorDiv.innerHTML = `
-< i
-
-
-class ="fas fa-exclamation-triangle" > < / i >
-
-< span >${message} < / span >
-`;
-chat.appendChild(errorDiv);
-chat.scrollTop = chat.scrollHeight;
-}
-
-function
-toggleSendButton(disabled)
-{
-const
-sendBtn = document.getElementById('sendBtn');
-sendBtn.disabled = disabled;
-if (disabled) {
-sendBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-} else {
-sendBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send';
-}
-}
-
-async function
-sendMessage()
-{
-const
-input = document.getElementById('userInput');
-const
-message = input.value.trim();
-if (!message | | isTyping) return;
-
-isTyping = true;
-toggleSendButton(true);
-
-// Add
-user
-message
-addMessage(message, true);
-input.value = '';
-input.style.height = 'auto';
-
-// Show
-typing
-indicator
-showTypingIndicator();
-
-try {
-const response = await fetch("http://localhost:8000/api/genesis-agent/", {
-method: "POST",
-headers: {"Content-Type": "application/json"},
-body: JSON.stringify({user_input: message})
-});
-
-const
-contentType = response.headers.get("content-type");
-
-if (!response.ok)
-{
-    throw
-new
-Error(`Server
-error: ${response.status}
-`);
-} else if (!contentType | | !contentType.includes("application/json")) {
-const text = await response.text();
-throw new Error(`Expected JSON response, got HTML.Server might be down.`);
-}
-
-const data = await response.json();
-const reply = data.result ?? data.message ?? "No reply from server.";
-
-// Simulate realistic typing delay
-setTimeout(() = > {
-hideTypingIndicator();
-addMessage(reply);
-isTyping = false;
-toggleSendButton(false);
-}, 1000 + Math.random() * 1000);
-
-} catch (err) {
-hideTypingIndicator();
-showError(`Connection error: $
-    {err.message}
-`);
-isTyping = false;
-toggleSendButton(false);
-}
-}
-
-function
-sendQuickMessage(message)
-{
-const
-input = document.getElementById('userInput');
-input.value = message;
-sendMessage();
-}
-
-function
-clearChat()
-{
-const
-chat = document.getElementById('chat');
-chat.innerHTML = '';
-messageCount = 0;
-
-// Add
-welcome
-message
-back
-chat.innerHTML = `
-< div
-
-
-class ="welcome-message" >
-
-< span
-
-
-class ="emoji" > 🤖 < / span >
-
-< div > Chat
-cleared! I
-'m ready for a fresh start.</div>
-< div > What
-would
-you
-like
-to
-talk
-about? < / div >
-< / div >
-`;
-}
-
-function
-exportChat()
-{
-const
-messages = document.querySelectorAll('.message');
-let
-chatText = 'Genesis AI Chat Export\n';
-chatText += '='.repeat(30) + '\n\n';
-
-messages.forEach((msg, index) = > {
-    const
-isUser = msg.classList.contains('user');
-const
-content = msg.querySelector('.message-content').textContent.trim();
-const
-time = msg.querySelector('.message-time').textContent;
-
-chatText += `${isUser ? 'You': 'Genesis'} [${time}]:\n${content}\n\n
-`;
-});
-
-const
-blob = new
-Blob([chatText], {type: 'text/plain'});
-const
-url = URL.createObjectURL(blob);
-const
-a = document.createElement('a');
-a.href = url;
-a.download = `genesis - chat -${new
-Date().toISOString().split('T')[0]}.txt
-`;
-a.click();
-URL.revokeObjectURL(url);
-}
-
-// Initialize
-document.addEventListener('DOMContentLoaded', function()
-{
-    const
-input = document.getElementById('userInput');
-input.focus();
-});
-< / script >
-
-    < / body >
-        < / html >
+aiohappyeyeballs==2.6.1
+aiohttp==3.12.13
+aiosignal==1.3.2
+annotated-types==0.7.0
+anyio==4.9.0
+argcomplete==3.6.2
+asgiref==3.8.1
+asttokens==3.0.0
+attrs==25.3.0
+backoff==2.2.1
+bcrypt==4.3.0
+beautifulsoup4==4.13.4
+Brotli==1.1.0
+build==1.2.2.post1
+cachetools==5.5.2
+certifi==2025.4.26
+charset-normalizer==3.4.2
+chromadb==1.0.12
+click==8.2.1
+cloudinary==1.44.0
+colorama==0.4.6
+coloredlogs==15.0.1
+comm==0.2.2
+contourpy==1.3.2
+curlify==3.0.0
+cycler==0.12.1
+dataclasses-json==0.6.7
+dateparser==1.2.1
+debugpy==1.8.14
+decorator==5.2.1
+distro==1.9.0
+dj-database-url==3.0.1
+Django==5.2.3
+django-cloudinary-storage==0.3.0
+django-cors-headers==4.7.0
+django-debug-toolbar==5.2.0
+django-environ==0.12.0
+django-jazzmin==3.0.1
+djangorestframework==3.16.0
+djangorestframework_simplejwt==5.5.0
+dnspython==2.7.0
+drf-yasg==1.21.10
+duckduckgo_search==8.0.5
+durationpy==0.10
+environ==1.0
+executing==2.2.0
+facebook_business==23.0.0
+faiss-cpu==1.11.0
+fastapi==0.115.9
+filelock==3.18.0
+flatbuffers==25.2.10
+fonttools==4.58.4
+frozenlist==1.7.0
+fsspec==2025.5.1
+google-auth==2.40.3
+google_search_results==2.4.2
+googleapis-common-protos==1.70.0
+googlesearch-python==1.3.0
+greenlet==3.2.3
+grpcio==1.73.0
+gunicorn==23.0.0
+h11==0.16.0
+httpcore==1.0.9
+httptools==0.6.4
+httpx==0.28.1
+httpx-sse==0.4.0
+huggingface-hub==0.33.0
+humanfriendly==10.0
+idna==3.10
+importlib_metadata==8.7.0
+importlib_resources==6.5.2
+inflection==0.5.1
+ipykernel==6.29.5
+ipython==9.3.0
+ipython_pygments_lexers==1.1.1
+jedi==0.19.2
+jiter==0.10.0
+joblib==1.5.1
+jsonpatch==1.33
+jsonpointer==3.0.0
+jsonschema==4.24.0
+jsonschema-specifications==2025.4.1
+jupyter_client==8.6.3
+jupyter_core==5.8.1
+kiwisolver==1.4.8
+kubernetes==33.1.0
+langchain==0.3.26
+langchain-chroma==0.2.4
+langchain-community==0.3.27
+langchain-core==0.3.67
+langchain-openai==0.3.27
+langchain-text-splitters==0.3.8
+langgraph==0.5.0
+langgraph-checkpoint==2.1.0
+langgraph-prebuilt==0.5.2
+langgraph-sdk==0.1.72
+langsmith==0.4.4
+lxml==6.0.0
+markdown-it-py==3.0.0
+marshmallow==3.26.1
+matplotlib==3.10.3
+matplotlib-inline==0.1.7
+mdurl==0.1.2
+mmh3==5.1.0
+mpmath==1.3.0
+multidict==6.5.0
+mypy_extensions==1.1.0
+narwhals==1.43.0
+nest-asyncio==1.6.0
+numpy==1.26.4
+oauthlib==3.3.0
+onnxruntime==1.22.0
+openai==1.93.0
+opentelemetry-api==1.34.1
+opentelemetry-exporter-otlp-proto-common==1.34.1
+opentelemetry-exporter-otlp-proto-grpc==1.34.1
+opentelemetry-instrumentation==0.55b1
+opentelemetry-instrumentation-asgi==0.55b1
+opentelemetry-instrumentation-fastapi==0.55b1
+opentelemetry-proto==1.34.1
+opentelemetry-sdk==1.34.1
+opentelemetry-semantic-conventions==0.55b1
+opentelemetry-util-http==0.55b1
+orjson==3.10.18
+ormsgpack==1.10.0
+overrides==7.7.0
+packaging==23.2
+parso==0.8.4
+pillow==11.2.1
+pipx==1.7.1
+platformdirs==4.3.8
+playwright==1.53.0
+plotly==6.1.2
+posthog==5.0.0
+primp==0.15.0
+prompt_toolkit==3.0.51
+propcache==0.3.2
+protobuf==5.29.5
+psutil==7.0.0
+psycopg2-binary==2.9.10
+pure_eval==0.2.3
+pyasn1==0.6.1
+pyasn1_modules==0.4.2
+pycountry==24.6.1
+pydantic==2.11.7
+pydantic-settings==2.9.1
+pydantic_core==2.33.2
+pyee==13.0.0
+Pygments==2.19.1
+PyJWT==2.9.0
+pyparsing==3.2.3
+PyPika==0.48.9
+pyproject_hooks==1.2.0
+pyreadline3==3.5.4
+PySocks==1.7.1
+python-dateutil==2.9.0.post0
+python-dotenv==1.1.0
+pytz==2025.2
+pywin32==310
+PyYAML==6.0.2
+pyzmq==27.0.0
+referencing==0.36.2
+regex==2024.11.6
+requests==2.32.4
+requests-oauthlib==2.0.0
+requests-toolbelt==1.0.0
+rich==14.0.0
+rpds-py==0.25.1
+rsa==4.9.1
+scikit-learn==1.7.0
+scipy==1.15.3
+shellingham==1.5.4
+shortuuid==1.0.13
+six==1.17.0
+sniffio==1.3.1
+soupsieve==2.7
+SQLAlchemy==2.0.41
+sqlparse==0.5.3
+stack-data==0.6.3
+starlette==0.45.3
+sympy==1.14.0
+tenacity==8.5.0
+threadpoolctl==3.6.0
+tiktoken==0.9.0
+tokenizers==0.21.1
+tornado==6.5.1
+tqdm==4.67.1
+traitlets==5.14.3
+typer==0.16.0
+typing-inspect==0.9.0
+typing-inspection==0.4.1
+typing_extensions==4.14.0
+tzdata==2025.2
+tzlocal==5.3.1
+uritemplate==4.2.0
+urllib3==2.4.0
+userpath==1.9.2
+uvicorn==0.34.3
+watchfiles==1.1.0
+wcwidth==0.2.13
+websocket-client==1.8.0
+websockets==15.0.1
+whitenoise==6.9.0
+wrapt==1.17.2
+xxhash==3.5.0
+yarl==1.20.1
+zipp==3.23.0
+zstandard==0.23.0
