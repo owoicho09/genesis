@@ -37,7 +37,7 @@ SITE_URL = os.getenv("SITE_URL", "http://localhost:8000")
 SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-secret')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     "genesis-1-snd7.onrender.com",  # ✅ no scheme (https://)

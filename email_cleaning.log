@@ -1655,3 +1655,125 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000
 2025-07-20 08:34:36,032 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\langgraph.py changed, reloading.
 2025-07-20 08:34:52,581 - INFO - Django setup successful
 2025-07-20 08:37:49,161 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\langgraph.py changed, reloading.
+2025-07-20 08:38:06,177 - INFO - Django setup successful
+2025-07-20 08:49:15,112 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-20 08:56:11,655 - INFO - Django setup successful
+2025-07-20 08:56:34,105 - INFO - Django setup successful
+2025-07-20 14:23:00,861 - INFO - Django setup successful
+2025-07-20 14:27:19,946 - INFO - Django setup successful
+2025-07-20 14:28:01,426 - INFO - Django setup successful
+2025-07-20 14:28:10,464 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:10,486 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:10,495 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:10,497 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:10,716 - WARNING - Not Found: /static/vendor/fontawesome-free/css/all.min.css
+2025-07-20 14:28:10,738 - WARNING - Not Found: /static/vendor/adminlte/css/adminlte.min.css
+2025-07-20 14:28:10,743 - WARNING - Not Found: /static/jazzmin/css/main.css
+2025-07-20 14:28:10,751 - WARNING - Not Found: /static/vendor/select2/css/select2.min.css
+2025-07-20 14:28:10,754 - WARNING - Not Found: /static/admin/js/core.js
+2025-07-20 14:28:10,763 - WARNING - Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+2025-07-20 14:28:10,766 - WARNING - Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+2025-07-20 14:28:10,775 - WARNING - Not Found: /static/admin/js/actions.js
+2025-07-20 14:28:10,781 - WARNING - Not Found: /static/admin/js/jquery.init.js
+2025-07-20 14:28:10,783 - WARNING - Not Found: /static/admin/js/urlify.js
+2025-07-20 14:28:10,793 - WARNING - Not Found: /static/admin/js/prepopulate.js
+2025-07-20 14:28:10,795 - WARNING - Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+2025-07-20 14:28:10,802 - WARNING - Not Found: /static/vendor/adminlte/img/AdminLTELogo.png
+2025-07-20 14:28:10,816 - WARNING - Not Found: /static/admin/js/vendor/jquery/jquery.js
+2025-07-20 14:28:10,834 - WARNING - Not Found: /static/vendor/bootstrap/js/bootstrap.min.js
+2025-07-20 14:28:10,836 - WARNING - Not Found: /static/vendor/adminlte/js/adminlte.min.js
+2025-07-20 14:28:10,850 - WARNING - Not Found: /static/jazzmin/js/main.js
+2025-07-20 14:28:10,866 - WARNING - Not Found: /static/vendor/select2/js/select2.min.js
+2025-07-20 14:28:10,879 - WARNING - Not Found: /static/jazzmin/js/change_list.js
+2025-07-20 14:28:14,205 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:14,210 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:14,216 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:14,218 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:14,387 - WARNING - Not Found: /static/vendor/fontawesome-free/css/all.min.css
+2025-07-20 14:28:14,415 - WARNING - Not Found: /static/vendor/adminlte/css/adminlte.min.css
+2025-07-20 14:28:14,417 - WARNING - Not Found: /static/jazzmin/css/main.css
+2025-07-20 14:28:14,418 - WARNING - Not Found: /static/vendor/select2/css/select2.min.css
+2025-07-20 14:28:14,421 - WARNING - Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+2025-07-20 14:28:14,424 - WARNING - Not Found: /static/admin/js/jquery.init.js
+2025-07-20 14:28:14,432 - WARNING - Not Found: /static/admin/js/core.js
+2025-07-20 14:28:14,434 - WARNING - Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+2025-07-20 14:28:14,444 - WARNING - Not Found: /static/admin/js/actions.js
+2025-07-20 14:28:14,455 - WARNING - Not Found: /static/admin/js/prepopulate.js
+2025-07-20 14:28:14,468 - WARNING - Not Found: /static/admin/js/urlify.js
+2025-07-20 14:28:14,475 - WARNING - Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+2025-07-20 14:28:14,479 - WARNING - Not Found: /static/vendor/adminlte/img/AdminLTELogo.png
+2025-07-20 14:28:14,481 - WARNING - Not Found: /static/admin/js/vendor/jquery/jquery.js
+2025-07-20 14:28:14,497 - WARNING - Not Found: /static/vendor/bootstrap/js/bootstrap.min.js
+2025-07-20 14:28:14,500 - WARNING - Not Found: /static/vendor/adminlte/js/adminlte.min.js
+2025-07-20 14:28:14,515 - WARNING - Not Found: /static/jazzmin/js/main.js
+2025-07-20 14:28:14,519 - WARNING - Not Found: /static/vendor/select2/js/select2.min.js
+2025-07-20 14:28:14,527 - WARNING - Not Found: /static/jazzmin/js/change_list.js
+2025-07-20 14:28:14,718 - WARNING - Not Found: /static/vendor/adminlte/img/AdminLTELogo.png
+2025-07-20 14:28:16,234 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:16,240 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:16,250 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:16,254 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:16,680 - WARNING - Not Found: /static/vendor/fontawesome-free/css/all.min.css
+2025-07-20 14:28:16,682 - WARNING - Not Found: /static/vendor/adminlte/css/adminlte.min.css
+2025-07-20 14:28:16,684 - WARNING - Not Found: /static/jazzmin/css/main.css
+2025-07-20 14:28:16,687 - WARNING - Not Found: /static/vendor/select2/css/select2.min.css
+2025-07-20 14:28:16,697 - WARNING - Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+2025-07-20 14:28:16,717 - WARNING - Not Found: /static/admin/js/jquery.init.js
+2025-07-20 14:28:16,721 - WARNING - Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+2025-07-20 14:28:16,730 - WARNING - Not Found: /static/admin/js/core.js
+2025-07-20 14:28:16,737 - WARNING - Not Found: /static/admin/js/actions.js
+2025-07-20 14:28:16,749 - WARNING - Not Found: /static/admin/js/urlify.js
+2025-07-20 14:28:16,762 - WARNING - Not Found: /static/admin/js/prepopulate.js
+2025-07-20 14:28:16,779 - WARNING - Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+2025-07-20 14:28:16,787 - WARNING - Not Found: /static/admin/js/vendor/jquery/jquery.js
+2025-07-20 14:28:16,798 - WARNING - Not Found: /static/vendor/adminlte/img/AdminLTELogo.png
+2025-07-20 14:28:16,827 - WARNING - Not Found: /static/jazzmin/js/main.js
+2025-07-20 14:28:16,829 - WARNING - Not Found: /static/vendor/select2/js/select2.min.js
+2025-07-20 14:28:16,832 - WARNING - Not Found: /static/vendor/adminlte/js/adminlte.min.js
+2025-07-20 14:28:16,843 - WARNING - Not Found: /static/vendor/bootstrap/js/bootstrap.min.js
+2025-07-20 14:28:16,882 - WARNING - Not Found: /static/jazzmin/js/change_list.js
+2025-07-20 14:28:25,210 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:25,226 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:25,243 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:25,251 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:26,318 - WARNING - Not Found: /static/vendor/adminlte/css/adminlte.min.css
+2025-07-20 14:28:26,320 - WARNING - Not Found: /static/jazzmin/css/main.css
+2025-07-20 14:28:26,330 - WARNING - Not Found: /static/vendor/select2/css/select2.min.css
+2025-07-20 14:28:26,334 - WARNING - Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+2025-07-20 14:28:26,363 - WARNING - Not Found: /static/vendor/fontawesome-free/css/all.min.css
+2025-07-20 14:28:26,449 - WARNING - Not Found: /static/admin/js/jquery.init.js
+2025-07-20 14:28:26,465 - WARNING - Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+2025-07-20 14:28:26,467 - WARNING - Not Found: /static/admin/js/core.js
+2025-07-20 14:28:26,515 - WARNING - Not Found: /static/admin/js/actions.js
+2025-07-20 14:28:26,594 - WARNING - Not Found: /static/admin/js/urlify.js
+2025-07-20 14:28:26,619 - WARNING - Not Found: /static/admin/js/prepopulate.js
+2025-07-20 14:28:26,644 - WARNING - Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+2025-07-20 14:28:27,020 - WARNING - Not Found: /static/vendor/adminlte/img/AdminLTELogo.png
+2025-07-20 14:28:27,188 - WARNING - Not Found: /static/admin/js/vendor/jquery/jquery.js
+2025-07-20 14:28:27,570 - WARNING - Not Found: /static/vendor/bootstrap/js/bootstrap.min.js
+2025-07-20 14:28:27,583 - WARNING - Not Found: /static/vendor/adminlte/js/adminlte.min.js
+2025-07-20 14:28:27,590 - WARNING - Not Found: /static/jazzmin/js/main.js
+2025-07-20 14:28:27,599 - WARNING - Not Found: /static/vendor/select2/js/select2.min.js
+2025-07-20 14:28:27,601 - WARNING - Not Found: /static/jazzmin/js/change_list.js
+2025-07-20 14:28:27,846 - WARNING - Not Found: /static/vendor/adminlte/img/AdminLTELogo.png
+2025-07-20 14:28:30,062 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:30,178 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:30,196 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:30,202 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:28:30,816 - WARNING - Not Found: /static/vendor/fontawesome-free/css/all.min.css
+2025-07-20 14:28:30,820 - WARNING - Not Found: /static/vendor/adminlte/css/adminlte.min.css
+2025-07-20 14:28:30,826 - WARNING - Not Found: /static/jazzmin/css/main.css
+2025-07-20 14:28:30,829 - WARNING - Not Found: /static/vendor/select2/css/select2.min.css
+2025-07-20 14:28:30,912 - WARNING - Not Found: /static/admin/js/vendor/jquery/jquery.min.js
+2025-07-20 14:28:30,922 - WARNING - Not Found: /static/admin/js/jquery.init.js
+2025-07-20 14:28:30,934 - WARNING - Not Found: /static/admin/js/core.js
+2025-07-20 14:28:30,948 - WARNING - Not Found: /static/admin/js/actions.js
+2025-07-20 14:28:30,952 - WARNING - Not Found: /static/admin/js/admin/RelatedObjectLookups.js
+2025-07-20 14:28:30,984 - WARNING - Not Found: /static/admin/js/prepopulate.js
+2025-07-20 14:28:30,993 - INFO - C:\Users\HP\Desktop\genesis.ai\core\settings.py changed, reloading.
+2025-07-20 14:28:30,999 - WARNING - Not Found: /static/admin/js/urlify.js
+2025-07-20 14:28:31,018 - WARNING - Not Found: /static/admin/js/vendor/xregexp/xregexp.min.js
+2025-07-20 14:28:31,029 - WARNING - Not Found: /static/admin/js/vendor/jquery/jquery.js
+2025-07-20 14:28:31,033 - WARNING - Not Found: /static/vendor/adminlte/img/AdminLTELogo.png
+2025-07-20 14:28:31,057 - WARNING - Not Found: /static/jazzmin/js/change_list.js
+2025-07-20 14:28:31,067 - WARNING - Not Found: /static/vendor/select2/js/select2.min.js
