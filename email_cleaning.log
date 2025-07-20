@@ -1777,3 +1777,33 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000
 2025-07-20 14:28:31,033 - WARNING - Not Found: /static/vendor/adminlte/img/AdminLTELogo.png
 2025-07-20 14:28:31,057 - WARNING - Not Found: /static/jazzmin/js/change_list.js
 2025-07-20 14:28:31,067 - WARNING - Not Found: /static/vendor/select2/js/select2.min.js
+2025-07-20 14:30:35,555 - INFO - Django setup successful
+2025-07-20 14:30:39,237 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:30:39,257 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:30:39,261 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:30:39,264 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:30:45,993 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:30:48,195 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:31:04,417 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:31:04,419 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:31:04,422 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:31:04,423 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:31:04,425 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:59:27,640 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:59:27,649 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:59:27,653 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:59:27,655 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:59:33,718 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:59:33,720 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:59:33,728 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:59:33,729 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:59:35,928 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:59:35,931 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:59:35,935 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:59:35,937 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:59:35,940 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:59:42,701 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:59:42,703 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:59:42,709 - WARNING - Could not reverse url from auth.user
+2025-07-20 14:59:42,711 - WARNING - Could not reverse url from auth.user
+2025-07-20 15:14:55,757 - INFO - C:\Users\HP\Desktop\genesis.ai\core\settings.py changed, reloading.
