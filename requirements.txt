@@ -61,6 +61,9 @@ urllib3>=2.0.0
 colorama>=0.4.6
 rich>=13.0.0
 
+shortuuid
+regex
+
 
 # Add these if needed
 matplotlib==3.10.3
