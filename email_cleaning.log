@@ -1807,3 +1807,347 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'localhost:8000
 2025-07-20 14:59:42,709 - WARNING - Could not reverse url from auth.user
 2025-07-20 14:59:42,711 - WARNING - Could not reverse url from auth.user
 2025-07-20 15:14:55,757 - INFO - C:\Users\HP\Desktop\genesis.ai\core\settings.py changed, reloading.
+2025-07-20 15:15:20,876 - INFO - Django setup successful
+2025-07-20 15:18:58,039 - INFO - Django setup successful
+2025-07-20 15:28:32,754 - INFO - C:\Users\HP\Desktop\genesis.ai\core\settings.py changed, reloading.
+2025-07-20 15:30:12,560 - INFO - Django setup successful
+2025-07-20 15:31:16,862 - INFO - C:\Users\HP\Desktop\genesis.ai\core\settings.py changed, reloading.
+2025-07-20 15:32:26,524 - INFO - Django setup successful
+2025-07-20 15:36:16,368 - INFO - Django setup successful
+2025-07-20 15:41:36,549 - INFO - Django setup successful
+2025-07-20 15:44:47,821 - INFO - C:\Users\HP\Desktop\genesis.ai\core\settings.py changed, reloading.
+2025-07-20 15:45:59,434 - INFO - Django setup successful
+2025-07-20 15:47:02,198 - INFO - Django setup successful
+2025-07-20 15:48:30,675 - ERROR - Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.UndefinedTable: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\admin\sites.py", line 265, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\admin\sites.py", line 234, in inner
+    if not self.has_permission(request):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\admin\sites.py", line 207, in has_permission
+    return request.user.is_active and request.user.is_staff
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\utils\functional.py", line 251, in inner
+    self._setup()
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\utils\functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\auth\middleware.py", line 40, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+                                            ^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\auth\middleware.py", line 20, in get_user
+    request._cached_user = auth.get_user(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\auth\__init__.py", line 304, in get_user
+    user_id = _get_user_session_key(request)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\auth\__init__.py", line 95, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+                                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\sessions\backends\base.py", line 55, in __getitem__
+    return self._session[key]
+           ^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1623, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\backends\utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\backends\utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\backends\utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\backends\utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\backends\utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.ProgrammingError: relation "django_session" does not exist
+LINE 1: ...ession_data", "django_session"."expire_date" FROM "django_se...
+                                                             ^
+
+2025-07-20 15:48:31,230 - WARNING - Not Found: /favicon.ico
+2025-07-20 15:49:27,759 - WARNING - Could not reverse url from auth.user
+2025-07-20 15:49:46,078 - WARNING - Could not reverse url from auth.user
+2025-07-20 15:50:02,830 - WARNING - Could not reverse url from auth.user
+2025-07-20 15:50:41,493 - INFO - Django setup successful
+2025-07-20 15:51:27,158 - WARNING - Could not reverse url from auth.user
+2025-07-20 15:51:27,160 - WARNING - Could not reverse url from auth.user
+2025-07-20 15:51:27,753 - WARNING - Could not reverse url from auth.user
+2025-07-20 15:51:27,756 - WARNING - Could not reverse url from auth.user
+2025-07-20 15:51:27,759 - WARNING - Could not reverse url from auth.user
+2025-07-20 15:51:33,494 - WARNING - Could not reverse url from auth.user
+2025-07-20 15:51:33,497 - WARNING - Could not reverse url from auth.user
+2025-07-20 15:51:34,080 - WARNING - Could not reverse url from auth.user
+2025-07-20 15:51:34,085 - WARNING - Could not reverse url from auth.user
+2025-07-20 15:54:25,054 - WARNING - Not Found: /favicon.ico
+2025-07-20 15:57:21,524 - ERROR - Internal Server Error: /admin/agent/lead/
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\sessions\backends\base.py", line 244, in _get_session
+    return self._session_cache
+           ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.OperationalError: could not translate host name "dpg-d1ufecndiees73amjvsg-a.oregon-postgres.render.com" to address: No such host is known. 
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\admin\options.py", line 719, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\utils\decorators.py", line 192, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\utils\decorators.py", line 190, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\admin\sites.py", line 234, in inner
+    if not self.has_permission(request):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\admin\sites.py", line 207, in has_permission
+    return request.user.is_active and request.user.is_staff
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\utils\functional.py", line 251, in inner
+    self._setup()
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\utils\functional.py", line 404, in _setup
+    self._wrapped = self._setupfunc()
+                    ^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\auth\middleware.py", line 40, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+                                            ^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\auth\middleware.py", line 20, in get_user
+    request._cached_user = auth.get_user(request)
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\auth\__init__.py", line 304, in get_user
+    user_id = _get_user_session_key(request)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\auth\__init__.py", line 95, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+                                               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\sessions\backends\base.py", line 55, in __getitem__
+    return self._session[key]
+           ^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\sessions\backends\base.py", line 249, in _get_session
+    self._session_cache = self.load()
+                          ^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\sessions\backends\db.py", line 55, in load
+    s = self._get_session_from_db()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\contrib\sessions\backends\db.py", line 34, in _get_session_from_db
+    return self.model.objects.get(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\models\query.py", line 629, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\models\query.py", line 366, in __len__
+    self._fetch_all()
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\models\query.py", line 1951, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\models\sql\compiler.py", line 1621, in execute_sql
+    cursor = self.connection.cursor()
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\backends\base\base.py", line 320, in cursor
+    return self._cursor()
+           ^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\backends\base\base.py", line 296, in _cursor
+    self.ensure_connection()
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\backends\base\base.py", line 278, in ensure_connection
+    with self.wrap_database_errors:
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\backends\base\base.py", line 279, in ensure_connection
+    self.connect()
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\backends\base\base.py", line 256, in connect
+    self.connection = self.get_new_connection(conn_params)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\utils\asyncio.py", line 26, in inner
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\db\backends\postgresql\base.py", line 332, in get_new_connection
+    connection = self.Database.connect(**conn_params)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\psycopg2\__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: could not translate host name "dpg-d1ufecndiees73amjvsg-a.oregon-postgres.render.com" to address: No such host is known. 
+
+2025-07-20 15:57:36,262 - WARNING - Forbidden: /api/genesis-agent/
+2025-07-20 15:59:01,242 - INFO - Django setup successful
+2025-07-20 15:59:27,191 - WARNING - Forbidden: /api/genesis-agent/
+2025-07-20 16:02:06,426 - WARNING - Forbidden: /api/genesis-agent/
+2025-07-20 16:28:53,691 - INFO - C:\Users\HP\Desktop\genesis.ai\core\settings.py changed, reloading.
+2025-07-20 16:29:18,659 - INFO - Django setup successful
+2025-07-20 16:29:23,058 - INFO - Django setup successful
+2025-07-20 16:29:33,001 - WARNING - Could not reverse url from auth.user
+2025-07-20 16:29:41,520 - WARNING - Could not reverse url from auth.user
+2025-07-20 16:29:41,534 - WARNING - Could not reverse url from auth.user
+2025-07-20 16:29:41,538 - WARNING - Could not reverse url from auth.user
+2025-07-20 16:29:41,538 - WARNING - Could not reverse url from auth.user
+2025-07-20 21:06:14,818 - INFO - Django setup successful
+2025-07-20 21:22:07,363 - WARNING - Could not reverse url from auth.user
+2025-07-20 21:22:07,394 - WARNING - Could not reverse url from auth.user
+2025-07-20 21:22:07,399 - WARNING - Could not reverse url from auth.user
+2025-07-20 21:22:07,404 - WARNING - Could not reverse url from auth.user
+2025-07-20 21:41:54,361 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\backdoor\email_compose\inbox_warmup.py changed, reloading.
+2025-07-20 21:47:25,121 - INFO - Django setup successful
+2025-07-20 21:47:59,139 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\backdoor\email_compose\inbox_warmup.py changed, reloading.
+2025-07-20 21:48:17,842 - INFO - Django setup successful
+2025-07-20 21:49:38,975 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\backdoor\email_compose\inbox_warmup.py changed, reloading.
+2025-07-20 21:49:56,002 - INFO - Django setup successful
+2025-07-20 21:51:23,110 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\backdoor\email_compose\inbox_warmup.py changed, reloading.
+2025-07-20 21:51:39,898 - INFO - Django setup successful
+2025-07-20 21:53:51,498 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\backdoor\email_compose\inbox_warmup.py changed, reloading.
+2025-07-20 21:54:08,434 - INFO - Django setup successful
+2025-07-20 21:56:15,835 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\backdoor\email_compose\inbox_warmup.py changed, reloading.
+2025-07-20 21:56:32,053 - INFO - Django setup successful
+2025-07-20 21:59:04,537 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\backdoor\email_compose\inbox_warmup.py changed, reloading.
+2025-07-20 22:01:59,130 - INFO - Django setup successful
+2025-07-20 22:02:07,316 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\backdoor\email_compose\inbox_warmup.py changed, reloading.
+2025-07-20 22:02:22,170 - INFO - Django setup successful
+2025-07-20 22:08:35,957 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\backdoor\email_compose\inbox_warmup.py changed, reloading.
+2025-07-20 22:08:54,098 - INFO - Django setup successful
+2025-07-21 15:25:30,292 - INFO - Django setup successful
+2025-07-21 15:26:02,299 - WARNING - Not Found: /favicon.ico
+2025-07-21 15:33:42,904 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.
+2025-07-21 15:34:00,490 - INFO - Django setup successful
+2025-07-21 15:34:54,258 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.
+2025-07-21 15:35:22,329 - INFO - Django setup successful
+2025-07-21 15:36:59,663 - WARNING - Could not reverse url from auth.user
+2025-07-21 15:36:59,685 - WARNING - Could not reverse url from auth.user
+2025-07-21 15:36:59,690 - WARNING - Could not reverse url from auth.user
+2025-07-21 15:36:59,692 - WARNING - Could not reverse url from auth.user
+2025-07-21 15:39:28,996 - WARNING - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-07-21 15:43:03,645 - WARNING - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-07-21 15:44:08,082 - WARNING - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-07-21 15:47:47,254 - WARNING - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-07-21 15:50:02,857 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.
+2025-07-21 15:50:19,866 - INFO - Django setup successful
+2025-07-21 15:56:31,071 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.
+2025-07-21 15:56:55,565 - INFO - Django setup successful
+2025-07-21 15:56:59,759 - WARNING - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-07-21 15:57:23,666 - ERROR - Internal Server Error: /api/genesis-agent
+Traceback (most recent call last):
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\utils\deprecation.py", line 122, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\middleware\common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HP\Desktop\genesis.ai\env\Lib\site-packages\django\middleware\common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to localhost:8000/api/genesis-agent/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+2025-07-21 16:00:34,019 - WARNING - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-07-21 16:01:18,017 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-21 16:09:43,256 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.

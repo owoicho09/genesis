@@ -613,6 +613,8 @@
   let messageCount = 0;
   let isTyping = false;
   let activeCommand = null;
+  const GENESIS_API_URL = "{{ GENESIS_API_URL|escapejs }}/api/genesis-agent/";
+  console.log("GENESIS_API_URL:", GENESIS_API_URL);  // Check this in browser console
 
   const textarea = document.getElementById('userInput');
 
@@ -775,7 +777,7 @@
       : { user_input: message };
 
     try {
-      const response = await fetch("https://genesis-1-snd7.onrender.com/api/genesis-agent/", {
+        const response = await fetch(GENESIS_API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

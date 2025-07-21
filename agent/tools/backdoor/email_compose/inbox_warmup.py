@@ -87,57 +87,18 @@ def load_smtp_configs() -> List[SMTPConfig]:
             password=zoho_password
         ))
 
-    # Zoho configuration 1
-    zoho_email_1 = os.getenv("zoho_email_1")
-    zoho_app_password_1 = os.getenv("zoho_app_password_1")
-    if zoho_email_1 and zoho_app_password_1:
+    gmail_email = os.getenv("EMAIL_HOST_USER")
+    gmail_password = os.getenv("EMAIL_HOST_PASSWORD")
+    if gmail_email and gmail_password:
         configs.append(SMTPConfig(
-            provider="zoho",
-            host="smtp.zoho.com",
+            provider="gmail",
+            host="smtp.gmail.com",
             port=587,
             use_tls=True,
-            username=zoho_email_1,
-            password=zoho_app_password_1
+            username=gmail_email,
+            password=gmail_password
         ))
 
-    # Zoho configuration 2 - FIXED: Now checking correct variables
-    zoho_email_2 = os.getenv("zoho_email_2")
-    zoho_app_password_2 = os.getenv("zoho_app_password_2")
-    if zoho_email_2 and zoho_app_password_2:
-        configs.append(SMTPConfig(
-            provider="zoho",
-            host="smtp.zoho.com",
-            port=587,
-            use_tls=True,
-            username=zoho_email_2,
-            password=zoho_app_password_2
-        ))
-
-    # Zoho configuration 3 - FIXED: Now checking correct variables
-    zoho_email_3 = os.getenv("zoho_email_3")
-    zoho_app_password_3 = os.getenv("zoho_app_password_3")
-    if zoho_email_3 and zoho_app_password_3:
-        configs.append(SMTPConfig(
-            provider="zoho",
-            host="smtp.zoho.com",
-            port=587,
-            use_tls=True,
-            username=zoho_email_3,
-            password=zoho_app_password_3
-        ))
-
-    # Zoho configuration 4 - FIXED: Now checking correct variables
-    zoho_email_4 = os.getenv("zoho_email_4")
-    zoho_app_password_4 = os.getenv("zoho_app_password_4")
-    if zoho_email_4 and zoho_app_password_4:
-        configs.append(SMTPConfig(
-            provider="zoho",
-            host="smtp.zoho.com",
-            port=587,
-            use_tls=True,
-            username=zoho_email_4,
-            password=zoho_app_password_4
-        ))
 
     if not configs:
         raise ValueError("No SMTP configurations found. Please check your environment variables.")
@@ -244,14 +205,14 @@ class EmailWarmUpManager:
             self.logger.error(f"Failed to send email to {to_email}: {str(e)}")
             return False
 
-    def send_warmup_batch(self, leads: List, leads_per_inbox: int = 2, delay_minutes: int = 1):
+    def send_warmup_batch(self, leads: List, leads_per_inbox: int = 1, delay_minutes: int = 0):
         total_leads = len(leads)
         total_inboxes = len(self.smtp_configs)
         total_to_send = total_inboxes * leads_per_inbox
 
         last_index = load_last_index()
         next_index = (last_index + 1) % total_leads
-
+        print('sending to', total_to_send)
         selected_leads = []
 
         for i in range(total_to_send):
@@ -279,16 +240,34 @@ class EmailWarmUpManager:
         # Update index
         new_index = (next_index + total_to_send - 1) % total_leads
         if new_index == total_leads - 1:
-            self.logger.info("✅ Full cycle complete. Resetting warmup state.")
+            self.logger.info(" Full cycle complete. Resetting warmup state.")
             clear_warmup_state()
         else:
             save_last_index(new_index)
 
-        subject = "Genesis inbox warm-up Completed ✅",
+        subject = "Genesis inbox warm-up Completed ",
         body = (
             f"A total of {total_to_send} emails were sent"
         )
         send_scraping_update(subject, body)
+
+    def send_glock_test_batch(self, test_leads: List, smtp_config: SMTPConfig, delay_seconds: int = 0):
+        subject, body = self._get_random_warmup_email()
+
+        if not subject or not body:
+            self.logger.error(" No warm-up template found.")
+            return
+
+        for i, lead in enumerate(test_leads):
+            sent = self.send_email(subject, body, lead.email, smtp_config)
+
+            if sent:
+                self.logger.info(f"[{i + 1}]  Sent to {lead.email} via {smtp_config.username}")
+            else:
+                self.logger.warning(f"[{i + 1}]  Failed to send to {lead.email}")
+
+            if i < len(test_leads) - 1 and delay_seconds:
+                time.sleep(delay_seconds)
 
 
 # ---- Mock Leads for Warmup Test ----
@@ -300,15 +279,15 @@ class MockLead:
     bio: str = ""
 
 test_leads = [
-    MockLead(email="michaelogaje033@gmail.com", username="coachmike", niche="fitness"),
-    MockLead(email="kennkiyoshi@gmail.com", username="fitkenn", niche="fitness"),
-    MockLead(email="owi.09.12.02@gmail.com", username="yogaowi", niche="fitness"),
-    MockLead(email="unitorial111@gmail.com", username="traineruni", niche="fitness"),
-    MockLead(email="michaelogaje033@hotmail.com", username="coachmike", niche="fitness"),
-    MockLead(email="michaelogaje033@outlook.com", username="coachmike", niche="fitness"),
-    MockLead(email="owi0912@hotmail.com", username="owi", niche="fitness"),
-    MockLead(email="owi0912@outlook.com", username="owi", niche="fitness"),
-    MockLead(email="009.012.k2@gmail.com", username="k2", niche="fitness"),
+    #MockLead(email="michaelogaje033@gmail.com", username="coachmike", niche="fitness"),
+    #MockLead(email="kennkiyoshi@gmail.com", username="fitkenn", niche="fitness"),
+    #MockLead(email="owi.09.12.02@gmail.com", username="yogaowi", niche="fitness"),
+    #MockLead(email="unitorial111@gmail.com", username="traineruni", niche="fitness"),
+    #MockLead(email="michaelogaje033@hotmail.com", username="coachmike", niche="fitness"),
+    #MockLead(email="michaelogaje033@outlook.com", username="coachmike", niche="fitness"),
+    #MockLead(email="owi0912@hotmail.com", username="owi", niche="fitness"),
+    #MockLead(email="owi0912@outlook.com", username="owi", niche="fitness"),
+    #MockLead(email="009.012.k2@gmail.com", username="k2", niche="fitness"),
     MockLead(email="genesis.ai1@hotmail.com", username="genesisai", niche="fitness"),
     MockLead(email="genesis.aii@hotmail.com", username="genesisai", niche="fitness"),
     MockLead(email="genesis.aii@proton.me", username="genesisai", niche="fitness"),
@@ -319,6 +298,65 @@ test_leads = [
     MockLead(email="u15529464@gmail.com", username="studentfit", niche="fitness"),
 ]
 
+
+test_emails = [
+    MockLead(email="elizabeaver@auth.glockdb.com", username="elizabeaver", niche="test"),
+    MockLead(email="kennkiyoshi@gmail.com", username="bm", niche="test"),
+
+    MockLead(email="fredmrivenburg@aol.com", username="fredmrivenburg", niche="test"),
+    MockLead(email="josephsauerer@currently.com", username="josephsauerer", niche="test"),
+    MockLead(email="davidvcampbell@aol.com", username="davidvcampbell", niche="test"),
+    MockLead(email="augustinlidermann@t-online.de", username="augustinlidermann", niche="test"),
+    MockLead(email="wilcoxginax@gmail.com", username="wilcoxginax", niche="test"),
+    MockLead(email="verify79@seznam.cz", username="verify79", niche="test"),
+    MockLead(email="catherinedwilsonn@aol.com", username="catherinedwilsonn", niche="test"),
+    MockLead(email="martinawm@gemings.awsapps.com", username="martinawm", niche="test"),
+    MockLead(email="edwardamato@mailo.com", username="edwardamato", niche="test"),
+    MockLead(email="williamhensley54@yahoo.com", username="williamhensley54", niche="test"),
+    MockLead(email="melissaamy5465@gmail.com", username="melissaamy5465", niche="test"),
+    MockLead(email="heavenpeck@freenet.de", username="heavenpeck", niche="test"),
+    MockLead(email="irenem@userflowhq.com", username="irenem", niche="test"),
+    MockLead(email="locirppokungiggk@gmx.de", username="locirppokungiggk", niche="test"),
+    MockLead(email="andreablackburn@yandex.ru", username="andreablackburn", niche="test"),
+    MockLead(email="mbell@fastdirectorysubmitter.com", username="mbell", niche="test"),
+    MockLead(email="lisadsames@hotmail.com", username="lisadsames", niche="test"),
+    MockLead(email="virginia@buyemailsoftware.com", username="virginia", niche="test"),
+    MockLead(email="gd@desktopemail.com", username="gd", niche="test"),
+    MockLead(email="llionelcohenbr@gmail.com", username="llionelcohenbr", niche="test"),
+    MockLead(email="michaelrwoodd@yahoo.com", username="michaelrwoodd", niche="test"),
+    MockLead(email="luanajortega@yahoo.com", username="luanajortega", niche="test"),
+    MockLead(email="jeffsayerss@yahoo.com", username="jeffsayerss", niche="test"),
+    MockLead(email="ivaansmcccln@att.net", username="ivaansmcccln", niche="test"),
+    MockLead(email="assa@auth.glockdb.com", username="assa", niche="test"),
+    MockLead(email="bbarretthenryhe@gmail.com", username="bbarretthenryhe", niche="test"),
+    MockLead(email="sinkerfiil@outlook.com", username="sinkerfiil", niche="test"),
+    MockLead(email="amandoteo79@virgilio.it", username="amandoteo79", niche="test"),
+    MockLead(email="jurgeneberhartdd@web.de", username="jurgeneberhartdd", niche="test"),
+    MockLead(email="leoefraser@yahoo.com", username="leoefraser", niche="test"),
+    MockLead(email="justinjacobsdj@hotmail.com", username="justinjacobsdj", niche="test"),
+    MockLead(email="simonetgrimard@laposte.net", username="simonetgrimard", niche="test"),
+    MockLead(email="creissantdubois@laposte.net", username="creissantdubois", niche="test"),
+    MockLead(email="michaelogaje033@gmail.com", username="bm", niche="test"),
+
+    MockLead(email="brittanyrocha@outlook.de", username="brittanyrocha", niche="test"),
+    MockLead(email="marionrblack@outlook.com", username="marionrblack", niche="test"),
+    MockLead(email="sonjahoopsk@naver.com", username="sonjahoopsk", niche="test"),
+    MockLead(email="kathleeenstone@gmx.com", username="kathleeenstone", niche="test"),
+    MockLead(email="phhhillipwiligams@hotmail.com", username="phhhillipwiligams", niche="test"),
+    MockLead(email="marienavratilovas@seznam.cz", username="marienavratilovas", niche="test"),
+    MockLead(email="verifycom79@gmx.com", username="verifycom79", niche="test"),
+    MockLead(email="williamhbishopp@yahoo.com", username="williamhbishopp", niche="test"),
+    MockLead(email="b2bdeliver79@mail.com", username="b2bdeliver79", niche="test"),
+    MockLead(email="verifymailru79@mail.ru", username="verifymailru79", niche="test"),
+    MockLead(email="shannongreerf@outlook.com", username="shannongreerf", niche="test"),
+
+]
+
+
+dummy_email = [
+    MockLead(email="kennkiyoshi@gmail.com", username="bm", niche="test"),
+
+]
 
 # ---- Utility Functions ----
 def validate_email_format(email: str) -> bool:
@@ -349,16 +387,19 @@ def run_warmup():
     try:
         smtp_configs = load_smtp_configs()
         manager = EmailWarmUpManager(smtp_configs)
+        test_smtp = smtp_configs[1]  # use your Zoho/Outlook inbox
 
         # Filter valid leads
-        valid_leads = filter_valid_leads(test_leads)
+        valid_leads = filter_valid_leads(dummy_email)
 
         if not valid_leads:
             print("No valid leads found. Please check your test data.")
             return
 
         print(f"Starting warmup for {len(valid_leads)} leads...")
-        manager.send_warmup_batch(valid_leads, leads_per_inbox=2, delay_minutes=1)
+        #manager.send_warmup_batch(valid_leads, leads_per_inbox=1, delay_minutes=0)
+        manager.send_glock_test_batch(valid_leads, smtp_config=test_smtp, delay_seconds=3)
+
         print("Warmup process completed!")
 
     except Exception as e:

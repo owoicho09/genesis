@@ -13,6 +13,6 @@ urlpatterns = [
     path("email-open/<str:email>", views.email_open_view, name="email_open"),
     path("genesis-agent/", views.run_genesis_agent),
 
-    path("chat/", TemplateView.as_view(template_name="chatbot/index.html")),  # if using templates
+    path("chat/", views.chatbot_page),
 
 ]

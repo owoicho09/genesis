@@ -13,6 +13,7 @@ from django.http import HttpResponse
 from django.utils.timezone import now
 # core/api/views.py or wherever your API views live
 from urllib.parse import unquote
+from django.conf import settings
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -35,6 +36,16 @@ class RegisterView(generics.CreateAPIView):
     queryset = User.objects.all()
     permission_classes = [AllowAny]    # allow any user to access this view
     serializer_class = serializers.RegisterSerializer
+
+
+
+
+def chatbot_page(request):
+    return render(request, "chatbot/index.html", {
+        'GENESIS_API_URL': settings.SITE_URL
+    })
+
+
 
 
 @api_view(["POST"])
@@ -79,6 +90,7 @@ def run_genesis_agent(request):
 
     except Exception as e:
         print(f"❌ API Error: {e}")
+        print(traceback.format_exc())  # ⬅️ This gives full details in Render logs
         return Response({"error": str(e)}, status=500)
 
 
