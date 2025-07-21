@@ -18,7 +18,7 @@ try:
     django.setup()
     from agent.models import Lead  # Replace 'your_app' with your actual app name
 
-    print("✅ Django setup successful")
+    print("Django setup successful")
 except Exception as e:
     print(f"❌ Django setup failed: {e}")
     sys.exit(1)

@@ -6,10 +6,7 @@ from django.conf import settings
 # Django setup
 # Django setup (if needed)
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../..'))
-print("✅ PROJECT_ROOT:", PROJECT_ROOT)
-print("✅ sys.path[0]:", sys.path[0])
-print("✅ core folder exists:", os.path.exists(os.path.join(PROJECT_ROOT, "core")))
-print("✅ settings.py exists:", os.path.exists(os.path.join(PROJECT_ROOT, "core", "settings.py")))
+
 sys.path.insert(0, PROJECT_ROOT)
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings")
 import django

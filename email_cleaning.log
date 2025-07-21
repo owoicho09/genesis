@@ -2151,3 +2151,21 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 2025-07-21 16:00:34,019 - WARNING - Not Found: /.well-known/appspecific/com.chrome.devtools.json
 2025-07-21 16:01:18,017 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
 2025-07-21 16:09:43,256 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.
+2025-07-21 16:10:10,302 - INFO - Django setup successful
+2025-07-21 16:10:19,108 - WARNING - Not Found: /.well-known/appspecific/com.chrome.devtools.json
+2025-07-21 16:18:51,147 - INFO - Django setup successful
+2025-07-21 16:22:28,338 - INFO - Django setup successful
+2025-07-21 16:23:10,453 - INFO - Django setup successful
+2025-07-21 16:26:02,774 - INFO - Django setup successful
+2025-07-21 16:26:46,674 - INFO - Django setup successful
+2025-07-21 16:27:16,287 - INFO - Django setup successful
+2025-07-21 16:28:32,131 - INFO - Django setup successful
+2025-07-21 16:31:57,156 - INFO - Django setup successful
+2025-07-21 16:46:37,453 - INFO - Django setup successful
+2025-07-21 16:48:39,915 - INFO - Django setup successful
+2025-07-21 16:49:13,340 - INFO - Django setup successful
+2025-07-21 16:52:11,576 - INFO - Django setup successful
+2025-07-21 16:52:55,351 - INFO - Django setup successful
+2025-07-21 21:00:12,332 - INFO - Django setup successful
+2025-07-21 21:02:02,157 - INFO - Django setup successful
+2025-07-21 21:02:35,473 - INFO - Django setup successful
