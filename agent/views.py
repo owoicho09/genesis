@@ -14,7 +14,7 @@ from django.utils.timezone import now
 # core/api/views.py or wherever your API views live
 from urllib.parse import unquote
 from django.conf import settings
-
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
@@ -48,6 +48,7 @@ def chatbot_page(request):
 
 
 
+@csrf_exempt
 @api_view(["POST"])
 def run_genesis_agent(request):
     print('---hitting---')

@@ -1,10 +1,15 @@
 from langchain_openai import ChatOpenAI
-from langchain.agents import create_openai_functions_agent,create_tool_calling_agent
-from langchain.agents import initialize_agent, AgentType
-from langchain.agents.agent import AgentExecutor,RunnableAgent
-from langchain.prompts import ChatPromptTemplate
-from langchain.tools import tool
 
+from langchain.agents import (
+    create_openai_functions_agent,
+    create_tool_calling_agent,
+    initialize_agent,
+    AgentType
+)
+
+from langchain_core.agents import AgentExecutor, RunnableAgent
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.tools import tool
 
 from agent.tools.rag_setup import *
 from agent.tools.campaign import *
@@ -23,7 +28,7 @@ from agent.tools.optimization.campaign_analytics import *
 from agent.tools.optimization.scheduler import *
 from langchain.chat_models import init_chat_model
 
-from langchain.memory import ConversationBufferMemory
+from langchain_core.memory import ConversationBufferMemory
 if not os.environ.get("OPENAI_API_KEY"):
   os.environ["OPENAI_API_KEY"] = getpass.getpass("Enter API key for OpenAI: ")
 
@@ -74,7 +79,7 @@ run_optimization,
 
 # LLM
 
-llm = init_chat_model("gpt-4", model_provider="openai")
+llm = ChatOpenAI("gpt-4", model_provider="openai")
 # Wrap tools
 
 # Prompt

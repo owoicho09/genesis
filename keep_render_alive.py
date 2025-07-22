@@ -2,7 +2,7 @@ import requests
 import time
 
 # === CONFIG ===
-URL = "https://frscadmin.onrender.com/"  # Replace with your endpoint
+URL = "https://genesis-1-snd7.onrender.com/swagger"  # Replace with your endpoint
 INTERVAL = 300  # in seconds (every 5 minutes)
 
 def keep_alive():
