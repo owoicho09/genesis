@@ -2186,3 +2186,16 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 2025-07-22 02:37:38,826 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.
 2025-07-22 02:37:58,269 - INFO - Django setup successful
 2025-07-22 03:15:45,214 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.
+2025-07-22 03:16:08,253 - INFO - Django setup successful
+2025-07-22 03:22:15,302 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 03:22:16,084 - INFO - Starting batch outreach for niche: fitness coach
+2025-07-22 03:22:16,086 - INFO - Batch size: 10, Delay: 10 minutes
+2025-07-22 03:22:18,493 - INFO - Found 1 leads to contact
+2025-07-22 03:22:18,874 - INFO - Generating email for dr.moseki25th@gmail.com...
+2025-07-22 03:22:22,298 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 03:22:37,452 - INFO -  [1/10] Sent to dr.moseki25th@gmail.com via zoho
+2025-07-22 03:22:37,455 - INFO - Subject: a fresh approach to your fitness content
+2025-07-22 03:22:37,456 - INFO -  Waiting 10 minutes before next send...
+2025-07-22 03:28:23,039 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.
+2025-07-22 03:28:44,637 - INFO - Django setup successful
+2025-07-22 03:30:34,109 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.

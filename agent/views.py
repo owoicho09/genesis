@@ -23,6 +23,7 @@ from agent.tools.langgraph import CampaignAgentState  # TypedDict
 from .models import *
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
+import traceback
 
 
 
@@ -54,13 +55,19 @@ def chatbot_page(request):
 def run_genesis_agent(request):
     print('---hitting---')
 
+    if request.method != "POST":
+        return JsonResponse({"error": "Method not allowed"}, status=405)
+
     try:
-        if "type" in request.data and "args" in request.data:
-            intent_type = request.data["type"]
-            args = request.data["args"]
+        import traceback  # ✅ Import placed safely here too
+
+        data = json.loads(request.body)  # ✅ FIX
+
+        if "type" in data and "args" in data:
+            intent_type = data["type"]
+            args = data["args"]
             input_text = args.get("input", "")
 
-            # Convert structured input into clearer NL for LLM
             type_to_prompt = {
                 "google_scrape": f"Scrape Google Maps for {input_text}",
                 "instagram_scrape": f"Scrape Instagram for {input_text}",
@@ -68,33 +75,25 @@ def run_genesis_agent(request):
                 "send_outreach": f"Send outreach to {input_text}",
                 "warmup_emails": f"Warm up email inboxes",
                 "launch_campaign": f"Launch a campaign for {input_text}",
-
-                # Add more types as needed
             }
 
             nl_input = type_to_prompt.get(intent_type, input_text)
-
-            initial_state = {
-                "user_input": nl_input  # let the LLM process a clearer sentence
-            }
-
+            initial_state = {"user_input": nl_input}
         else:
-            user_input = request.data.get("user_input", "")
+            user_input = data.get("user_input", "")
             if not user_input:
-                return Response({"error": "user_input is required"}, status=400)
-
+                return JsonResponse({"error": "user_input is required"}, status=400)
             initial_state = {"user_input": user_input}
 
         result = campaign_agent_executor.invoke(initial_state)
         final_result = result.get("result", "⚠️ No response generated")
 
-        return Response({"result": final_result}, status=status.HTTP_200_OK)
+        return JsonResponse({"result": final_result}, status=200)
 
     except Exception as e:
         print(f"❌ API Error: {e}")
-        print(traceback.format_exc())  # ⬅️ This gives full details in Render logs
-        return Response({"error": str(e)}, status=500)
-
+        print(traceback.format_exc())  # ✅ Now this will work
+        return JsonResponse({"error": str(e)}, status=500)
 
 def health_check(request):
     return JsonResponse({"status": "ok"})
