@@ -2199,3 +2199,16 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 2025-07-22 03:28:23,039 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.
 2025-07-22 03:28:44,637 - INFO - Django setup successful
 2025-07-22 03:30:34,109 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.
+2025-07-22 03:30:48,332 - INFO - Django setup successful
+2025-07-22 03:31:56,441 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.
+2025-07-22 03:32:21,410 - INFO - Django setup successful
+2025-07-22 03:32:42,260 - INFO - ==================================================
+2025-07-22 03:32:42,263 - INFO - BATCH OUTREACH SUMMARY
+2025-07-22 03:32:42,264 - INFO - ==================================================
+2025-07-22 03:32:42,265 - INFO - Total leads processed: 1
+2025-07-22 03:32:42,267 - INFO - Successful sends: 1
+2025-07-22 03:32:42,268 - INFO - Failed sends: 0
+2025-07-22 03:32:42,269 - INFO - Success rate: 100.0%
+2025-07-22 03:32:42,269 - INFO - Duration: 0:10:21.391730
+2025-07-22 03:32:42,271 - INFO - Completed at: 2025-07-22 03:32:37.476255
+2025-07-22 03:34:24,788 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.

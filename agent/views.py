@@ -23,7 +23,9 @@ from agent.tools.langgraph import CampaignAgentState  # TypedDict
 from .models import *
 from django.contrib.auth import get_user_model
 from django.http import JsonResponse
-import traceback
+
+import json
+import traceback  # ✅ Add this import at the top
 
 
 
@@ -59,9 +61,8 @@ def run_genesis_agent(request):
         return JsonResponse({"error": "Method not allowed"}, status=405)
 
     try:
-        import traceback  # ✅ Import placed safely here too
-
-        data = json.loads(request.body)  # ✅ FIX
+        # ✅ Parse JSON from request.body instead of request.data
+        data = json.loads(request.body)
 
         if "type" in data and "args" in data:
             intent_type = data["type"]
@@ -89,6 +90,11 @@ def run_genesis_agent(request):
         final_result = result.get("result", "⚠️ No response generated")
 
         return JsonResponse({"result": final_result}, status=200)
+
+    except json.JSONDecodeError as e:
+        print(f"❌ JSON Parse Error: {e}")
+        print(traceback.format_exc())
+        return JsonResponse({"error": "Invalid JSON in request body"}, status=400)
 
     except Exception as e:
         print(f"❌ API Error: {e}")
