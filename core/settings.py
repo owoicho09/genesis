@@ -66,7 +66,6 @@ INSTALLED_APPS = [
     "drf_yasg",
     'cloudinary',
     'cloudinary_storage',
-    "corsheaders",
     # Local apps
     "userauth",
     "agent",
