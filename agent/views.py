@@ -50,9 +50,8 @@ def chatbot_page(request):
 
 
 
-
-@csrf_exempt
 @api_view(["POST"])
+@csrf_exempt
 def run_genesis_agent(request):
     print('---hitting---')
 
