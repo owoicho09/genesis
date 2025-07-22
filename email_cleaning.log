@@ -2181,3 +2181,5 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 2025-07-22 02:14:41,971 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.
 2025-07-22 02:15:02,221 - INFO - Django setup successful
 2025-07-22 02:15:09,804 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\urls.py changed, reloading.
+2025-07-22 02:17:08,957 - INFO - Django setup successful
+2025-07-22 02:17:23,673 - WARNING - Not Found: /favicon.ico
