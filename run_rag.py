@@ -17,7 +17,7 @@ from agent.tools.optimization.campaign_analytics import generate_campaign_summar
 from agent.tools.optimization.campaign_analytics import generate_product_adcopy_and_headline_cta
 from agent.tools.database_update import update_campaign_fields
 # run_rag.py
-from agent.tools.langchain import get_genesis_agent
+#from agent.tools.langchain import get_genesis_agent
 from agent.tools.langgraph import campaign_agent_executor
 
 from agent.tools.optimization.scheduler import run_optimization

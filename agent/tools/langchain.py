@@ -7,7 +7,7 @@ from langchain.agents import (
     AgentType
 )
 
-from langchain_core.agents import AgentExecutor, RunnableAgent
+from langchain.agents import AgentExecutor
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.tools import tool
 

@@ -2169,3 +2169,11 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 2025-07-21 21:00:12,332 - INFO - Django setup successful
 2025-07-21 21:02:02,157 - INFO - Django setup successful
 2025-07-21 21:02:35,473 - INFO - Django setup successful
+2025-07-22 01:46:11,245 - INFO - Django setup successful
+2025-07-22 01:46:43,682 - INFO - Django setup successful
+2025-07-22 01:49:03,675 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-22 01:50:58,821 - INFO - C:\Users\HP\Desktop\genesis.ai\core\settings.py changed, reloading.
+2025-07-22 01:51:23,443 - INFO - Django setup successful
+2025-07-22 01:51:41,569 - INFO - C:\Users\HP\Desktop\genesis.ai\core\settings.py changed, reloading.
+2025-07-22 01:52:03,363 - INFO - Django setup successful
+2025-07-22 01:53:23,190 - INFO - C:\Users\HP\Desktop\genesis.ai\core\settings.py changed, reloading.

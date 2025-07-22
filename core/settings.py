@@ -66,7 +66,7 @@ INSTALLED_APPS = [
     "drf_yasg",
     'cloudinary',
     'cloudinary_storage',
-
+    "corsheaders",
     # Local apps
     "userauth",
     "agent",
@@ -74,6 +74,8 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # Should be near the top
+
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",  # CORS middleware
@@ -124,7 +126,30 @@ DATABASES = {
     "default": dj_database_url.config(default=os.getenv("DATABASE_URL"))
 }
 
+# CORS settings (if using django-cors-headers)
+CORS_ALLOWED_ORIGINS = [
+    "https://genesis-1-snd7.onrender.com",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+]
 
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://genesis-1-snd7.onrender.com',
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

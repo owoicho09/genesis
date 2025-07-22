@@ -78,6 +78,7 @@ rich>=13.0.0
 
 shortuuid
 regex
+django-cors-headers
 
 
 # Add these if needed
