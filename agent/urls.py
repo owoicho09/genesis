@@ -12,6 +12,7 @@ urlpatterns = [
     path('user/register/', views.RegisterView.as_view()),
     path("email-open/<str:email>", views.email_open_view, name="email_open"),
     path("genesis-agent/", views.run_genesis_agent),
+    path("healthz/", views.health_check),
 
     path("chat/", views.chatbot_page),
 

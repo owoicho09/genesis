@@ -22,6 +22,9 @@ from agent.tools.langgraph import campaign_agent_executor  # <-- Your compiled L
 from agent.tools.langgraph import CampaignAgentState  # TypedDict
 from .models import *
 from django.contrib.auth import get_user_model
+from django.http import JsonResponse
+
+
 
 # Create your views here.
 class MyTokenObtainPairView(TokenObtainPairView):
@@ -95,6 +98,8 @@ def run_genesis_agent(request):
         return Response({"error": str(e)}, status=500)
 
 
+def health_check(request):
+    return JsonResponse({"status": "ok"})
 
 def email_open_view(request, email):
     print("📩 Tracking pixel hit!")
