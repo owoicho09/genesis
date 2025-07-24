@@ -71,7 +71,7 @@ def run_genesis_agent(request):
 
             type_to_prompt = {
                 "google_scrape": f"Scrape Google Maps for {input_text}",
-                "instagram_scrape": f"Scrape Instagram for {input_text}",
+                "instagram_scraping": f"Scrape Instagram for {input_text}",
                 "send_email": f"Send an email to {input_text}",
                 "send_outreach": f"Send outreach to {input_text}",
                 "followup_outreach": f"Send followup outreach to {input_text}",

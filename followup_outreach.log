@@ -27,3 +27,27 @@
 2025-07-24 10:23:49,857 - INFO - Generating follow-up email for unitorial111@gmail.com...
 2025-07-24 10:24:10,679 - INFO - [4/4] Follow-up sent to unitorial111@gmail.com via zoho-1
 2025-07-24 10:24:10,682 - INFO - Subject: yogaowi, a quick thought for you
+2025-07-24 10:49:26,145 - INFO - Starting follow-up batch for niche: fitness coach
+2025-07-24 10:49:26,148 - INFO - Batch size: 3, Delay: 10 minutes
+2025-07-24 10:49:28,556 - INFO - Found 3 leads that need follow-up
+2025-07-24 10:49:28,915 - WARNING - Original email provider gmail not found for dhynescoach@gmail.com, using fallback
+2025-07-24 10:49:28,916 - INFO - Generating follow-up email for dhynescoach@gmail.com...
+2025-07-24 10:49:43,380 - ERROR - Failed to send email to dhynescoach@gmail.com: [Errno 11001] getaddrinfo failed
+2025-07-24 10:49:43,388 - WARNING - Original email provider gmail-2 not found for coachsahifitness@gmail.com, using fallback
+2025-07-24 10:49:43,390 - INFO - Generating follow-up email for coachsahifitness@gmail.com...
+2025-07-24 10:50:01,398 - INFO - [2/3] Follow-up sent to coachsahifitness@gmail.com via zoho
+2025-07-24 10:50:01,401 - INFO - Subject: coachsahifitness, could this make your life easier?
+2025-07-24 10:50:01,404 - INFO - Waiting 10 minutes before next send...
+2025-07-24 11:00:01,407 - WARNING - Original email provider gmail not found for gearlessphysique@gmail.com, using fallback
+2025-07-24 11:00:01,410 - INFO - Generating follow-up email for gearlessphysique@gmail.com...
+2025-07-24 11:00:21,397 - INFO - [3/3] Follow-up sent to gearlessphysique@gmail.com via zoho
+2025-07-24 11:00:21,399 - INFO - Subject: gearlessphysique, a quick thought for you
+2025-07-24 11:00:24,661 - INFO - ==================================================
+2025-07-24 11:00:24,664 - INFO - FOLLOW-UP OUTREACH SUMMARY
+2025-07-24 11:00:24,666 - INFO - ==================================================
+2025-07-24 11:00:24,668 - INFO - Total leads processed: 3
+2025-07-24 11:00:24,670 - INFO - Successful sends: 2
+2025-07-24 11:00:24,671 - INFO - Failed sends: 1
+2025-07-24 11:00:24,673 - INFO - Success rate: 66.7%
+2025-07-24 11:00:24,674 - INFO - Duration: 0:10:55.258584
+2025-07-24 11:00:24,676 - INFO - Completed at: 2025-07-24 11:00:21.404021

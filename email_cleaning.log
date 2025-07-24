@@ -2449,3 +2449,58 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 2025-07-24 10:59:29,467 - WARNING - Could not reverse url from auth.user
 2025-07-24 10:59:29,472 - WARNING - Could not reverse url from auth.user
 2025-07-24 10:59:29,482 - WARNING - Could not reverse url from auth.user
+2025-07-24 11:00:01,407 - WARNING - Original email provider gmail not found for gearlessphysique@gmail.com, using fallback
+2025-07-24 11:00:01,410 - INFO - Generating follow-up email for gearlessphysique@gmail.com...
+2025-07-24 11:00:04,813 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 11:00:21,397 - INFO - [3/3] Follow-up sent to gearlessphysique@gmail.com via zoho
+2025-07-24 11:00:21,399 - INFO - Subject: gearlessphysique, a quick thought for you
+2025-07-24 11:00:24,661 - INFO - ==================================================
+2025-07-24 11:00:24,664 - INFO - FOLLOW-UP OUTREACH SUMMARY
+2025-07-24 11:00:24,666 - INFO - ==================================================
+2025-07-24 11:00:24,668 - INFO - Total leads processed: 3
+2025-07-24 11:00:24,670 - INFO - Successful sends: 2
+2025-07-24 11:00:24,671 - INFO - Failed sends: 1
+2025-07-24 11:00:24,673 - INFO - Success rate: 66.7%
+2025-07-24 11:00:24,674 - INFO - Duration: 0:10:55.258584
+2025-07-24 11:00:24,676 - INFO - Completed at: 2025-07-24 11:00:21.404021
+2025-07-24 11:02:39,605 - WARNING - Could not reverse url from auth.user
+2025-07-24 11:02:39,609 - WARNING - Could not reverse url from auth.user
+2025-07-24 11:02:40,239 - WARNING - Could not reverse url from auth.user
+2025-07-24 11:02:40,241 - WARNING - Could not reverse url from auth.user
+2025-07-24 11:02:50,175 - WARNING - Could not reverse url from auth.user
+2025-07-24 11:02:50,179 - WARNING - Could not reverse url from auth.user
+2025-07-24 11:02:50,818 - WARNING - Could not reverse url from auth.user
+2025-07-24 11:02:50,819 - WARNING - Could not reverse url from auth.user
+2025-07-24 11:02:53,221 - WARNING - Could not reverse url from auth.user
+2025-07-24 11:02:53,229 - WARNING - Could not reverse url from auth.user
+2025-07-24 11:02:53,843 - WARNING - Could not reverse url from auth.user
+2025-07-24 11:02:53,845 - WARNING - Could not reverse url from auth.user
+2025-07-24 11:03:02,342 - WARNING - Could not reverse url from auth.user
+2025-07-24 11:03:02,344 - WARNING - Could not reverse url from auth.user
+2025-07-24 11:03:02,970 - WARNING - Could not reverse url from auth.user
+2025-07-24 11:03:02,973 - WARNING - Could not reverse url from auth.user
+2025-07-24 11:03:02,980 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:42:38,856 - INFO - Django setup successful
+2025-07-24 12:42:52,200 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:42:52,229 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:42:52,837 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:42:52,839 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:42:52,846 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:43:07,302 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:43:07,304 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:43:07,914 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:43:07,915 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:43:18,764 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:43:18,766 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:43:19,394 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:43:19,395 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:43:27,216 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:43:27,219 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:43:27,893 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:43:27,894 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:43:27,897 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:44:07,411 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:44:07,417 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:44:08,066 - WARNING - Could not reverse url from auth.user
+2025-07-24 12:44:08,068 - WARNING - Could not reverse url from auth.user
+2025-07-24 14:31:39,641 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.
