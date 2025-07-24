@@ -313,6 +313,8 @@ class Lead(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     email_sent = models.BooleanField(default=False)
+    followup_sent = models.BooleanField(default=False)
+
     valid = models.BooleanField(default=False)
 
     opened = models.BooleanField(default=False)

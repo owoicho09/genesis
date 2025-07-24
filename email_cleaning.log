@@ -2212,3 +2212,240 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 2025-07-22 03:32:42,269 - INFO - Duration: 0:10:21.391730
 2025-07-22 03:32:42,271 - INFO - Completed at: 2025-07-22 03:32:37.476255
 2025-07-22 03:34:24,788 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.
+2025-07-22 03:34:38,818 - INFO - Django setup successful
+2025-07-22 07:21:46,990 - INFO - Django setup successful
+2025-07-22 09:09:31,219 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\backdoor\email_compose\cold_outreach.py changed, reloading.
+2025-07-22 09:09:49,135 - INFO - Django setup successful
+2025-07-23 15:02:06,800 - INFO - Django setup successful
+2025-07-23 15:08:38,635 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-23 15:51:05,265 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\backdoor\scraper.py changed, reloading.
+2025-07-23 15:51:36,704 - INFO - Django setup successful
+2025-07-23 16:00:18,408 - WARNING - Not Found: /favicon.ico
+2025-07-23 16:02:12,472 - INFO - Starting Business Information Extractor
+2025-07-23 16:02:12,486 - INFO - ==================================================
+2025-07-23 16:02:12,722 - INFO - Django setup successful
+2025-07-23 16:02:16,440 - INFO - Starting extraction for 0 leads
+2025-07-23 16:02:16,441 - INFO - Extraction Summary:
+2025-07-23 16:02:16,441 - INFO -   Total leads: 0
+2025-07-23 16:02:16,442 - INFO -   Successful extractions: 0
+2025-07-23 16:02:16,442 - INFO -   Failed extractions: 0
+2025-07-23 16:02:16,442 - INFO -   Database updates: 0
+2025-07-23 16:02:16,443 - INFO -   Success rate: 0.0%
+2025-07-23 16:02:16,449 - INFO -   Duration: 3.7s
+2025-07-23 16:02:16,455 - INFO - Results saved to extraction_results.json
+2025-07-23 16:02:16,455 - INFO - Extraction completed successfully!
+2025-07-23 16:02:22,423 - INFO - Starting email cleaning process...
+2025-07-23 16:02:22,423 - INFO - Mode: LIVE CLEANING
+2025-07-23 16:02:22,423 - INFO - API validation: DISABLED
+2025-07-23 16:02:22,424 - INFO - Batch size: 1000
+2025-07-23 16:02:22,424 - INFO - Max workers: 4
+2025-07-23 16:02:23,014 - INFO - Found 303 leads with email addresses
+2025-07-23 16:02:24,203 - INFO - Processing batch 1 (303 leads)
+2025-07-23 16:04:51,550 - INFO - Processed 100/303 leads...
+2025-07-23 16:07:05,278 - INFO - Processed 200/303 leads...
+2025-07-23 16:08:48,944 - WARNING - Invalid email: logo@2x.png (ID: 1623) - Contains blacklisted substring: .png
+2025-07-23 16:08:53,683 - WARNING - Invalid email: user@domain.com (ID: 1652) - Contains blacklisted substring: @domain
+2025-07-23 16:09:00,629 - WARNING - Invalid email: flags@2x.webp (ID: 1628) - No MX or A record (non-deliverable domain)
+2025-07-23 16:09:03,080 - WARNING - Invalid email: flags@2x.webp (ID: 1630) - No MX or A record (non-deliverable domain)
+2025-07-23 16:09:03,384 - WARNING - Invalid email: my@email.com (ID: 1631) - Contains blacklisted substring: @email
+2025-07-23 16:09:16,539 - WARNING - Invalid email: flags@2x.png (ID: 1638) - Contains blacklisted substring: .png
+2025-07-23 16:09:16,866 - WARNING - Invalid email: flags@2x.png (ID: 1639) - Contains blacklisted substring: .png
+2025-07-23 16:09:17,182 - WARNING - Invalid email: 02-17-2024-motivxbr-plunge-fulledit-@dhash-80.jpg (ID: 1653) - Contains blacklisted substring: .jpg
+2025-07-23 16:09:17,512 - WARNING - Invalid email: user@domain.com (ID: 1640) - Contains blacklisted substring: @domain
+2025-07-23 16:09:17,826 - WARNING - Invalid email: star@2x.png (ID: 1641) - Contains blacklisted substring: .png
+2025-07-23 16:09:18,122 - WARNING - Invalid email: kieran-body-transformation-150x150@2x.jpg (ID: 1642) - Contains blacklisted substring: .jpg
+2025-07-23 16:09:20,826 - WARNING - Invalid email: resized_img_20220108_165428001-1-150x150@2x.jpeg (ID: 1643) - No MX or A record (non-deliverable domain)
+2025-07-23 16:09:21,123 - WARNING - Invalid email: norm-150x150@2x.jpg (ID: 1644) - Contains blacklisted substring: .jpg
+2025-07-23 16:09:21,427 - WARNING - Invalid email: jason-body-transformation-150x150@2x.jpg (ID: 1645) - Contains blacklisted substring: .jpg
+2025-07-23 16:09:21,742 - WARNING - Invalid email: image-150x150@2x.png (ID: 1646) - Contains blacklisted substring: .png
+2025-07-23 16:09:22,068 - WARNING - Invalid email: nick-body-transformation-150x150@2x.jpg (ID: 1647) - Contains blacklisted substring: .jpg
+2025-07-23 16:09:22,377 - WARNING - Invalid email: mainkq-300x149@2x.jpg (ID: 1648) - Contains blacklisted substring: .jpg
+2025-07-23 16:09:22,708 - WARNING - Invalid email: trans-150x150@2x.jpg (ID: 1649) - Contains blacklisted substring: .jpg
+2025-07-23 16:09:23,028 - WARNING - Invalid email: example@mysite.com (ID: 1650) - Contains blacklisted substring: example
+2025-07-23 16:09:25,900 - INFO - Processed 300/303 leads...
+2025-07-23 16:09:25,901 - WARNING - Invalid email: example@mysite.com (ID: 1655) - Contains blacklisted substring: example
+2025-07-23 16:09:32,880 - WARNING - Invalid email: coachduncan@keenperformancetraining.com (ID: 1656) - No MX or A record (non-deliverable domain)
+2025-07-23 16:09:35,309 - INFO - Email cleaning completed. Processed 303 leads.
+2025-07-23 16:09:35,326 - INFO - 
+============================================================
+2025-07-23 16:09:35,326 - INFO - EMAIL VALIDATION STATISTICS
+2025-07-23 16:09:35,327 - INFO - ============================================================
+2025-07-23 16:09:35,327 - INFO - Total processed: 303
+2025-07-23 16:09:35,327 - INFO - Valid emails: 282
+2025-07-23 16:09:35,328 - INFO - Corrected typos: 0
+2025-07-23 16:09:35,328 - INFO - Invalid format: 0
+2025-07-23 16:09:35,328 - INFO - Blacklisted: 17
+2025-07-23 16:09:35,329 - INFO - Suspicious TLD: 0
+2025-07-23 16:09:35,329 - INFO - Too long: 0
+2025-07-23 16:09:35,329 - INFO - MX record failed: 4
+2025-07-23 16:09:35,330 - INFO - Cleaned/removed: 21
+2025-07-23 16:09:35,330 - INFO - Valid email rate: 93.07%
+2025-07-23 16:09:35,330 - INFO - ============================================================
+2025-07-23 16:09:35,642 - INFO - 
+ EMAIL CLEANING COMPLETED
+2025-07-23 16:09:35,643 - INFO - Cleaned 21 invalid emails
+2025-07-23 16:09:35,644 - INFO - Corrected 0 typos
+2025-07-23 16:19:00,672 - INFO - Django setup successful
+2025-07-23 16:19:59,848 - INFO - Retrying request to /chat/completions in 0.473414 seconds
+2025-07-23 16:20:15,623 - INFO - Retrying request to /chat/completions in 0.888641 seconds
+2025-07-23 16:25:40,685 - INFO - Django setup successful
+2025-07-23 16:25:56,670 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 00:24:07,824 - INFO - Django setup successful
+2025-07-24 00:24:20,478 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 00:30:03,498 - INFO - Starting Business Information Extractor
+2025-07-24 00:30:03,499 - INFO - ==================================================
+2025-07-24 00:30:03,506 - INFO - Django setup successful
+2025-07-24 00:30:07,761 - INFO - Starting extraction for 0 leads
+2025-07-24 00:30:07,762 - INFO - Extraction Summary:
+2025-07-24 00:30:07,768 - INFO -   Total leads: 0
+2025-07-24 00:30:07,770 - INFO -   Successful extractions: 0
+2025-07-24 00:30:07,772 - INFO -   Failed extractions: 0
+2025-07-24 00:30:07,775 - INFO -   Database updates: 0
+2025-07-24 00:30:07,777 - INFO -   Success rate: 0.0%
+2025-07-24 00:30:07,779 - INFO -   Duration: 4.3s
+2025-07-24 00:30:07,786 - INFO - Results saved to extraction_results.json
+2025-07-24 00:30:07,788 - INFO - Extraction completed successfully!
+2025-07-24 00:30:15,291 - INFO - Starting email cleaning process...
+2025-07-24 00:30:15,296 - INFO - Mode: LIVE CLEANING
+2025-07-24 00:30:15,297 - INFO - API validation: DISABLED
+2025-07-24 00:30:15,298 - INFO - Batch size: 1000
+2025-07-24 00:30:15,299 - INFO - Max workers: 4
+2025-07-24 00:30:15,920 - INFO - Found 282 leads with email addresses
+2025-07-24 00:30:18,088 - INFO - Processing batch 1 (282 leads)
+2025-07-24 00:31:39,892 - INFO - Processed 100/282 leads...
+2025-07-24 00:33:36,782 - INFO - Processed 200/282 leads...
+2025-07-24 00:36:02,819 - INFO - Email cleaning completed. Processed 282 leads.
+2025-07-24 00:36:02,820 - INFO - 
+============================================================
+2025-07-24 00:36:02,824 - INFO - EMAIL VALIDATION STATISTICS
+2025-07-24 00:36:02,825 - INFO - ============================================================
+2025-07-24 00:36:02,826 - INFO - Total processed: 282
+2025-07-24 00:36:02,827 - INFO - Valid emails: 282
+2025-07-24 00:36:02,828 - INFO - Corrected typos: 0
+2025-07-24 00:36:02,829 - INFO - Invalid format: 0
+2025-07-24 00:36:02,829 - INFO - Blacklisted: 0
+2025-07-24 00:36:02,830 - INFO - Suspicious TLD: 0
+2025-07-24 00:36:02,831 - INFO - Too long: 0
+2025-07-24 00:36:02,832 - INFO - MX record failed: 0
+2025-07-24 00:36:02,832 - INFO - Cleaned/removed: 0
+2025-07-24 00:36:02,833 - INFO - Valid email rate: 100.00%
+2025-07-24 00:36:02,834 - INFO - ============================================================
+2025-07-24 00:36:03,150 - INFO - 
+ EMAIL CLEANING COMPLETED
+2025-07-24 00:36:03,151 - INFO - Cleaned 0 invalid emails
+2025-07-24 00:36:03,156 - INFO - Corrected 0 typos
+2025-07-24 00:54:25,448 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 10:03:06,324 - INFO - Django setup successful
+2025-07-24 10:08:28,484 - INFO - Django setup successful
+2025-07-24 10:35:04,346 - INFO - Django setup successful
+2025-07-24 10:36:47,389 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 10:38:48,525 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 10:42:50,629 - INFO - Django setup successful
+2025-07-24 10:43:01,926 - WARNING - Not Found: /favicon.ico
+2025-07-24 10:43:03,983 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:43:04,002 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:43:05,257 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:43:05,259 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:43:20,123 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:43:20,127 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:43:20,760 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:43:20,761 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:43:23,287 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:43:23,290 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:43:24,243 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:43:24,244 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:43:24,247 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:44:20,458 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\models.py changed, reloading.
+2025-07-24 10:44:34,586 - INFO - Django setup successful
+2025-07-24 10:44:54,261 - INFO - Django setup successful
+2025-07-24 10:45:27,021 - INFO - Django setup successful
+2025-07-24 10:46:07,825 - INFO - Django setup successful
+2025-07-24 10:46:41,239 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 10:47:45,182 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\langgraph.py changed, reloading.
+2025-07-24 10:47:59,978 - INFO - Django setup successful
+2025-07-24 10:49:00,350 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\langgraph.py changed, reloading.
+2025-07-24 10:49:14,342 - INFO - Django setup successful
+2025-07-24 10:49:19,822 - INFO - Django setup successful
+2025-07-24 10:49:25,600 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 10:49:26,145 - INFO - Starting follow-up batch for niche: fitness coach
+2025-07-24 10:49:26,148 - INFO - Batch size: 3, Delay: 10 minutes
+2025-07-24 10:49:28,556 - INFO - Found 3 leads that need follow-up
+2025-07-24 10:49:28,915 - WARNING - Original email provider gmail not found for dhynescoach@gmail.com, using fallback
+2025-07-24 10:49:28,916 - INFO - Generating follow-up email for dhynescoach@gmail.com...
+2025-07-24 10:49:31,958 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 10:49:43,380 - ERROR - Failed to send email to dhynescoach@gmail.com: [Errno 11001] getaddrinfo failed
+2025-07-24 10:49:43,388 - WARNING - Original email provider gmail-2 not found for coachsahifitness@gmail.com, using fallback
+2025-07-24 10:49:43,390 - INFO - Generating follow-up email for coachsahifitness@gmail.com...
+2025-07-24 10:49:46,042 - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-24 10:50:01,398 - INFO - [2/3] Follow-up sent to coachsahifitness@gmail.com via zoho
+2025-07-24 10:50:01,401 - INFO - Subject: coachsahifitness, could this make your life easier?
+2025-07-24 10:50:01,404 - INFO - Waiting 10 minutes before next send...
+2025-07-24 10:50:26,460 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:50:26,472 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:50:27,335 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:50:27,336 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:50:38,477 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:50:38,486 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:50:39,166 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:50:39,167 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:50:47,795 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:50:47,797 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:50:48,442 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:50:48,443 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:50:48,446 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:52:24,150 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:52:24,152 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:52:24,792 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:52:24,798 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:53:20,295 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:53:20,304 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:53:20,959 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:53:20,961 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:53:22,881 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:53:22,886 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:53:23,523 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:53:23,526 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:53:41,947 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:53:41,952 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:53:42,591 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:53:42,593 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:53:42,596 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:53:55,162 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:53:55,164 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:53:55,784 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:53:55,785 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:54:18,397 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:54:18,400 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:54:19,052 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:54:19,057 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:54:19,080 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:55:49,309 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:55:49,312 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:55:49,964 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:55:49,969 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:56:17,222 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:56:17,224 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:56:17,829 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:56:17,832 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:56:21,071 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:56:21,074 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:56:21,723 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:56:21,728 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:56:32,139 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:56:32,142 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:56:32,854 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:56:32,857 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:56:32,867 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:59:00,904 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:59:00,907 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:59:01,508 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:59:01,513 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:59:19,056 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:59:19,060 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:59:19,786 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:59:19,789 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:59:28,831 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:59:28,835 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:59:29,467 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:59:29,472 - WARNING - Could not reverse url from auth.user
+2025-07-24 10:59:29,482 - WARNING - Could not reverse url from auth.user

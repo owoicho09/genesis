@@ -1,15 +1,10 @@
-#!/usr/bin/env python3
-"""
-Cold Outreach Email Generator (GPT-powered)
-===========================================
-Generates personalized cold emails for leads using GPT.
-"""
-import os,re
+import os
+import re
 import sys
 import time
 import random
 import logging
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Optional, Tuple, List, Dict, Any
 from dataclasses import dataclass
 from pathlib import Path
@@ -21,10 +16,15 @@ from django.conf import settings
 from dotenv import load_dotenv
 from openai import OpenAI
 from tqdm import tqdm
-from agent.models import Lead
 
-# Get unsent leads
+# Get leads that need follow-up
 from django.db.models import Q
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../..'))
+sys.path.insert(0, str(PROJECT_ROOT))
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings")
+django.setup()
+from agent.models import Lead
 
 
 @dataclass
@@ -38,31 +38,39 @@ class SMTPConfig:
     password: str
 
 
-
 @dataclass
 class MockLead:
     email: str
     username: str
     niche: str
     bio: str = ""
-    email_sent: bool = False
+    email_sent: bool = True  # Set to True for follow-up testing
+    followup_sent: bool = False
     email_provider_used: str = ""
+    last_contacted_at: str = ""
+
+    def save(self):
+        """Mock save method for testing"""
+        print(f"Mock save: {self.email} - followup_sent: {self.followup_sent}")
+
 
 test_leads = [
     MockLead(email="michaelogaje033@gmail.com", username="coachmike", niche="fitness",
-             bio="Helping people burn fat at home with zero equipment."),
+             bio="Helping people burn fat at home with zero equipment.",
+             email_provider_used="test@gmail.com"),
     MockLead(email="kennkiyoshi@gmail.com", username="fitkenn", niche="fitness",
-             bio="Helping people build muscle with zero equipment."),
+             bio="Helping people build muscle with zero equipment.",
+             email_provider_used="test@gmail.com"),
     MockLead(email="owi.09.12.02@gmail.com", username="yogaowi", niche="fitness",
-             bio="Helping people build stamina."),
+             bio="Helping people build stamina.",
+             email_provider_used="test@gmail.com"),
     MockLead(email="unitorial111@gmail.com", username="yogaowi", niche="fitness",
-             bio="Helping people select the best nutrition for bodybuilding"),
-
+             bio="Helping people select the best nutrition for bodybuilding",
+             email_provider_used="test@gmail.com"),
 ]
 
-
-class EmailOutreachManager:
-    """Manages email outreach campaigns with personalized content generation"""
+class EmailFollowUpManager:
+    """Manages follow-up email campaigns with personalized content generation"""
 
     def __init__(self, openai_api_key: str, smtp_configs: List[SMTPConfig]):
         self.client = OpenAI(api_key=openai_api_key)
@@ -84,7 +92,7 @@ class EmailOutreachManager:
         )
 
         # File handler
-        file_handler = logging.FileHandler('outreach.log')
+        file_handler = logging.FileHandler('followup_outreach.log')
         file_handler.setFormatter(formatter)
         logger.addHandler(file_handler)
 
@@ -95,9 +103,9 @@ class EmailOutreachManager:
 
         return logger
 
-    def generate_personalized_email(self, lead, max_retries: int = 3) -> Tuple[Optional[str], Optional[str]]:
-        """Generate personalized email using OpenAI with retry logic"""
-        prompt = self.build_email_prompt(lead)
+    def generate_followup_email(self, lead, max_retries: int = 3) -> Tuple[Optional[str], Optional[str]]:
+        """Generate personalized follow-up email using OpenAI with retry logic"""
+        prompt = self.build_followup_email_prompt(lead)
 
         for attempt in range(max_retries):
             try:
@@ -122,8 +130,8 @@ class EmailOutreachManager:
 
         return None, None
 
-    def build_email_prompt(self, lead) -> str:
-        """Build an enhanced prompt for generating professional cold outreach emails"""
+    def build_followup_email_prompt(self, lead) -> str:
+        """Build a follow-up email prompt that references the previous outreach"""
 
         # Extract and validate lead information
         bio_content = lead.bio if lead.bio else getattr(lead, 'business_description', '')
@@ -137,27 +145,30 @@ class EmailOutreachManager:
         return f"""
         Instruction:
 
-        You are a skilled copywriter helping create short, natural cold outreach emails that feel warm, human, and personally written. The email should sound like a real person reaching out — not a template or pitch.
+        You are a skilled copywriter creating a natural, warm follow-up email. This is a second touchpoint to someone who received your first email but hasn't responded yet. The follow-up should feel genuine, helpful, and not pushy.
 
-        **Goal:** Spark curiosity, build trust, and gently encourage a reply — without sounding robotic, spammy, or overly salesy.
+        **Goal:** Re-engage with value, show persistence without being annoying, and gently encourage a response.
 
         Use the following details:
         - Lead name: {lead_name}
         - Niche: {lead_niche}
         - Product insight: {product.description}
 
-        **Guidelines:**
-
-        - Begin with a warm, sincere opener — compliment or acknowledge their work in the niche.
-        - Softly highlight a pain point or common challenge relevant to people in this niche.
-        - Offer a subtle solution based on the product insight — **do not mention any product name directly**.
-        - Emphasize ease, creativity, or time-saving where relevant.
-        - Keep the tone casual, warm, and respectful.
-        - Avoid any spammy language or pushy wording.
-        - Email must be under 100 words.
-        - Subject line must be lowercase, curiosity-driven, and under 30 words — do NOT include "subject:" or any formatting.
-
+                
+        🎯 Your Goal:
+        - Reconnect casually
+        - Reference the last email lightly
+        - Re-spark interest with one new angle or benefit
+        - Keep it warm, helpful, and low-pressure
+        
         ---
+        
+        ✍️ Email Rules:
+        - Subject line MUST include their name or username, e.g. “coachmike, this might help”
+        - Subject line: lowercase, under 25 words
+        - Total word count: under 80 words
+        - Do **not** say “just following up” or “checking in”
+        - End with a soft CTA like: “want to see?”, “open to a look?”, “should I send more?”
 
         **Few-shot Examples**
 
@@ -166,22 +177,22 @@ class EmailOutreachManager:
         Input:
         {{
           "lead_name": "Maya",
-          "lead_niche": "online fitness coaching",
+          "lead_niche": "online fitness coaching", 
           "product_input": "AI-powered prompt pack that helps coaches create eye-catching flyers and posters fast"
         }}
 
         Output:
 
-        a faster way to design your next flyer
+        Maya, this might make content easier
 
         Hey Maya,
 
-        Your coaching vibe is strong — your page really stands out in a sea of sameness.
-
-        I know a lot of fitness coaches spend hours creating flyers or graphics when launching offers. I’ve been exploring a simple way to speed that up — especially for those doing it solo.
-
-        Might be something you’d find useful — open to a quick peek?
-
+        Not sure if you saw my last note — been helping other coaches with something that saves hours on design.
+        
+        Think it could be useful for your setup too.
+        
+        Want me to send a quick peek?
+        
         — Genesis.ai
 
         ---
@@ -197,21 +208,22 @@ class EmailOutreachManager:
 
         Output:
 
-        poster idea for your next wellness launch
+       luis, thought you’d like this angle
 
-        Hey Luis,
 
-        Really admire how you’re blending wellness with recovery — it’s a much-needed space and you’re leading with heart.
+        Hey luis,
 
-        Heard from other coaches how tricky it can be to keep up with poster or promo designs, especially when running everything solo. I’ve been testing something to make that part way easier.
-
-        Want to take a quick look?
-
+        Quick one — I shared something earlier that might’ve slipped by.
+        
+        It’s a shortcut for {lead_niche} creators to turn ideas into polished visuals way faster. Been getting solid feedback.
+        
+        Open to a 10-second look?
+        
         — Genesis.ai
 
         ---
 
-        Now generate an email using this input:
+        Now generate a follow-up email using this input:
 
         Input:
         {{
@@ -222,19 +234,6 @@ class EmailOutreachManager:
 
         Expected Output:
         Respond ONLY with the subject line on the first line, followed by a blank line, and then the email body. Do NOT include labels like "Subject:", "Email:", "Body:", or any Markdown formatting.
-
-        Example format:
-        a quick idea for your coaching graphics
-
-        Hey Taylor,
-
-        Been following your content — love how polished your visuals are and how clear your messaging feels.
-
-        I’ve noticed coaches often get stuck spending too much time designing promo materials. I’ve been working on a little shortcut that helps speed that part up — and still keeps it looking sharp.
-
-        Would you be open to a quick look?
-
-        — Genesis.ai
         """
 
     def _parse_email_response(self, raw_output: str) -> Tuple[Optional[str], Optional[str]]:
@@ -274,7 +273,7 @@ class EmailOutreachManager:
             return subject, body
 
         except Exception as e:
-            self.logger.error(f" Email parse failed: {str(e)}")
+            self.logger.error(f"Email parse failed: {str(e)}")
             return None, None
 
     def send_email(self, subject: str, body: str, to_email: str, smtp_config: SMTPConfig) -> bool:
@@ -286,9 +285,8 @@ class EmailOutreachManager:
                 username=smtp_config.username,
                 password=smtp_config.password,
                 use_tls=smtp_config.use_tls,
-                use_ssl=False  # ✅ Force this to False
+                use_ssl=False
             )
-            #message = body + f'\n\n<img src="https://yourdomain.com/email-open/{to_email}" width="1" height="1" style="display:none;" />'
 
             send_mail(
                 subject=subject,
@@ -304,95 +302,114 @@ class EmailOutreachManager:
             self.logger.error(f"Failed to send email to {to_email}: {str(e)}")
             return False
 
-    def send_batch_outreach(self, niche: str = "fitness coach", batch_size: int = 30,
-                            delay_minutes: int = 7) -> Dict[str, Any]:
+    def send_batch_followup(self, niche: str = "fitness coach", batch_size: int = 30,
+                            delay_minutes: int = 7, min_days_since_first_email: int = 3) -> Dict[str, Any]:
         """
-        Send cold outreach emails in batches with controlled timing
+        Send follow-up emails to leads who received initial emails but haven't had follow-ups
 
         Args:
             niche: Filter leads by niche
             batch_size: Number of emails to send
             delay_minutes: Minutes to wait between each email
+            min_days_since_first_email: Minimum days to wait before sending follow-up
 
         Returns:
             Dictionary with campaign results
         """
         start_time = datetime.now()
-        self.logger.info(f"Starting batch outreach for niche: {niche}")
+        self.logger.info(f"Starting follow-up batch for niche: {niche}")
         self.logger.info(f"Batch size: {batch_size}, Delay: {delay_minutes} minutes")
 
-        # Import here to avoid circular imports
+        # Calculate the cutoff date for initial emails (only follow up after X days)
+        cutoff_date = timezone.now() - timedelta(days=min_days_since_first_email)
 
-        # Get unsent leads with bio or business description
+        # Get leads that:
+        # 1. Have email_sent = True (received initial email)
+        # 2. Have followup_sent = False (haven't received follow-up yet)
+        # 3. Were contacted at least X days ago
+        # 4. Match the niche
         leads = Lead.objects.filter(
             niche=niche,
-            email_sent=False,
+            email_sent=True,
+            followup_sent=False,
+            #last_contacted_at__lte=cutoff_date
         )[:batch_size]
 
         if not leads.exists():
-            self.logger.info(" No unsent leads found.")
+            self.logger.info("No leads found that need follow-up emails.")
             return self._build_summary(0, 0, 0, start_time)
 
-        self.logger.info(f"Found {leads.count()} leads to contact")
+        self.logger.info(f"Found {leads.count()} leads that need follow-up")
 
         successful_sends = 0
         failed_sends = 0
 
         # Use tqdm for progress tracking
-        for i, lead in enumerate(tqdm(leads, desc="Sending emails")):
+        for i, lead in enumerate(tqdm(leads, desc="Sending follow-up emails")):
             try:
-                result = self._process_single_lead(lead, i, batch_size, delay_minutes)
+                result = self._process_single_followup_lead(lead, i, batch_size, delay_minutes)
                 if result:
                     successful_sends += 1
                 else:
                     failed_sends += 1
 
             except Exception as e:
-                self.logger.error(f" Unexpected error processing {lead.email}: {str(e)}")
+                self.logger.error(f"Unexpected error processing {lead.email}: {str(e)}")
                 failed_sends += 1
 
         return self._build_summary(leads.count(), successful_sends, failed_sends, start_time)
 
-    def _process_single_lead(self, lead, index: int, batch_size: int, delay_minutes: int) -> bool:
-        """Process a single lead for email sending"""
-        # Select random SMTP account for better distribution
-        smtp_config = self.smtp_configs[self.smtp_index % len(self.smtp_configs)]
-        self.smtp_index += 1
+    def _process_single_followup_lead(self, lead, index: int, batch_size: int, delay_minutes: int) -> bool:
+        """Process a single lead for follow-up email sending"""
 
-        self.logger.info(f"Generating email for {lead.email}...")
-        subject, body = self.generate_personalized_email(lead)
+        # Use the same email provider that was used for the initial email
+        smtp_config = None
+
+        # Find the SMTP config that matches the email provider used
+        for config in self.smtp_configs:
+            if config.username == lead.email_provider_used:
+                smtp_config = config
+                break
+
+        # If we can't find the exact provider, fall back to round-robin
+        if not smtp_config:
+            self.logger.warning(
+                f"Original email provider {lead.email_provider_used} not found for {lead.email}, using fallback")
+            smtp_config = self.smtp_configs[self.smtp_index % len(self.smtp_configs)]
+            self.smtp_index += 1
+
+        self.logger.info(f"Generating follow-up email for {lead.email}...")
+        subject, body = self.generate_followup_email(lead)
 
         if not subject or not body:
-            self.logger.error(f" Skipped {lead.email} - Email generation failed")
+            self.logger.error(f"Skipped {lead.email} - Follow-up email generation failed")
             return False
 
         # Send email
         if self.send_email(subject, body, lead.email, smtp_config):
 
-            seed_emails = ["unitorial111@gmail.com","michaelogaje033@outlook.com"]
+            # Send test emails to monitor
+            seed_emails = ["unitorial111@gmail.com", "michaelogaje033@outlook.com"]
             for seed in seed_emails:
                 self.send_email(subject, body, seed, smtp_config)
-                print('Test emails sent..monitor gradually')
+                print('Test follow-up emails sent...monitor gradually')
 
-            # Mark as sent
-            lead.email_sent = True
-            lead.email_provider_used = smtp_config.username
+            # Mark follow-up as sent
+            lead.followup_sent = True
             lead.last_contacted_at = timezone.now()
 
             # Only call save() if it's a real Django model
             if hasattr(lead, "save"):
                 lead.save()
 
-            self.logger.info(f" [{index + 1}/{batch_size}] Sent to {lead.email} via {smtp_config.provider}")
+            self.logger.info(f"[{index + 1}/{batch_size}] Follow-up sent to {lead.email} via {smtp_config.provider}")
             self.logger.info(f"Subject: {subject}")
 
             # Wait before next email (except for the last one)
             if index < batch_size - 1:
-                delay_seconds = (delay_minutes or 10) * 60  # Convert to seconds
+                delay_seconds = (delay_minutes or 10) * 60
 
-                #delay_seconds = random.randint(600, 900)  # 10–15 minutes
-
-                self.logger.info(f" Waiting {delay_minutes} minutes before next send...")
+                self.logger.info(f"Waiting {delay_minutes} minutes before next send...")
                 time.sleep(delay_seconds)
 
             return True
@@ -406,16 +423,17 @@ class EmailOutreachManager:
 
         end_time = datetime.now()
         duration = end_time - start_time
-        subject = "Genesis Outreach Summary ✅",
+        subject = "Genesis Follow-up Summary ✅"
         body = (
-            f"Batch finished.\n\n"
+            f"Follow-up batch finished.\n\n"
             f"Total: {total_processed}\n"
             f"Sent: {successful}\n"
             f"Failed: {failed}\n"
             f"Rate: {(successful / total_processed * 100) if total_processed > 0 else 0}%\n"
             f"Duration: {duration}\n"
         )
-        send_scraping_update(subject,body)
+        send_scraping_update(subject, body)
+
         summary = {
             'total_processed': total_processed,
             'successful_sends': successful,
@@ -427,7 +445,7 @@ class EmailOutreachManager:
         }
 
         self.logger.info("=" * 50)
-        self.logger.info("BATCH OUTREACH SUMMARY")
+        self.logger.info("FOLLOW-UP OUTREACH SUMMARY")
         self.logger.info("=" * 50)
         self.logger.info(f"Total leads processed: {summary['total_processed']}")
         self.logger.info(f"Successful sends: {summary['successful_sends']}")
@@ -466,7 +484,6 @@ def load_smtp_configs() -> List[SMTPConfig]:
             password=zoho_password
         ))
 
-
     # Gmail configuration
     gmail_email = os.getenv("EMAIL_HOST_USER")
     gmail_password = os.getenv("EMAIL_HOST_PASSWORD")
@@ -492,59 +509,23 @@ def load_smtp_configs() -> List[SMTPConfig]:
             password=gmail_password_2
         ))
 
-    # Zoho configuration 1
-    zoho_email_1 = os.getenv("zoho_email_1")
-    zoho_app_password_1 = os.getenv("zoho_app_password_1")
-    if zoho_email_1 and zoho_app_password_1:
-        configs.append(SMTPConfig(
-            provider="zoho",
-            host="smtp.zoho.com",
-            port=587,
-            use_tls=True,
-            username=zoho_email_1,
-            password=zoho_app_password_1
-        ))
+    # Zoho configurations 1-4
+    for i in range(1, 5):
+        zoho_email_var = f"zoho_email_{i}"
+        zoho_password_var = f"zoho_app_password_{i}"
 
-    # Zoho configuration 2 - FIXED: Now checking correct variables
-    zoho_email_2 = os.getenv("zoho_email_2")
-    zoho_app_password_2 = os.getenv("zoho_app_password_2")
-    if zoho_email_2 and zoho_app_password_2:
-        configs.append(SMTPConfig(
-            provider="zoho",
-            host="smtp.zoho.com",
-            port=587,
-            use_tls=True,
-            username=zoho_email_2,
-            password=zoho_app_password_2
-        ))
+        zoho_email = os.getenv(zoho_email_var)
+        zoho_password = os.getenv(zoho_password_var)
 
-    # Zoho configuration 3 - FIXED: Now checking correct variables
-    zoho_email_3 = os.getenv("zoho_email_3")
-    zoho_app_password_3 = os.getenv("zoho_app_password_3")
-    if zoho_email_3 and zoho_app_password_3:
-        configs.append(SMTPConfig(
-            provider="zoho",
-            host="smtp.zoho.com",
-            port=587,
-            use_tls=True,
-            username=zoho_email_3,
-            password=zoho_app_password_3
-        ))
-
-    # Zoho configuration 4 - FIXED: Now checking correct variables
-    zoho_email_4 = os.getenv("zoho_email_4")
-    zoho_app_password_4 = os.getenv("zoho_app_password_4")
-    if zoho_email_4 and zoho_app_password_4:
-        configs.append(SMTPConfig(
-            provider="zoho",
-            host="smtp.zoho.com",
-            port=587,
-            use_tls=True,
-            username=zoho_email_4,
-            password=zoho_app_password_4
-        ))
-
-
+        if zoho_email and zoho_password:
+            configs.append(SMTPConfig(
+                provider=f"zoho-{i}",
+                host="smtp.zoho.com",
+                port=587,
+                use_tls=True,
+                username=zoho_email,
+                password=zoho_password
+            ))
 
     if not configs:
         raise ValueError("No SMTP configurations found. Please check your environment variables.")
@@ -553,24 +534,36 @@ def load_smtp_configs() -> List[SMTPConfig]:
 
 
 def run_manual_test():
+    """Run manual test with mock leads"""
     setup_django()  # Only if you're using Django ORM for product
 
     smtp_configs = load_smtp_configs()
     openai_api_key = os.getenv("OPENAI_API_KEY")
-    manager = EmailOutreachManager(openai_api_key, smtp_configs)
+    email_manager = EmailFollowUpManager(openai_api_key, smtp_configs)
+
+    print("🧪 Starting follow-up email test...")
+    print("=" * 50)
 
     for i, lead in enumerate(test_leads):
-        success = manager._process_single_lead(lead, i, len(test_leads), delay_minutes=0)
+        print(f"\n📧 Testing lead {i + 1}/{len(test_leads)}: {lead.email}")
+        print(f"   Username: {lead.username}")
+        print(f"   Niche: {lead.niche}")
+        print(f"   Bio: {lead.bio[:50]}...")
+
+        success = email_manager._process_single_followup_lead(lead, i, len(test_leads), delay_minutes=1)
 
         if success:
-            print(f"✅ Sent to {lead.email} via {lead.email_provider_used}")
+            print(f"   ✅ Follow-up sent to {lead.email}")
+            print(f"   📤 Via provider: {lead.email_provider_used}")
         else:
-            print(f"❌ Failed to send to {lead.email}")
+            print(f"   ❌ Failed to send follow-up to {lead.email}")
+
+    print("\n" + "=" * 50)
+    print("🏁 Test completed!")
 
 
-
-def main():
-    """Main function to run the email outreach campaign"""
+def FollowUpOutreach():
+    """Main function to run the follow-up email campaign"""
     try:
         # Setup Django
         setup_django()
@@ -583,22 +576,22 @@ def main():
             raise ValueError("OpenAI API key not found. Please set OPENAI_API_KEY environment variable.")
 
         # Initialize email manager
-        email_manager = EmailOutreachManager(openai_api_key, smtp_configs)
+        email_manager = EmailFollowUpManager(openai_api_key, smtp_configs)
 
-        # Run campaign
-        results = email_manager.send_batch_outreach(
+        # Run follow-up campaign
+        results = email_manager.send_batch_followup(
             niche="fitness coach",
             batch_size=30,
-            delay_minutes=10
+            delay_minutes=10,
+            min_days_since_first_email=3  # Wait at least 3 days before follow-up
         )
 
         return results
 
     except Exception as e:
-        logging.error(f"Campaign failed: {str(e)}")
+        logging.error(f"Follow-up campaign failed: {str(e)}")
         raise
 
 
 if __name__ == "__main__":
-    #main()
     run_manual_test()

@@ -48,6 +48,7 @@ def instagram_scraping(niche: str) -> str:
         run_instagram_dork_scraper(niches=[niche], max_profiles=50)
         run_ig_sweep_scraper()
         extract_business_info_tool()
+        cleaner()
         validate_emails_tool()
         export_valid_leads()
 

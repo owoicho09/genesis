@@ -74,6 +74,7 @@ def run_genesis_agent(request):
                 "instagram_scrape": f"Scrape Instagram for {input_text}",
                 "send_email": f"Send an email to {input_text}",
                 "send_outreach": f"Send outreach to {input_text}",
+                "followup_outreach": f"Send followup outreach to {input_text}",
                 "warmup_emails": f"Warm up email inboxes",
                 "launch_campaign": f"Launch a campaign for {input_text}",
             }

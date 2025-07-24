@@ -27,6 +27,8 @@ from agent.tools.optimization.campaign_modifier import *
 from agent.tools.optimization.campaign_analytics import *
 from agent.tools.optimization.scheduler import *
 from agent.tools.backdoor.email_compose.cold_outreach import *
+from agent.tools.backdoor.email_compose.outreach_followup import *
+
 from agent.tools.backdoor.email_compose.inbox_warmup import *
 from agent.tools.backdoor.scraper import google_map_scraping,instagram_scraping
 from agent.tools.utils.send_email_update import send_emails
@@ -108,7 +110,7 @@ def intent_node(state: CampaignAgentState) -> CampaignAgentState:
         Classify the user request and extract relevant fields.
         Return as JSON like:
         {{
-          "detected_intent": "launch_campaign", "optimize_campaign", "get_metrics", "revise_offer", "summarize_campaign", "refresh_audience", "send_outreach", "send_email" ,"google_scrape", "instagram_scrape","warmup_emails"
+          "detected_intent": "launch_campaign", "optimize_campaign", "get_metrics", "revise_offer", "summarize_campaign", "refresh_audience", "send_outreach","followup_outreach", "send_email" ,"google_scrape", "instagram_scrape","warmup_emails"
          "product_name": "...",         // e.g. "Flyer Prompt Pack", "Marketing Toolkit", optional
           "budget": float (optional),
           "campaign_id": "...", 
@@ -394,6 +396,30 @@ def email_outreach_node(state: dict) -> dict:
     except Exception as e:
         return {**state, "error": str(e)}
 
+def followup_outreach_node(state: dict) -> dict:
+    """LangGraph node to trigger cold email outreach"""
+    try:
+        smtp_configs = load_smtp_configs()
+        openai_api_key = os.getenv("OPENAI_API_KEY")
+        manager = EmailFollowUpManager(openai_api_key, smtp_configs)
+
+        niche = state.get("niche", "fitness coach")
+        batch_size = int(state.get("batch_size", 30))
+        delay_minutes = int(state.get("delay_minutes", 10))
+        print('sending to client...')
+        results = manager.send_batch_followup(
+            niche=niche,
+            batch_size=batch_size,
+            delay_minutes=delay_minutes,
+            #min_days_since_first_email = 3   Wait at least 3 days before follow-up
+
+        )
+
+
+        return {**state, "followup_outreach": results}
+    except Exception as e:
+        return {**state, "error": str(e)}
+
 
 #Test outreach
 def warmup_email_node(state: dict) -> dict:
@@ -494,6 +520,9 @@ graph.add_node("decide_campaign_action", decide_campaign_action_node)
 graph.add_node("modify_campaign_from_decision", modify_campaign_from_decision_node)
 #graph.add_node("optimize_campaign_node", optimize_campaign_node)
 graph.add_node("send_outreach", email_outreach_node)
+graph.add_node("followup_outreach", followup_outreach_node)
+
+
 graph.add_node("warmup_emails", warmup_email_node)
 
 graph.add_node("google_scraping", google_maps_scraping_node)
@@ -516,6 +545,7 @@ graph.add_conditional_edges(
         "summarize_campaign": "summarize_campaign",
         "refresh_audience": "fetch_product",
         "send_outreach": "send_outreach",
+        "followup_outreach": "followup_outreach",
         "warmup_emails": "warmup_emails",
         "google_scrape": "google_scraping",
         "instagram_scrape": "instagram_scraping",
@@ -544,6 +574,9 @@ graph.add_edge("summarize_campaign", END)
 
 #Send Email Outreach
 graph.add_edge("send_outreach", END)
+
+#Send follow up outreach
+graph.add_edge("followup_outreach", END)
 
 graph.add_edge("send_email",END)
 #Warm emails

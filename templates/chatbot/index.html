@@ -577,8 +577,13 @@
         <div class="quick-actions">
           <div class="quick-action" onclick="sendStructuredAction({
             type: 'send_outreach',
-            displayMessage: '📢 Send Outreach Campaign → Specify your target niche, email count, and send interval ⏱️'
+            displayMessage: '📢 Sending Outreach Campaign → Specify your target niche, email count, and send interval ⏱️'
           })">📢 Launch Outreach Campaign</div>
+
+          <div class="quick-action" onclick="sendStructuredAction({
+            type: 'followup_outreach',
+            displayMessage: '📢 Sending Follow Up Campaign → Specify your target niche, email count, and send interval ⏱️'
+          })">📣 Send Follow-up Campaign</div>
 
           <div class="quick-action" onclick="sendStructuredAction({
             type: 'send_email',
@@ -589,6 +594,14 @@
             type: 'google_scrape',
             displayMessage: '🗺️ Google Maps Lead Mining → Tell me the business type and target location 📍'
           })">🗺️ Mine Google Map Leads</div>
+
+
+          <div class="quick-action" onclick="sendStructuredAction({
+            type: 'instagram_scraping',
+            displayMessage: '🗺️ Instagram Mining activated → Tell me the business type to mine for ⛏'
+          })">♈ Scrape Instagram for Leads</div>
+
+
 
           <div class="quick-action" onclick="sendStructuredAction({
             type: 'launch_campaign',

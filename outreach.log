@@ -406,3 +406,19 @@
 2025-07-19 00:53:10,502 - INFO -  [1/10] Sent to caitie@empoweredlifestyletraining.com via zoho
 2025-07-19 00:53:10,504 - INFO - Subject: a fresh approach to your fitness content
 2025-07-19 00:53:10,505 - INFO -  Waiting 10 minutes before next send...
+2025-07-22 03:22:16,084 - INFO - Starting batch outreach for niche: fitness coach
+2025-07-22 03:22:16,086 - INFO - Batch size: 10, Delay: 10 minutes
+2025-07-22 03:22:18,493 - INFO - Found 1 leads to contact
+2025-07-22 03:22:18,874 - INFO - Generating email for dr.moseki25th@gmail.com...
+2025-07-22 03:22:37,452 - INFO -  [1/10] Sent to dr.moseki25th@gmail.com via zoho
+2025-07-22 03:22:37,455 - INFO - Subject: a fresh approach to your fitness content
+2025-07-22 03:22:37,456 - INFO -  Waiting 10 minutes before next send...
+2025-07-22 03:32:42,260 - INFO - ==================================================
+2025-07-22 03:32:42,263 - INFO - BATCH OUTREACH SUMMARY
+2025-07-22 03:32:42,264 - INFO - ==================================================
+2025-07-22 03:32:42,265 - INFO - Total leads processed: 1
+2025-07-22 03:32:42,267 - INFO - Successful sends: 1
+2025-07-22 03:32:42,268 - INFO - Failed sends: 0
+2025-07-22 03:32:42,269 - INFO - Success rate: 100.0%
+2025-07-22 03:32:42,269 - INFO - Duration: 0:10:21.391730
+2025-07-22 03:32:42,271 - INFO - Completed at: 2025-07-22 03:32:37.476255
