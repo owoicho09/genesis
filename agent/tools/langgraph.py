@@ -77,9 +77,9 @@ class CampaignAgentState(TypedDict):
 
     batch_size: Optional[int] = 30
     delay_minutes: Optional[int] = 10
-    niche: Optional[str]
-    location: Optional[str]
-    recipient_list: Optional[list]
+    niche: Optional[str] = ""
+    location: Optional[str] = ""
+    recipient_list: Optional[list] = []
     message: Optional[str] = ""
     result: Optional[str]  # ✅ Add this
     topic: Optional[str] = ""
@@ -101,7 +101,7 @@ class IntentSchema(BaseModel):
     delay_minutes: Optional[int] = 10
     niche: Optional[str] = ""
     location: Optional[str] = ""
-    recipient_list: Optional[list]
+    recipient_list: Optional[list] = ""
     message: Optional[str] = ""
     topic: Optional[str] = ""
 
@@ -133,6 +133,8 @@ def intent_node(state: CampaignAgentState) -> CampaignAgentState:
         User input: {user_input}
         """)
     ])
+    print("🔍 Raw model output:", response.content)  # <-- log this for debugging
+
     try:
         parsed = parser.parse(response.content)
         print("✅ Parsed intent:", parsed)

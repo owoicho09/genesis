@@ -122,12 +122,14 @@ class SEOBlogGenerator:
         prompt = f"""
           Write a comprehensive, SEO-optimized blog post (1500–2000 words) that directly answers the question: "{topic}".
 
-    - Make the post **educational, practical, and solution-oriented**.
-    - Avoid selling anything. Do **not** use sales language like “buy now” or “get yours”.
-    - However, **present the product "{product.name}"** naturally as the **main tool or method** to solve the problem.
-    - Mention the product **in the middle**, and **conclusion** — as a helpful solution.
-    - Include this product link `{product.url}` smoothly inside sentences (don't paste it alone).
-    - Avoid repeating the name excessively — use it meaningfully.
+    - Make the post **educational, practical, and solution-focused** — like a fitness mentor guiding busy professionals.
+    - **Do not sell or promote** directly. Avoid phrases like “buy now” or “get yours”.
+    - Introduce the product **"{product.name}"** as a **solution** or **tool** in the context of the topic — **strategically placed**:
+        - Once in the early-middle as a casual mention.
+        - Again in the **middle** when discussing practical steps.
+        - And finally in the **conclusion** as a helpful recommendation.
+    - Naturally insert this product link **inside a sentence**, like a helpful reference: `{product.url}`
+    - Avoid repeating the product name too many times — vary your language.
 
     Format:
     - Use Markdown
