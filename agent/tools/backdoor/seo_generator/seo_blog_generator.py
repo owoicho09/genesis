@@ -52,7 +52,7 @@ BLOG_CONFIG = {
     'seo_blog_repo': SEO_REPO_PATH,
     'posts_dir': POSTS_DIR,
     'github_pages_url': 'https://owoicho09.github.io/seo-blog',
-    'default_author': 'Genesis SEO Bot',
+    'default_author': 'Genesis Ai',
     'default_category': 'products',
     'max_retries': 3,
     'build_wait_time': 300  # 5 minutes max wait for GitHub Pages build
@@ -173,59 +173,59 @@ class SEOBlogGenerator:
 
         # ✅ Properly aligned frontmatter with no YAML indentation issues
         frontmatter = f"""---
-    layout: post
-    title: "{title}"
-    description: "{blog_data.get('meta_description', '')}"
-    date: {today.strftime('%Y-%m-%d')} 12:00:00 +0100
-    last_modified_at: {today.strftime('%Y-%m-%d')} 12:00:00 +0100
-    categories: [{self.config['default_category']}]
-    tags: {json.dumps(blog_data.get('keywords', [])[:10])}
-    author: 
-      name: {self.config['default_author']}
-      url: {self.config['github_pages_url']}
-    permalink: /{today.strftime('%Y/%m/%d')}/{slug}/
-    canonical_url: "{self.config['github_pages_url']}/{today.strftime('%Y/%m/%d')}/{slug}/"
+layout: post
+title: "{title}"
+description: "{blog_data.get('meta_description', '')}"
+date: {today.strftime('%Y-%m-%d')} 12:00:00 +0100
+last_modified_at: {today.strftime('%Y-%m-%d')} 12:00:00 +0100
+categories: [{self.config['default_category']}]
+tags: {json.dumps(blog_data.get('keywords', [])[:10])}
+author: 
+  name: {self.config['default_author']}
+  url: {self.config['github_pages_url']}
+permalink: /{today.strftime('%Y/%m/%d')}/{slug}/
+canonical_url: "{self.config['github_pages_url']}/{today.strftime('%Y/%m/%d')}/{slug}/"
 
-    seo:
-      type: BlogPosting
-      name: "{title}"
-      headline: "{title}"
-      description: "{blog_data.get('meta_description', '')}"
-      image: 
-        - "{self.config['github_pages_url']}/assets/images/default-blog-image.jpg"
-      datePublished: {today.strftime('%Y-%m-%d')}T12:00:00+01:00
-      dateModified: {today.strftime('%Y-%m-%d')}T12:00:00+01:00
-      author:
-        "@type": Person
-        name: {self.config['default_author']}
-      publisher:
-        "@type": Organization
-        name: Genesis Blog
-        url: {self.config['github_pages_url']}
+seo:
+  type: BlogPosting
+  name: "{title}"
+  headline: "{title}"
+  description: "{blog_data.get('meta_description', '')}"
+  image: 
+    - "{self.config['github_pages_url']}/assets/images/default-blog-image.jpg"
+  datePublished: {today.strftime('%Y-%m-%d')}T12:00:00+01:00
+  dateModified: {today.strftime('%Y-%m-%d')}T12:00:00+01:00
+  author:
+    "@type": Person
+    name: {self.config['default_author']}
+  publisher:
+    "@type": Organization
+    name: Genesis Blog
+    url: {self.config['github_pages_url']}
 
-    og:
-      title: "{title}"
-      description: "{blog_data.get('meta_description', '')}"
-      image: "{self.config['github_pages_url']}/assets/images/default-blog-image.jpg"
-      url: "{self.config['github_pages_url']}/{today.strftime('%Y/%m/%d')}/{slug}/"
-      type: article
+og:
+  title: "{title}"
+  description: "{blog_data.get('meta_description', '')}"
+  image: "{self.config['github_pages_url']}/assets/images/default-blog-image.jpg"
+  url: "{self.config['github_pages_url']}/{today.strftime('%Y/%m/%d')}/{slug}/"
+  type: article
 
-    twitter:
-      card: summary_large_image
-      title: "{title}"
-      description: "{blog_data.get('meta_description', '')}"
-      image: "{self.config['github_pages_url']}/assets/images/default-blog-image.jpg"
+twitter:
+  card: summary_large_image
+  title: "{title}"
+  description: "{blog_data.get('meta_description', '')}"
+  image: "{self.config['github_pages_url']}/assets/images/default-blog-image.jpg"
 
-    sitemap:
-      priority: 0.8
-      changefreq: 'weekly'
-      lastmod: {today.strftime('%Y-%m-%d')}
+sitemap:
+  priority: 0.8
+  changefreq: 'weekly'
+  lastmod: {today.strftime('%Y-%m-%d')}
 
-    reading_time: {blog_data.get('word_count', 1500) // 200} min read
-    word_count: {blog_data.get('word_count', 1500)}
-    ---
+reading_time: {blog_data.get('word_count', 1500) // 200} min read
+word_count: {blog_data.get('word_count', 1500)}
+---
 
-    """
+"""
 
         full_content = frontmatter + blog_data.get('content', '')
         with open(filename, 'w', encoding='utf-8') as f:
@@ -244,8 +244,11 @@ class SEOBlogGenerator:
                 logger.info("📝 Uncommitted changes detected, stashing...")
                 subprocess.run(['git', 'stash'], check=True, cwd=repo_path)
 
-            # Pull latest changes safely
-            subprocess.run(['git', 'pull', '--rebase'], check=True, cwd=repo_path)
+            # Ensure we are on 'main' branch
+            subprocess.run(['git', 'checkout', 'main'], check=True, cwd=repo_path)
+
+            # Pull latest changes from origin/main
+            subprocess.run(['git', 'pull', '--rebase', 'origin', 'main'], check=True, cwd=repo_path)
 
             # Apply stashed changes back (if any)
             try:
