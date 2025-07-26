@@ -2525,3 +2525,5 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 2025-07-25 03:05:01,874 - WARNING - Could not reverse url from auth.user
 2025-07-25 03:19:05,553 - WARNING - Not Found: /favicon.ico
 2025-07-25 23:12:29,230 - INFO - Django setup successful
+2025-07-26 02:36:15,923 - WARNING - Not Found: /favicon.ico
+2025-07-26 03:52:29,172 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\langgraph.py changed, reloading.

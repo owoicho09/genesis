@@ -77,6 +77,8 @@ def run_genesis_agent(request):
                 "followup_outreach": f"Send followup outreach to {input_text}",
                 "warmup_emails": f"Warm up email inboxes",
                 "launch_campaign": f"Launch a campaign for {input_text}",
+                "publish_blog_post": f"Generate and deploy a blog post for {input_text}",
+                "check_indexing_status": "Check if SEO blog posts have been indexed by Google"
             }
 
             nl_input = type_to_prompt.get(intent_type, input_text)

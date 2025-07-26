@@ -28,13 +28,15 @@ from agent.tools.optimization.campaign_analytics import *
 from agent.tools.optimization.scheduler import *
 from agent.tools.backdoor.email_compose.cold_outreach import *
 from agent.tools.backdoor.email_compose.outreach_followup import *
+from agent.tools.backdoor.seo_generator.seo_blog_generator import *
+from agent.tools.backdoor.seo_generator.check_index_status import *
 
 from agent.tools.backdoor.email_compose.inbox_warmup import *
 from agent.tools.backdoor.scraper import google_map_scraping,instagram_scraping
 from agent.tools.utils.send_email_update import send_emails
 
 from langchain.chat_models import init_chat_model
-import json,os
+import json,os,random
 from langchain.memory import ConversationBufferMemory
 from django.urls import reverse
 from django.conf import settings
@@ -80,6 +82,9 @@ class CampaignAgentState(TypedDict):
     recipient_list: Optional[list]
     message: Optional[str] = ""
     result: Optional[str]  # ✅ Add this
+    topic: Optional[str] = ""
+
+
 
 
 # === 2. LLM SETUP ===
@@ -98,6 +103,7 @@ class IntentSchema(BaseModel):
     location: Optional[str] = ""
     recipient_list: Optional[list]
     message: Optional[str] = ""
+    topic: Optional[str] = ""
 
 parser = PydanticOutputParser(pydantic_object=IntentSchema)
 
@@ -110,7 +116,8 @@ def intent_node(state: CampaignAgentState) -> CampaignAgentState:
         Classify the user request and extract relevant fields.
         Return as JSON like:
         {{
-          "detected_intent": "launch_campaign", "optimize_campaign", "get_metrics", "revise_offer", "summarize_campaign", "refresh_audience", "send_outreach","followup_outreach", "send_email" ,"google_scrape", "instagram_scrape","warmup_emails"
+          "detected_intent": "launch_campaign", "optimize_campaign", "get_metrics", "revise_offer", "summarize_campaign", "refresh_audience", "send_outreach","followup_outreach", "send_email" ,"google_scrape", "instagram_scrape","warmup_emails", "publish_blog_post",
+                            "check_indexing_status"
          "product_name": "...",         // e.g. "Flyer Prompt Pack", "Marketing Toolkit", optional
           "budget": float (optional),
           "campaign_id": "...", 
@@ -500,6 +507,94 @@ def instagram_scraping_node(state: dict) -> dict:
         return {**state, "error": f"Instagram Scraping Error: {str(e)}"}
 
 
+
+def generate_seo_blog_node(state: dict) -> dict:
+    """
+    LangGraph node to run the Genesis SEO blog generator for a given product and topic.
+    This wraps the existing CLI logic and returns success/failure + paths.
+    """
+
+    try:
+        product_name = state.get("product_name")
+        topic = state.get("topic")
+        #wait_for_deploy = state.get("wait", True)
+
+        if not product_name or not topic:
+            raise ValueError("Missing 'product' or 'topic' in state")
+
+        generator = SEOBlogGenerator(config)
+        success = generator.run(product_name, topic, wait_for_deploy=True)
+
+        return {
+            **state,
+            "seo_blog_success": success,
+            "seo_blog_status": "✅ Blog generated and deployed" if success else "❌ Blog generation failed"
+        }
+
+    except Exception as e:
+        return {
+            **state,
+            "seo_blog_success": False,
+            "seo_blog_status": f"❌ SEO Blog Generation Error: {str(e)}"
+        }
+
+
+
+def seo_indexing_node(state: Dict) -> Dict:
+    """
+    LangGraph node to check Google indexing status for SEO blog URLs and email a summary.
+    """
+    print("🔍 Running: seo_indexing_node")
+    SITEMAP_URL = "https://owoicho09.github.io/seo-blog/sitemap.xml"
+
+    try:
+        urls = fetch_sitemap_urls(SITEMAP_URL)
+        if not urls:
+            return {**state, "indexing_status": "❌ No URLs found in sitemap."}
+
+        result_lines = []
+        indexed_count = 0
+        not_indexed = []
+
+        for url in urls:
+            status = check_indexed(url)
+            result_lines.append(f"{status} — {url}")
+            print(result_lines[-1])
+
+            if status == "✅ Indexed":
+                indexed_count += 1
+            else:
+                not_indexed.append(url)
+
+            time.sleep(random.randint(300, 480))  # 5 to 8 minutes
+
+        summary_html = f"""
+        <h2>📊 Genesis SEO Indexing Summary</h2>
+        <p><strong>Total URLs Checked:</strong> {len(urls)}</p>
+        <p><strong>✅ Indexed:</strong> {indexed_count}</p>
+        <p><strong>❌ Not Indexed or Failed:</strong> {len(not_indexed)}</p>
+        <hr>
+        <h3>Not Indexed URLs:</h3>
+        <ul>{''.join(f"<li>{u}</li>" for u in not_indexed)}</ul>
+        """
+
+        send_alert(subject="📊 Genesis SEO Indexing Report", html_message=summary_html)
+
+        return {
+            **state,
+            "seo_indexing_status": f"✅ Checked {len(urls)} URLs, {indexed_count} indexed",
+            "not_indexed_urls": not_indexed,
+        }
+
+    except Exception as e:
+        return {
+            **state,
+            "seo_indexing_status": f"❌ Indexing check failed: {str(e)}"
+        }
+
+
+
+
 # === 6. BUILD THE GRAPH ===
 graph = StateGraph(CampaignAgentState)
 
@@ -527,6 +622,9 @@ graph.add_node("warmup_emails", warmup_email_node)
 
 graph.add_node("google_scraping", google_maps_scraping_node)
 graph.add_node("instagram_scraping", instagram_scraping_node)
+graph.add_node("publish_blog_post", generate_seo_blog_node)
+graph.add_node("check_indexing_status", seo_indexing_node)
+
 graph.add_node("send_email", send_email_node)
 
 
@@ -549,6 +647,9 @@ graph.add_conditional_edges(
         "warmup_emails": "warmup_emails",
         "google_scrape": "google_scraping",
         "instagram_scrape": "instagram_scraping",
+        "publish_blog_post": "publish_blog_post",
+        "check_indexing_status": "check_indexing_status",
+
         "send_email":"send_email"
 
     }
@@ -586,7 +687,9 @@ graph.add_edge("warmup_emails", END)
 graph.add_edge("google_scraping", END)
 graph.add_edge("instagram_scraping", END)
 
-
+#publish blog post
+graph.add_edge("publish_blog_post", END)
+graph.add_edge("check_indexing_status", END)
 
 # Optimize Campaign
 graph.add_edge("fetch_metrics", "metrics_analyzer")
