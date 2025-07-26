@@ -2504,3 +2504,24 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 2025-07-24 12:44:08,066 - WARNING - Could not reverse url from auth.user
 2025-07-24 12:44:08,068 - WARNING - Could not reverse url from auth.user
 2025-07-24 14:31:39,641 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\views.py changed, reloading.
+2025-07-24 14:31:57,241 - INFO - Django setup successful
+2025-07-24 23:18:03,632 - INFO - Django setup successful
+2025-07-24 23:18:32,218 - WARNING - Could not reverse url from auth.user
+2025-07-24 23:18:32,253 - WARNING - Could not reverse url from auth.user
+2025-07-24 23:18:33,096 - WARNING - Could not reverse url from auth.user
+2025-07-24 23:18:33,101 - WARNING - Could not reverse url from auth.user
+2025-07-24 23:18:44,103 - WARNING - Could not reverse url from auth.user
+2025-07-24 23:18:44,114 - WARNING - Could not reverse url from auth.user
+2025-07-24 23:18:44,938 - WARNING - Could not reverse url from auth.user
+2025-07-24 23:18:44,940 - WARNING - Could not reverse url from auth.user
+2025-07-24 23:33:33,260 - WARNING - Could not reverse url from auth.user
+2025-07-24 23:33:33,265 - WARNING - Could not reverse url from auth.user
+2025-07-24 23:33:34,019 - WARNING - Could not reverse url from auth.user
+2025-07-24 23:33:34,022 - WARNING - Could not reverse url from auth.user
+2025-07-24 23:33:34,028 - WARNING - Could not reverse url from auth.user
+2025-07-25 03:05:01,195 - WARNING - Could not reverse url from auth.user
+2025-07-25 03:05:01,197 - WARNING - Could not reverse url from auth.user
+2025-07-25 03:05:01,870 - WARNING - Could not reverse url from auth.user
+2025-07-25 03:05:01,874 - WARNING - Could not reverse url from auth.user
+2025-07-25 03:19:05,553 - WARNING - Not Found: /favicon.ico
+2025-07-25 23:12:29,230 - INFO - Django setup successful
