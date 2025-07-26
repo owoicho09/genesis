@@ -128,6 +128,7 @@ def intent_node(state: CampaignAgentState) -> CampaignAgentState:
           "location": "...",
           "recipient_list": "[...]",
           "message": "..."
+          "topic": "..."
         }}
         User input: {user_input}
         """)
@@ -511,19 +512,24 @@ def instagram_scraping_node(state: dict) -> dict:
 def generate_seo_blog_node(state: dict) -> dict:
     """
     LangGraph node to run the Genesis SEO blog generator for a given product and topic.
-    This wraps the existing CLI logic and returns success/failure + paths.
+    This uses default BLOG_CONFIG from within SEOBlogGenerator.
     """
-
     try:
+        print("🚀 [SEO Blog Node] Starting blog generation...")
+
         product_name = state.get("product_name")
         topic = state.get("topic")
-        #wait_for_deploy = state.get("wait", True)
 
         if not product_name or not topic:
-            raise ValueError("Missing 'product' or 'topic' in state")
+            raise ValueError("Missing 'product_name' or 'topic' in state.")
 
-        generator = SEOBlogGenerator(config)
+        print(f"📝 Generating blog for product: {product_name}")
+        print(f"📌 Topic: {topic}")
+
+        generator = SEOBlogGenerator()  # uses BLOG_CONFIG internally
         success = generator.run(product_name, topic, wait_for_deploy=True)
+
+        print("✅ Blog generated and deployed." if success else "❌ Blog generation failed.")
 
         return {
             **state,
@@ -532,6 +538,7 @@ def generate_seo_blog_node(state: dict) -> dict:
         }
 
     except Exception as e:
+        print(f"❌ Blog generation error: {str(e)}")
         return {
             **state,
             "seo_blog_success": False,
