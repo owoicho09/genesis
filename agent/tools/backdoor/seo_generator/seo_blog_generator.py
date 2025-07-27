@@ -259,9 +259,12 @@ word_count: {blog_data.get('word_count', 1500)}
                 # No stash to pop, which is fine
                 pass
 
+            # ✅ Add this before committing
+            subprocess.run(['git', 'config', 'user.name', 'Genesis AI Bot'], check=True, cwd=repo_path)
+            subprocess.run(['git', 'config', 'user.email', 'bot@genesis.ai'], check=True, cwd=repo_path)
+     
             # Add and commit
             subprocess.run(['git', 'add', filename], check=True, cwd=repo_path)
-
             # Check if there are changes to commit
             result = subprocess.run(['git', 'diff', '--cached', '--quiet'],
                                     cwd=repo_path)
