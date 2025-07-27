@@ -8,6 +8,7 @@ import json
 import logging
 import time
 import requests
+import base64
 from pathlib import Path
 from django.conf import settings
 from django.core.wsgi import get_wsgi_application
@@ -50,6 +51,7 @@ POSTS_DIR = os.path.join(SEO_REPO_PATH, '_posts')
 
 BLOG_CONFIG = {
     'seo_blog_repo': SEO_REPO_PATH,
+    'seo_blog_repo_slug': 'owoicho09/seo-blog',  # ✅ Add this line
     'posts_dir': POSTS_DIR,
     'github_pages_url': 'https://owoicho09.github.io/seo-blog',
     'default_author': 'Genesis Ai',
@@ -236,7 +238,52 @@ word_count: {blog_data.get('word_count', 1500)}
         logger.info(f"📄 Created blog post: {filename}")
         return filename, slug
 
-    def push_to_github(self, filename, commit_msg):
+    def push_to_github_via_api(self, filename, commit_msg):
+        repo_path = Path(self.config['seo_blog_repo'])
+        full_path = repo_path / filename
+        try:
+            github_token = os.getenv("GIT_TOKEN")
+            if not github_token:
+                print('Missing github token')
+                raise EnvironmentError("Missing GITHUB_TOKEN")
+
+            repo = self.config['seo_blog_repo_slug']
+            api_url = f"https://api.github.com/repos/{repo}/contents/{filename}"
+
+            with open(full_path, "r", encoding="utf-8") as f:
+                content = f.read()
+
+            encoded_content = base64.b64encode(content.encode()).decode()
+
+            res = requests.get(api_url, headers={"Authorization": f"Bearer {github_token}"})
+            sha = res.json().get("sha") if res.status_code == 200 else None
+
+            payload = {
+                "message": commit_msg,
+                "content": encoded_content,
+                "branch": "main",
+                "committer": {
+                    "name": "Genesis AI Bot",
+                    "email": "bot@genesis.ai"
+                }
+            }
+            if sha:
+                payload["sha"] = sha
+
+            push = requests.put(api_url, headers={"Authorization": f"Bearer {github_token}"}, json=payload)
+            if push.status_code in [200, 201]:
+                logger.info(f"✅ Successfully pushed to GitHub via API: {filename}")
+                return True
+            else:
+                logger.error(f"❌ GitHub API push failed: {push.status_code} — {push.text}")
+                return False
+
+        except Exception as e:
+            logger.error(f"❌ GitHub API push error: {e}")
+            return False
+
+
+    def push_to_github_locally(self, filename, commit_msg):
         repo_path = self.config['seo_blog_repo']
         try:
             # Check git status first
@@ -280,6 +327,16 @@ word_count: {blog_data.get('word_count', 1500)}
         except subprocess.CalledProcessError as e:
             logger.error(f"Git operation failed: {e}")
             return False
+
+    def push_to_github(self, filename, commit_msg):
+        is_render = os.getenv("RENDER") is not None
+        print('Starting push to github....')
+        if is_render:
+            print('Pushing through api')
+            return self.push_to_github_via_api(filename, commit_msg)
+        else:
+            print('pushing though locally')
+            return self.push_to_github_locally(filename, commit_msg)
 
     def generate_blog_url(self, filename, slug=None):
         """Generate the correct URL for the blog post"""
