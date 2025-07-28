@@ -238,14 +238,40 @@ word_count: {blog_data.get('word_count', 1500)}
         logger.info(f"📄 Created blog post: {filename}")
         return filename, slug
 
-
-
     def push_to_github_via_api(self, filename, commit_msg):
         repo_path = Path(self.config['seo_blog_repo']).resolve()
 
-        # Fix path logic: handle both relative and absolute paths
-        safe_filename = filename.lstrip("/")
-        full_path = Path(filename).resolve() if Path(filename).is_absolute() else repo_path.joinpath(safe_filename).resolve()
+        # Clean and normalize the filename
+        filename_path = Path(filename).resolve()
+
+        # Handle duplicate path issue - check if filename already contains repo_path
+        if str(filename_path).startswith(str(repo_path)):
+            # File path already includes repo path
+            full_path = filename_path
+            try:
+                safe_filename = str(full_path.relative_to(repo_path))
+            except ValueError:
+                print(f"❌ Cannot determine relative path for: {filename_path}")
+                return False
+        else:
+            # File path is relative to repo or needs to be joined
+            # Remove leading slashes and resolve relative to repo
+            clean_filename = str(filename).lstrip("/")
+            full_path = (repo_path / clean_filename).resolve()
+            safe_filename = clean_filename
+
+        # Additional check for duplicate paths in the safe_filename itself
+        repo_name = repo_path.name
+        safe_filename_parts = safe_filename.split('/')
+
+        # Remove duplicate repo directory names from the path
+        cleaned_parts = []
+        for part in safe_filename_parts:
+            if part == repo_name and cleaned_parts and cleaned_parts[-1] == repo_name:
+                continue  # Skip duplicate repo directory
+            cleaned_parts.append(part)
+
+        safe_filename = '/'.join(cleaned_parts)
 
         try:
             print("Fetching GitHub token...")
@@ -264,11 +290,11 @@ word_count: {blog_data.get('word_count', 1500)}
             api_url = f"https://api.github.com/repos/{repo}/contents/{safe_filename}"
 
             print(f"🔍 Resolved full file path: {full_path}")
-            if not safe_filename.exists():
+            if not full_path.exists():
                 print(f"❌ File not found at path: {full_path}")
                 return False
 
-            with open(safe_filename, "r", encoding="utf-8") as f:
+            with open(full_path, "r", encoding="utf-8") as f:
                 content = f.read()
 
             encoded_content = base64.b64encode(content.encode()).decode()
@@ -293,7 +319,7 @@ word_count: {blog_data.get('word_count', 1500)}
             push = requests.put(api_url, headers={"Authorization": f"Bearer {github_token}"}, json=payload)
             print(f"📡 GitHub API response: {push.status_code} — {push.text}")
             if push.status_code in [200, 201]:
-                print(f"✅ Successfully pushed to GitHub via API: {filename}")
+                print(f"✅ Successfully pushed to GitHub via API: {safe_filename}")
                 return True
             else:
                 print(f"❌ GitHub API push failed: {push.status_code} — {push.text}")
@@ -302,7 +328,6 @@ word_count: {blog_data.get('word_count', 1500)}
         except Exception as e:
             print(f"❌ GitHub API push error: {e}")
             return False
-
 
     def push_to_github_locally(self, filename, commit_msg):
         repo_path = self.config['seo_blog_repo']
