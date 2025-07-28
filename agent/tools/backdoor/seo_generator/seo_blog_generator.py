@@ -242,21 +242,34 @@ word_count: {blog_data.get('word_count', 1500)}
         repo_path = Path(self.config['seo_blog_repo'])
         full_path = repo_path / filename
         try:
+            logger.info(" Fetching GitHub token...")
+
             github_token = os.getenv("GIT_TOKEN")
             if not github_token:
                 print('Missing github token')
                 raise EnvironmentError("Missing GITHUB_TOKEN")
 
             repo = self.config['seo_blog_repo_slug']
+            if not repo:
+                logger.error("Missing `seo_blog_repo_slug` in config")
+                return False
+
+            logger.info(f" Preparing push for file: {filename} to repo: {repo}")
             api_url = f"https://api.github.com/repos/{repo}/contents/{filename}"
+
+            if not full_path.exists():
+                logger.error(f"File not found at path: {full_path}")
+                return False
 
             with open(full_path, "r", encoding="utf-8") as f:
                 content = f.read()
 
             encoded_content = base64.b64encode(content.encode()).decode()
+            logger.info(" Checking if file exists on GitHub...")
 
             res = requests.get(api_url, headers={"Authorization": f"Bearer {github_token}"})
             sha = res.json().get("sha") if res.status_code == 200 else None
+            logger.info(f" Existing file SHA: {sha}" if sha else " File does not exist remotely. Creating new.")
 
             payload = {
                 "message": commit_msg,
@@ -271,6 +284,7 @@ word_count: {blog_data.get('word_count', 1500)}
                 payload["sha"] = sha
 
             push = requests.put(api_url, headers={"Authorization": f"Bearer {github_token}"}, json=payload)
+            logger.info(f" GitHub API response: {push.status_code} — {push.text}")
             if push.status_code in [200, 201]:
                 logger.info(f"✅ Successfully pushed to GitHub via API: {filename}")
                 return True
