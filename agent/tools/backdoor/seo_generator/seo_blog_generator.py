@@ -241,20 +241,25 @@ word_count: {blog_data.get('word_count', 1500)}
     def push_to_github_via_api(self, filename, commit_msg):
         repo_path = Path(self.config['seo_blog_repo']).resolve()
 
-        print(f" Debug - Original filename: {filename}")
+        print(f"🐛 Debug - Original filename: {filename}")
         print(f"🐛 Debug - Repo path: {repo_path}")
 
         # Clean the filename - remove any duplicate repo path segments
         clean_filename = str(filename).lstrip("/")
 
-        # Check if the filename contains the repo path structure duplicated
-        repo_path_str = str(repo_path)
-        if repo_path_str in clean_filename:
-            # Extract just the relative path after the repo path
-            parts = clean_filename.split(repo_path_str)
-            if len(parts) > 1:
-                # Take the last part and remove leading slash
-                clean_filename = parts[-1].lstrip("/")
+        # Extract the repo directory name and path structure
+        repo_name = repo_path.name  # "seo-blog"
+        repo_parent_path = str(repo_path.parent)  # "/opt/render/project/src"
+
+        # Check if filename contains the duplicate repo path structure
+        # Look for pattern like: "opt/render/project/src/seo-blog/_posts/..."
+        repo_pattern = repo_parent_path.lstrip("/") + "/" + repo_name
+
+        print(f"🐛 Debug - Repo pattern to remove: {repo_pattern}")
+
+        if clean_filename.startswith(repo_pattern):
+            # Remove the duplicate repo path, keep only the relative part
+            clean_filename = clean_filename[len(repo_pattern):].lstrip("/")
 
         # Now construct the full path correctly
         full_path = repo_path / clean_filename
@@ -319,7 +324,6 @@ word_count: {blog_data.get('word_count', 1500)}
         except Exception as e:
             print(f"❌ GitHub API push error: {e}")
             return False
-
 
     def push_to_github_locally(self, filename, commit_msg):
         repo_path = self.config['seo_blog_repo']
