@@ -241,37 +241,28 @@ word_count: {blog_data.get('word_count', 1500)}
     def push_to_github_via_api(self, filename, commit_msg):
         repo_path = Path(self.config['seo_blog_repo']).resolve()
 
-        # Clean and normalize the filename
-        filename_path = Path(filename).resolve()
+        print(f"🐛 Debug - Original filename: {filename}")
+        print(f"🐛 Debug - Repo path: {repo_path}")
 
-        # Handle duplicate path issue - check if filename already contains repo_path
-        if str(filename_path).startswith(str(repo_path)):
-            # File path already includes repo path
-            full_path = filename_path
-            try:
-                safe_filename = str(full_path.relative_to(repo_path))
-            except ValueError:
-                print(f"❌ Cannot determine relative path for: {filename_path}")
-                return False
-        else:
-            # File path is relative to repo or needs to be joined
-            # Remove leading slashes and resolve relative to repo
-            clean_filename = str(filename).lstrip("/")
-            full_path = (repo_path / clean_filename).resolve()
-            safe_filename = clean_filename
+        # Clean the filename - remove any duplicate repo path segments
+        clean_filename = str(filename).lstrip("/")
 
-        # Additional check for duplicate paths in the safe_filename itself
-        repo_name = repo_path.name
-        safe_filename_parts = safe_filename.split('/')
+        # Check if the filename contains the repo path structure duplicated
+        repo_path_str = str(repo_path)
+        if repo_path_str in clean_filename:
+            # Extract just the relative path after the repo path
+            parts = clean_filename.split(repo_path_str)
+            if len(parts) > 1:
+                # Take the last part and remove leading slash
+                clean_filename = parts[-1].lstrip("/")
 
-        # Remove duplicate repo directory names from the path
-        cleaned_parts = []
-        for part in safe_filename_parts:
-            if part == repo_name and cleaned_parts and cleaned_parts[-1] == repo_name:
-                continue  # Skip duplicate repo directory
-            cleaned_parts.append(part)
+        # Now construct the full path correctly
+        full_path = repo_path / clean_filename
+        safe_filename = clean_filename
 
-        safe_filename = '/'.join(cleaned_parts)
+        print(f"🐛 Debug - Clean filename: {clean_filename}")
+        print(f"🐛 Debug - Full path: {full_path}")
+        print(f"🐛 Debug - Safe filename: {safe_filename}")
 
         try:
             print("Fetching GitHub token...")
@@ -328,6 +319,7 @@ word_count: {blog_data.get('word_count', 1500)}
         except Exception as e:
             print(f"❌ GitHub API push error: {e}")
             return False
+
 
     def push_to_github_locally(self, filename, commit_msg):
         repo_path = self.config['seo_blog_repo']
