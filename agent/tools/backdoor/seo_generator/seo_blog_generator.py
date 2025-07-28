@@ -239,9 +239,10 @@ word_count: {blog_data.get('word_count', 1500)}
         return filename, slug
 
     def push_to_github_via_api(self, filename, commit_msg):
-        repo_path = Path(self.config['seo_blog_repo'])
+        repo_path = Path(self.config['seo_blog_repo']).resolve()
         safe_filename = filename.lstrip("/")
-        full_path = (repo_path / safe_filename).resolve()
+        full_path = repo_path.joinpath(safe_filename)
+
         try:
             print(" Fetching GitHub token...")
 
@@ -257,7 +258,6 @@ word_count: {blog_data.get('word_count', 1500)}
 
             logger.info(f" Preparing push for file: {safe_filename} to repo: {repo}")
             api_url = f"https://api.github.com/repos/{repo}/contents/{safe_filename}"
-
 
             if not full_path.exists():
                 print(f"File not found at path: {full_path}")
