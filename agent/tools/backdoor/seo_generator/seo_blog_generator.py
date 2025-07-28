@@ -241,7 +241,7 @@ word_count: {blog_data.get('word_count', 1500)}
     def push_to_github_via_api(self, filename, commit_msg):
         repo_path = Path(self.config['seo_blog_repo']).resolve()
 
-        print(f"🐛 Debug - Original filename: {filename}")
+        print(f" Debug - Original filename: {filename}")
         print(f"🐛 Debug - Repo path: {repo_path}")
 
         # Clean the filename - remove any duplicate repo path segments
