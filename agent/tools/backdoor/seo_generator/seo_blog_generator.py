@@ -344,6 +344,7 @@ word_count: {blog_data.get('word_count', 1500)}
 
     def push_to_github(self, filename, commit_msg):
         is_render = os.getenv("RENDER") is not None
+        filename = filename.lstrip("/")  # <-- strip leading slash just in case
         print('Starting push to github....')
         if is_render:
             print('Pushing through api')
