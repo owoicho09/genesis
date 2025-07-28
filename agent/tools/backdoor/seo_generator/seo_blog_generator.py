@@ -264,11 +264,11 @@ word_count: {blog_data.get('word_count', 1500)}
             api_url = f"https://api.github.com/repos/{repo}/contents/{safe_filename}"
 
             print(f"🔍 Resolved full file path: {full_path}")
-            if not full_path.exists():
+            if not safe_filename.exists():
                 print(f"❌ File not found at path: {full_path}")
                 return False
 
-            with open(full_path, "r", encoding="utf-8") as f:
+            with open(safe_filename, "r", encoding="utf-8") as f:
                 content = f.read()
 
             encoded_content = base64.b64encode(content.encode()).decode()
