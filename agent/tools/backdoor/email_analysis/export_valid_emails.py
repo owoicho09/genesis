@@ -10,6 +10,17 @@ import csv
 import os
 import sys
 import django
+import datetime
+
+import os
+import django
+import sys
+import csv
+from django.core.mail import EmailMessage
+from django.conf import settings
+from difflib import SequenceMatcher
+
+# Setup Django
 
 # Set up Django environment
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../..'))
@@ -74,5 +85,71 @@ def export_valid_leads():
     print(f"✅ Exported {count} new unique leads to '{EXPORT_FILE}'.")
 
 
+
+def get_closest_niche(query):
+    all_niches = Lead.objects.exclude(niche=None).values_list('niche', flat=True).distinct()
+    best_match = max(all_niches, key=lambda n: SequenceMatcher(None, n.lower(), query.lower()).ratio())
+    return best_match
+
+
+def export_leads_to_csv(niche, file_path):
+    leads = Lead.objects.filter(niche__icontains=niche)
+    if not leads.exists():
+        print(f"❌ No leads found for niche similar to '{niche}'")
+        return None
+
+    with open(file_path, mode='w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(['Name', 'Email', 'Phone', 'Niche', 'Website'])
+
+        for lead in leads:
+            writer.writerow([
+                lead.username,
+                lead.email,
+                lead.phone or '',
+                lead.niche,
+                lead.source_url or ''
+            ])
+
+    print(f"✅ Exported {leads.count()} leads to: {file_path}")
+    return file_path
+
+
+def email_csv(file_path, niche):
+    subject = f"🎯 Exported Leads - {niche}"
+    body = f"Attached are the exported leads for the niche '{niche}'."
+    from_email = settings.DEFAULT_FROM_EMAIL
+    to_email = ['michaelogaje033@gmail.com']
+
+    email = EmailMessage(subject, body, from_email, to_email)
+    email.attach_file(file_path)
+    email.send()
+    print("📧 Email sent successfully to", to_email[0])
+
+
 if __name__ == "__main__":
-    export_valid_leads()
+    if len(sys.argv) != 2:
+        print("Usage: python export_valid_emails.py <niche>")
+        sys.exit(1)
+
+    input_niche = sys.argv[1]
+    print(f"\n🔍 Matching niche for: '{input_niche}'")
+
+    actual_niche = get_closest_niche(input_niche)
+    print(f"👉 Using closest match: '{actual_niche}'")
+
+    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"leads_{actual_niche.replace(' ', '_')}_{timestamp}.csv"
+    file_path = os.path.join(os.path.dirname(__file__), filename)
+
+    exported = export_leads_to_csv(actual_niche, file_path)
+    if exported:
+        email_csv(file_path, actual_niche)
+        print("✅ Done!\n")
+    else:
+        print("🚫 Nothing exported.\n")
+
+
+
+#if __name__ == "__main__":
+ #   export_valid_leads()

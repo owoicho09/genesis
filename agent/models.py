@@ -281,7 +281,8 @@ class OptimizationLog(models.Model):
 class Lead(models.Model):
     username = models.CharField(max_length=255)
     company_name = models.CharField(max_length=255,null=True,blank=True)
-
+    phone = models.CharField(max_length=30, blank=True, null=True)
+    address = models.CharField(max_length=30, blank=True, null=True)
     email = models.EmailField(unique=False, blank=True, null=True)  # <--- allow null & not unique
     niche = models.CharField(max_length=255, blank=True, null=True)
     source_url = models.URLField(blank=True, null=True)

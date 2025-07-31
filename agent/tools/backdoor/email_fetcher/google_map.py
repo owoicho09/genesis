@@ -162,9 +162,182 @@ class MapsBusinessScraper:
         url_lower = url.lower()
         return not any(domain in url_lower for domain in skip_domains)
 
+
+
+    def extract_phone_from_text(self, text):
+        """Extract phone number from text using regex patterns"""
+        if not text:
+            return ""
+
+        # Phone number patterns
+        phone_patterns = [
+            # International format: +1 (555) 123-4567
+            r'\+\d{1,3}\s*\(\d{3}\)\s*\d{3}[-.\s]*\d{4}',
+            # International format: +1 555-123-4567
+            r'\+\d{1,3}\s*\d{3}[-.\s]*\d{3}[-.\s]*\d{4}',
+            # US format: (555) 123-4567
+            r'\(\d{3}\)\s*\d{3}[-.\s]*\d{4}',
+            # US format: 555-123-4567
+            r'\d{3}[-.\s]*\d{3}[-.\s]*\d{4}',
+            # International with country code: +1234567890
+            r'\+\d{10,15}',
+            # Simple 10-digit: 5551234567
+            r'\b\d{10}\b',
+            # With spaces: 555 123 4567
+            r'\d{3}\s+\d{3}\s+\d{4}'
+        ]
+
+        for pattern in phone_patterns:
+            matches = re.findall(pattern, text)
+            for match in matches:
+                cleaned = self.clean_phone(match)
+                if self.is_valid_phone(cleaned):
+                    return cleaned
+
+        return ""
+
+
+    def is_valid_phone(self, phone):
+        """Check if the extracted phone number is valid"""
+        if not phone:
+            return False
+
+        # Remove all non-digit characters for validation
+        digits_only = re.sub(r'\D', '', phone)
+
+        # Check if it has reasonable length (7-15 digits)
+        if len(digits_only) < 7 or len(digits_only) > 15:
+            return False
+
+        # Check if it's not all the same digit (like 1111111111)
+        if len(set(digits_only)) == 1:
+            return False
+
+        # Check if it's not a common fake number
+        fake_patterns = ['1234567890', '0000000000', '9999999999']
+        if digits_only in fake_patterns:
+            return False
+
+        return True
+
+
+    def clean_phone(self, phone):
+        """Clean and format phone number"""
+        if not phone:
+            return ""
+
+        # Remove extra whitespace
+        phone = phone.strip()
+
+        # Remove common prefixes like "tel:"
+        if phone.startswith('tel:'):
+            phone = phone[4:]
+
+        # Basic formatting - keep the original format but clean it up
+        phone = re.sub(r'\s+', ' ', phone)  # Replace multiple spaces with single space
+
+        return phone
+
+
+    def extract_address_from_text(self, text):
+        """Extract address from text using patterns"""
+        if not text or len(text.strip()) < 5:
+            return ""
+
+        text = text.strip()
+
+        # Skip obviously non-address text
+        skip_patterns = [
+            'call', 'website', 'menu', 'photos', 'reviews', 'hours',
+            'directions to', 'get directions', 'save', 'share', 'nearby'
+        ]
+
+        if any(pattern in text.lower() for pattern in skip_patterns):
+            return ""
+
+        # Common address patterns
+        address_patterns = [
+            # Full address with street number, street name, city, state, zip
+            r'\b\d+\s+[A-Za-z0-9\s,.-]+(?:street|st|avenue|ave|road|rd|drive|dr|lane|ln|boulevard|blvd|way|place|pl|court|ct|circle|cir)\s*,?\s*[A-Za-z\s]+,?\s*[A-Z]{2}\s*\d{5}(?:-\d{4})?\b',
+
+            # Address with street and city/state
+            r'\b\d+\s+[A-Za-z0-9\s,.-]+(?:street|st|avenue|ave|road|rd|drive|dr|lane|ln|boulevard|blvd|way|place|pl|court|ct|circle|cir)\s*,\s*[A-Za-z\s]+,?\s*[A-Z]{2}\b',
+
+            # Simple street address
+            r'\b\d+\s+[A-Za-z0-9\s,.-]+(?:street|st|avenue|ave|road|rd|drive|dr|lane|ln|boulevard|blvd|way|place|pl|court|ct|circle|cir)\b',
+
+            # International address patterns
+            r'\b\d+\s+[A-Za-z0-9\s,.-]+,\s*[A-Za-z\s]+\s+\d{4,6}\b',  # International format
+        ]
+
+        for pattern in address_patterns:
+            import re
+            matches = re.findall(pattern, text, re.IGNORECASE)
+            if matches:
+                # Return the longest match (likely most complete address)
+                longest_match = max(matches, key=len)
+                return longest_match.strip()
+
+        # If no pattern matches, check if the text looks like an address
+        # (contains numbers and common address words)
+        if (re.search(r'\d+', text) and
+                any(word in text.lower() for word in ['street', 'st', 'avenue', 'ave', 'road', 'rd', 'drive', 'dr']) and
+                len(text) > 10 and len(text) < 200):
+            return text.strip()
+
+        return ""
+
+    def extract_address_from_structured_data(self, data):
+        """Extract address from structured data (JSON-LD)"""
+        try:
+            # Handle different structured data formats
+            if isinstance(data, list):
+                for item in data:
+                    address = self.extract_address_from_structured_data(item)
+                    if address:
+                        return address
+
+            elif isinstance(data, dict):
+                # Look for address in common structured data fields
+                address_fields = ['address', 'streetAddress', 'location', 'geo']
+
+                for field in address_fields:
+                    if field in data:
+                        address_data = data[field]
+
+                        if isinstance(address_data, str):
+                            return address_data.strip()
+
+                        elif isinstance(address_data, dict):
+                            # Build address from components
+                            address_parts = []
+
+                            # Common address components
+                            components = ['streetAddress', 'addressLocality', 'addressRegion', 'postalCode']
+                            for component in components:
+                                if component in address_data and address_data[component]:
+                                    address_parts.append(str(address_data[component]).strip())
+
+                            if address_parts:
+                                return ', '.join(address_parts)
+
+                # Recursively search in nested objects
+                for key, value in data.items():
+                    if isinstance(value, (dict, list)):
+                        address = self.extract_address_from_structured_data(value)
+                        if address:
+                            return address
+
+        except Exception as e:
+            print(f"⚠️ Error extracting from structured data: {e}")
+
+        return ""
+
+
+
     def extract_business_info(self, page):
         """Extract business name and website from the current page"""
-        business_info = {"name": "", "website": ""}
+        business_info = {"name": "", "website": "", "phone": ""}
 
         try:
             print("🔍 Extracting business name...")
@@ -322,6 +495,296 @@ class MapsBusinessScraper:
                 print("⚠️ No website found for this business")
 
             business_info["website"] = website
+
+            # PHONE NUMBER EXTRACTION
+            print("🔍 Extracting phone number...")
+
+            phone = ""
+
+            # Method 1: Look for phone number in business info panel
+            phone_selectors = [
+                # Common phone number selectors in Google Maps
+                'button[data-item-id="phone:tel:"]',
+                'button[aria-label*="Call"]',
+                'a[href^="tel:"]',
+                'button[jsaction*="phone"]',
+                '[data-item-id*="phone"]',
+                'button:has-text("Call")',
+                '.rogA2c button',  # Phone button area
+                '.AeaXub button[data-item-id*="phone"]',  # Business info section
+                '.RcCsl button[aria-label*="Call"]',  # Contact section
+                '.CsEnBe a[href^="tel:"]',  # Action buttons
+                '.lcr4fd button[data-item-id*="phone"]',  # Business details
+                'span:has-text("+")',  # Look for phone numbers with country codes
+                'span[jsaction*="phone"]'
+            ]
+
+            for selector in phone_selectors:
+                try:
+                    elements = page.locator(selector)
+                    for i in range(min(elements.count(), 3)):
+                        element = elements.nth(i)
+
+                        # Try to get phone from href attribute
+                        href = element.get_attribute('href')
+                        if href and href.startswith('tel:'):
+                            phone = href.replace('tel:', '').strip()
+                            if self.is_valid_phone(phone):
+                                phone = self.clean_phone(phone)
+                                print(f"✅ Found phone from tel: link: {phone}")
+                                break
+
+                        # Try to get phone from aria-label
+                        aria_label = element.get_attribute('aria-label')
+                        if aria_label and ('call' in aria_label.lower() or 'phone' in aria_label.lower()):
+                            extracted_phone = self.extract_phone_from_text(aria_label)
+                            if extracted_phone:
+                                phone = extracted_phone
+                                print(f"✅ Found phone from aria-label: {phone}")
+                                break
+
+                        # Try to get phone from data attributes
+                        data_item_id = element.get_attribute('data-item-id')
+                        if data_item_id and 'phone' in data_item_id:
+                            # Extract phone from data-item-id like "phone:tel:+1234567890"
+                            if ':tel:' in data_item_id:
+                                phone_part = data_item_id.split(':tel:')[-1]
+                                if self.is_valid_phone(phone_part):
+                                    phone = self.clean_phone(phone_part)
+                                    print(f"✅ Found phone from data-item-id: {phone}")
+                                    break
+
+                        # Try to get phone from text content
+                        text_content = element.inner_text()
+                        if text_content:
+                            extracted_phone = self.extract_phone_from_text(text_content)
+                            if extracted_phone:
+                                phone = extracted_phone
+                                print(f"✅ Found phone from text content: {phone}")
+                                break
+
+                    if phone:
+                        break
+
+                except Exception as e:
+                    print(f"⚠️ Error with phone selector '{selector}': {e}")
+                    continue
+
+            # Method 2: Search page content for phone patterns
+            if not phone:
+                print("🔍 Searching page content for phone patterns...")
+                try:
+                    page_content = page.content()
+                    phone = self.extract_phone_from_text(page_content)
+                    if phone:
+                        print(f"✅ Found phone in page content: {phone}")
+                except Exception as e:
+                    print(f"⚠️ Error searching page content for phone: {e}")
+
+            # Method 3: Look through all text elements for phone numbers
+            if not phone:
+                print("🔍 Searching all text elements for phone numbers...")
+                try:
+                    # Look for any element containing phone-like patterns
+                    text_elements = page.locator('span, div, p, a').all()
+                    for element in text_elements[:100]:  # Limit to avoid too much processing
+                        try:
+                            text = element.inner_text()
+                            if text:
+                                extracted_phone = self.extract_phone_from_text(text)
+                                if extracted_phone:
+                                    phone = extracted_phone
+                                    print(f"✅ Found phone in text element: {phone}")
+                                    break
+                        except:
+                            continue
+                except Exception as e:
+                    print(f"⚠️ Error searching text elements: {e}")
+
+            if not phone:
+                print("⚠️ No phone number found for this business")
+
+            business_info["phone"] = phone
+
+
+            # ADDRESS EXTRACTION
+            print("🔍 Extracting address...")
+
+            address = ""
+
+            # Method 1: Look for address in specific Google Maps selectors
+            address_selectors = [
+                # Primary address selectors
+                'button[data-item-id="address"]',
+                'button[data-value="Address"]',
+                'button[aria-label*="Address"]',
+                '[data-item-id="address"]',
+                'button[jsaction*="address"]',
+
+                # Business info panel selectors
+                '.AeaXub button[data-item-id="address"]',
+                '.RcCsl button[data-value="Address"]',
+                '.CsEnBe [data-item-id="address"]',
+                '.lcr4fd button[data-item-id="address"]',
+
+                # Address-related buttons and links
+                'button:has-text("Directions")',
+                'a[href*="directions"]',
+                'button[aria-label*="Get directions"]',
+
+                # General address containers
+                '.Io6YTe',  # Address area
+                '.LrzXr',   # Business details
+                '.rogA2c',  # Info panel
+                '.AeaXub .fontBodyMedium',  # Business info text
+
+                # Text elements that might contain addresses
+                'span[jstcache*="address"]',
+                'div[jsaction*="address"]'
+            ]
+
+            for selector in address_selectors:
+                try:
+                    elements = page.locator(selector)
+                    for i in range(min(elements.count(), 3)):
+                        element = elements.nth(i)
+
+                        # Try to get address from aria-label
+                        aria_label = element.get_attribute('aria-label')
+                        if aria_label:
+                            # Look for address patterns in aria-label
+                            extracted_address = self.extract_address_from_text(aria_label)
+                            if extracted_address:
+                                address = extracted_address
+                                print(f"✅ Found address from aria-label: {address}")
+                                break
+
+                        # Try to get address from text content
+                        text_content = element.inner_text().strip()
+                        if text_content:
+                            extracted_address = self.extract_address_from_text(text_content)
+                            if extracted_address:
+                                address = extracted_address
+                                print(f"✅ Found address from text content: {address}")
+                                break
+
+                        # Try to get address from data attributes
+                        data_item_id = element.get_attribute('data-item-id')
+                        if data_item_id and 'address' in data_item_id:
+                            # Sometimes address is in the data attribute value
+                            data_value = element.get_attribute('data-value')
+                            if data_value:
+                                extracted_address = self.extract_address_from_text(data_value)
+                                if extracted_address:
+                                    address = extracted_address
+                                    print(f"✅ Found address from data-value: {address}")
+                                    break
+
+                    if address:
+                        break
+
+                except Exception as e:
+                    print(f"⚠️ Error with address selector '{selector}': {e}")
+                    continue
+
+            # Method 2: Look for address in the URL or page data
+            if not address:
+                print("🔍 Searching URL and page data for address...")
+                try:
+                    current_url = page.url
+
+                    # Extract coordinates or place data from URL
+                    import urllib.parse
+                    parsed_url = urllib.parse.urlparse(current_url)
+
+                    # Check if there's place data in the URL
+                    if 'place/' in current_url:
+                        place_part = current_url.split('place/')[-1].split('/')[0]
+                        decoded_place = urllib.parse.unquote(place_part)
+                        # Often contains address information
+                        extracted_address = self.extract_address_from_text(decoded_place)
+                        if extracted_address:
+                            address = extracted_address
+                            print(f"✅ Found address from URL place data: {address}")
+
+                except Exception as e:
+                    print(f"⚠️ Error extracting from URL: {e}")
+
+            # Method 3: Search page content for address patterns
+            if not address:
+                print("🔍 Searching page content for address patterns...")
+                try:
+                    page_content = page.content()
+                    address = self.extract_address_from_text(page_content)
+                    if address:
+                        print(f"✅ Found address in page content: {address}")
+                except Exception as e:
+                    print(f"⚠️ Error searching page content for address: {e}")
+
+            # Method 4: Look through all text elements for addresses
+            if not address:
+                print("🔍 Searching all text elements for address patterns...")
+                try:
+                    # Look for elements that might contain address information
+                    text_selectors = [
+                        'span', 'div', 'p', 'button', 'a',
+                        '.fontBodyMedium', '.fontBodySmall',
+                        '[role="button"]', '[jsaction]'
+                    ]
+
+                    for selector in text_selectors:
+                        elements = page.locator(selector)
+                        element_count = min(elements.count(), 100)  # Limit processing
+
+                        for i in range(element_count):
+                            try:
+                                element = elements.nth(i)
+                                text = element.inner_text().strip()
+                                if text and len(text) > 10:  # Skip very short text
+                                    extracted_address = self.extract_address_from_text(text)
+                                    if extracted_address:
+                                        address = extracted_address
+                                        print(f"✅ Found address in text element: {address}")
+                                        break
+                            except:
+                                continue
+
+                        if address:
+                            break
+
+                except Exception as e:
+                    print(f"⚠️ Error searching text elements for address: {e}")
+
+            # Method 5: Try to get address from structured data
+            if not address:
+                print("🔍 Searching for structured data...")
+                try:
+                    # Look for JSON-LD or other structured data
+                    scripts = page.locator('script[type="application/ld+json"]')
+                    for i in range(min(scripts.count(), 5)):
+                        try:
+                            script_content = scripts.nth(i).inner_text()
+                            import json
+                            data = json.loads(script_content)
+
+                            # Look for address in structured data
+                            if isinstance(data, dict):
+                                address_data = self.extract_address_from_structured_data(data)
+                                if address_data:
+                                    address = address_data
+                                    print(f"✅ Found address in structured data: {address}")
+                                    break
+                        except:
+                            continue
+                except Exception as e:
+                    print(f"⚠️ Error searching structured data: {e}")
+
+            if not address:
+                print("⚠️ No address found for this business")
+
+            business_info["address"] = address
+
+
 
         except Exception as e:
             print(f"⚠️ Error extracting business info: {e}")
@@ -543,6 +1006,8 @@ class MapsBusinessScraper:
                         print(f"✅ SUCCESS! Business {processed_count} saved:")
                         print(f"   📍 Name: {business_info['name']}")
                         print(f"   🌐 Website: {business_info['website'] or 'Not found'}")
+                        print(f"   📞 Phone: {business_info['phone'] or 'Not found'}")
+                        print(f"   📌 Address: {business['address'] or 'No address found'}")
 
                         # Save intermediate results every 3 businesses
                         if processed_count % 3 == 0:
@@ -679,7 +1144,7 @@ class MapsBusinessScraper:
 
             # Save the merged data
             with open(filename, mode="w", newline="", encoding="utf-8") as f:
-                writer = csv.DictWriter(f, fieldnames=["name", "website"])
+                writer = csv.DictWriter(f, fieldnames=["name", "website", "phone", "address"])
                 writer.writeheader()
                 writer.writerows(all_businesses)
 
@@ -714,6 +1179,9 @@ class MapsBusinessScraper:
         for i, business in enumerate(self.results, 1):
             print(f"{i:2d}. {business['name']}")
             print(f"    🌐 {business['website'] or 'No website found'}")
+            print(f"     📞 {business['phone'] or 'No phone found'}")
+            print(f"     📌 {business['address'] or 'No address found'}")
+
             print()
 
     def print_unvisited_summary(self):

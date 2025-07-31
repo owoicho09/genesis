@@ -253,12 +253,15 @@ def check_lead_exists(email, url):
 
 
 @sync_to_async
-def create_lead(username, company_name, email, source_url, source_name, business_description):
+def create_lead(username, company_name, email,phone, niche, address, source_url, source_name, business_description):
     """Create new lead"""
     return Lead.objects.create(
         username=username,
         company_name=company_name,
         email=email,
+        phone=phone,
+        niche=niche,
+        address=address,
         source_url=source_url,
         source_name=source_name,
         business_description=business_description
@@ -294,7 +297,8 @@ async def process_csv_and_scrape(csv_path):
                     processed_count += 1
                     name = row.get('name', '').strip()
                     url = row.get('website', '').strip()
-
+                    phone = row.get('phone', '').strip()
+                    address = row.get('address', '').strip()
                     print(f"\n{'=' * 80}")
                     print(f"🔗 [{processed_count}] Processing: {name}")
                     print(f"🌐 URL: {url}")
@@ -336,6 +340,8 @@ async def process_csv_and_scrape(csv_path):
                                         company_name=name,
                                         email=email,
                                         source_url=url,
+                                        phone=phone,
+                                        address=address,
                                         source_name=name,
                                         business_description=description or f"Business contact from {name}"
                                     )
@@ -446,5 +452,5 @@ def run_email_extractor(csv_file: str, validate=True, verbose=True):
 
 
 if __name__ == "__main__":
-    csv_file = "csv-json/fitness_coach_in_arizona.csv"
+    csv_file = "csv-json/real_estate_agent_in_New_York.csv"
     run_email_extractor(csv_file)

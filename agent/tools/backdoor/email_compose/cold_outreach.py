@@ -21,6 +21,16 @@ from django.conf import settings
 from dotenv import load_dotenv
 from openai import OpenAI
 from tqdm import tqdm
+
+
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../..'))
+sys.path.insert(0, str(PROJECT_ROOT))
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings")
+
+
+import django
+
+django.setup()
 from agent.models import Lead
 
 # Get unsent leads
@@ -136,80 +146,48 @@ class EmailOutreachManager:
 
         return f"""
         Instruction:
-
-        You are a skilled copywriter helping create short, natural cold outreach emails that feel warm, human, and personally written. The email should sound like a real person reaching out — not a template or pitch.
-
-        **Goal:** Spark curiosity, build trust, and gently encourage a reply — without sounding robotic, spammy, or overly salesy.
-
-        Use the following details:
+        
+        You’re writing short, friendly cold emails that feel like one person reaching out to another — casual, clear, and to the point. No sales pitch, no pressure — just a quick message that shows you understand their world and might have something useful.
+        
+        **Goal:** Get their attention fast, show you understand their space, and offer a simple, relevant solution in just a few words.
+        
+        Use this info:
         - Lead name: {lead_name}
         - Niche: {lead_niche}
         - Product insight: {product.description}
-
-        **Guidelines:**
-
-        - Begin with a warm, sincere opener — compliment or acknowledge their work in the niche.
-        - Softly highlight a pain point or common challenge relevant to people in this niche.
-        - Offer a subtle solution based on the product insight — **do not mention any product name directly**.
-        - Emphasize ease, creativity, or time-saving where relevant.
-        - Keep the tone casual, warm, and respectful.
-        - Avoid any spammy language or pushy wording.
-        - Email must be under 100 words.
-        - Subject line must be lowercase, curiosity-driven, and under 30 words — do NOT include "subject:" or any formatting.
-
+        
+        **Tone & Style Rules:**
+        - Write like a real person, not a marketer.
+        - Keep it short — max 3 sentences, under 70 words.
+        - Subject line should be lowercase, simple, and curiosity-driven (max 30 words).
+        - First line: Show you know what they do — quick compliment or mention.
+        - Second line: Call out a common challenge in their niche.
+        - Third line: Suggest a helpful solution based on the product insight — no product names.
+        - End with a soft CTA like “Want a quick peek?” or “Would it be useful?”
+        - No spammy or salesy language. Keep it light, human, and real.
+        
         ---
-
-        **Few-shot Examples**
-
-        **Example 1**
-
-        Input:
+        
+        **Example Input**
         {{
           "lead_name": "Maya",
-          "lead_niche": "online fitness coaching",
-          "product_input": "AI-powered prompt pack that helps coaches create eye-catching flyers and posters fast"
+          "lead_niche": "fitness coaching",
+          "product_input": "an AI prompt pack that helps coaches design flyers and posters in minutes"
         }}
-
-        Output:
-
-        a faster way to design your next flyer
-
+        
+        **Expected Output**
+        create fitness flyers in less time
+        
         Hey Maya,
-
-        Your coaching vibe is strong — your page really stands out in a sea of sameness.
-
-        I know a lot of fitness coaches spend hours creating flyers or graphics when launching offers. I’ve been exploring a simple way to speed that up — especially for those doing it solo.
-
-        Might be something you’d find useful — open to a quick peek?
-
+        
+        Saw your coaching content — super clean and clear.  
+        Most coaches I talk to spend way too long designing flyers or promo posts — been working on a shortcut for that.  
+        Might be helpful — want a quick look?
+        
         — Genesis.ai
-
+        
         ---
-
-        **Example 2**
-
-        Input:
-        {{
-          "lead_name": "Luis",
-          "lead_niche": "wellness and recovery coaching",
-          "product_input": "visual content prompts to help coaches design engaging posters in minutes"
-        }}
-
-        Output:
-
-        poster idea for your next wellness launch
-
-        Hey Luis,
-
-        Really admire how you’re blending wellness with recovery — it’s a much-needed space and you’re leading with heart.
-
-        Heard from other coaches how tricky it can be to keep up with poster or promo designs, especially when running everything solo. I’ve been testing something to make that part way easier.
-
-        Want to take a quick look?
-
-        — Genesis.ai
-
-        ---
+   
 
         Now generate an email using this input:
 
@@ -468,17 +446,17 @@ def load_smtp_configs() -> List[SMTPConfig]:
 
 
     # Gmail configuration
-    gmail_email = os.getenv("EMAIL_HOST_USER")
-    gmail_password = os.getenv("EMAIL_HOST_PASSWORD")
-    if gmail_email and gmail_password:
-        configs.append(SMTPConfig(
-            provider="gmail",
-            host="smtp.gmail.com",
-            port=587,
-            use_tls=True,
-            username=gmail_email,
-            password=gmail_password
-        ))
+    #gmail_email = os.getenv("EMAIL_HOST_USER")
+    #gmail_password = os.getenv("EMAIL_HOST_PASSWORD")
+    #if gmail_email and gmail_password:
+    #    configs.append(SMTPConfig(
+    #        provider="gmail",
+    #        host="smtp.gmail.com",
+     #       port=587,
+      #      use_tls=True,
+      #      username=gmail_email,
+      #      password=gmail_password
+      #  ))
 
     gmail_email_2 = os.getenv("GMAIL_EMAIL_2")
     gmail_password_2 = os.getenv("GMAIL_APP_PASSWORD_2")

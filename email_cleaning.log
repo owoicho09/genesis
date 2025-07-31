@@ -2527,3 +2527,132 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 2025-07-25 23:12:29,230 - INFO - Django setup successful
 2025-07-26 02:36:15,923 - WARNING - Not Found: /favicon.ico
 2025-07-26 03:52:29,172 - INFO - C:\Users\HP\Desktop\genesis.ai\agent\tools\langgraph.py changed, reloading.
+2025-07-30 05:25:23,776 - INFO - Django setup successful
+2025-07-30 05:25:28,250 - INFO - Starting email cleaning process...
+2025-07-30 05:25:28,250 - INFO - Mode: LIVE CLEANING
+2025-07-30 05:25:28,251 - INFO - API validation: DISABLED
+2025-07-30 05:25:28,252 - INFO - Batch size: 1000
+2025-07-30 05:25:28,252 - INFO - Max workers: 4
+2025-07-30 05:25:28,927 - INFO - Found 395 leads with email addresses
+2025-07-30 05:25:30,558 - INFO - Processing batch 1 (395 leads)
+2025-07-30 05:25:46,638 - INFO - Processed 100/395 leads...
+2025-07-30 05:26:38,150 - INFO - Processed 200/395 leads...
+2025-07-30 05:26:40,646 - WARNING - Invalid email: debra.shultz@ccm.com (ID: 1836) - Contains blacklisted substring: .sh
+2025-07-30 05:26:40,977 - WARNING - Invalid email: careers_dog_desktop_short@2x-768x614.jpg (ID: 1837) - Contains blacklisted substring: .jpg
+2025-07-30 05:26:41,282 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-225x300.jpg (ID: 1838) - Contains blacklisted substring: .jpg
+2025-07-30 05:26:41,574 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-768x1025.jpg (ID: 1839) - Contains blacklisted substring: .jpg
+2025-07-30 05:26:41,874 - WARNING - Invalid email: careers_volunteer_mobile_short@2x1-1.jpg (ID: 1840) - Contains blacklisted substring: .jpg
+2025-07-30 05:26:42,195 - WARNING - Invalid email: careers_dog_mobile_short@2x1.jpg (ID: 1841) - Contains blacklisted substring: .jpg
+2025-07-30 05:26:42,489 - WARNING - Invalid email: careers_dog_desktop_short@2x-1536x1229.jpg (ID: 1842) - Contains blacklisted substring: .jpg
+2025-07-30 05:26:42,782 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-1151x1536.jpg (ID: 1843) - Contains blacklisted substring: .jpg
+2025-07-30 05:26:43,120 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-767x1024.jpg (ID: 1844) - Contains blacklisted substring: .jpg
+2025-07-30 05:26:54,309 - WARNING - Invalid email: paige.park@ccm.com (ID: 1775) - No MX or A record (non-deliverable domain)
+2025-07-30 05:26:59,568 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-225x300.jpg (ID: 1778) - Contains blacklisted substring: .jpg
+2025-07-30 05:26:59,876 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-1151x1536.jpg (ID: 1779) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:00,224 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-767x1024.jpg (ID: 1781) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:00,517 - WARNING - Invalid email: careers_dog_desktop_short@2x.jpg (ID: 1782) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:00,824 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-1534x2048.jpg (ID: 1783) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:01,180 - WARNING - Invalid email: admin@owningyourmenopause.com (ID: 1673) - Contains blacklisted substring: admin
+2025-07-30 05:27:01,486 - INFO - Processed 300/395 leads...
+2025-07-30 05:27:11,225 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-768x1025.jpg (ID: 1788) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:11,706 - WARNING - Invalid email: careers_dog_desktop_short@2x-1024x819.jpg (ID: 1789) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:12,017 - WARNING - Invalid email: careers_dog_desktop_short@2x-1536x1229.jpg (ID: 1793) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:12,328 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x.jpg (ID: 1797) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:12,651 - WARNING - Invalid email: careers_dog_desktop_short@2x-768x614.jpg (ID: 1799) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:12,953 - WARNING - Invalid email: careers_volunteer_mobile_short@2x1-1.jpg (ID: 1801) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:13,281 - WARNING - Invalid email: careers_dog_mobile_short@2x1.jpg (ID: 1803) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:13,613 - WARNING - Invalid email: careers_dog_desktop_short@2x-300x240.jpg (ID: 1808) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:13,910 - WARNING - Invalid email: aa874a7a-8246-4fa5-bd07-9d4a9be4eb8c@2x.png (ID: 1809) - Contains blacklisted substring: .png
+2025-07-30 05:27:16,397 - WARNING - Invalid email: user@domain.com (ID: 1811) - Contains blacklisted substring: @domain
+2025-07-30 05:27:16,727 - WARNING - Invalid email: careers_dog_desktop_short@2x.jpg (ID: 1845) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:17,035 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-1534x2048.jpg (ID: 1846) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:31,359 - WARNING - Invalid email: lending-buddy_primary-red-brandmark_logo-1-300x218@2x.png (ID: 1815) - Contains blacklisted substring: .png
+2025-07-30 05:27:33,912 - WARNING - Invalid email: careers_dog_desktop_short@2x-768x614.jpg (ID: 1817) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:34,242 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-225x300.jpg (ID: 1818) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:34,544 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-768x1025.jpg (ID: 1819) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:34,847 - WARNING - Invalid email: careers_volunteer_mobile_short@2x1-1.jpg (ID: 1820) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:35,149 - WARNING - Invalid email: careers_dog_mobile_short@2x1.jpg (ID: 1821) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:35,474 - WARNING - Invalid email: careers_dog_desktop_short@2x-1536x1229.jpg (ID: 1822) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:35,795 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-1151x1536.jpg (ID: 1823) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:36,110 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-767x1024.jpg (ID: 1824) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:36,432 - WARNING - Invalid email: careers_dog_desktop_short@2x.jpg (ID: 1825) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:36,756 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-1534x2048.jpg (ID: 1826) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:37,084 - WARNING - Invalid email: careers_dog_desktop_short@2x-300x240.jpg (ID: 1827) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:43,831 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x.jpg (ID: 1828) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:46,340 - WARNING - Invalid email: careers_dog_desktop_short@2x-1024x819.jpg (ID: 1830) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:51,405 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x.jpg (ID: 1847) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:51,711 - WARNING - Invalid email: careers_dog_desktop_short@2x-300x240.jpg (ID: 1848) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:52,037 - WARNING - Invalid email: careers_dog_desktop_short@2x-1024x819.jpg (ID: 1849) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:52,436 - WARNING - Invalid email: user@domain.com (ID: 1850) - Contains blacklisted substring: @domain
+2025-07-30 05:27:58,267 - WARNING - Invalid email: cta-dark-bg@2x-2-scaled.jpg (ID: 1852) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:58,882 - WARNING - Invalid email: cta-dark-bg@2x.jpg (ID: 1853) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:59,191 - WARNING - Invalid email: careers_dog_desktop_short@2x-768x614.jpg (ID: 1855) - Contains blacklisted substring: .jpg
+2025-07-30 05:27:59,516 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-225x300.jpg (ID: 1856) - Contains blacklisted substring: .jpg
+2025-07-30 05:28:00,004 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-768x1025.jpg (ID: 1857) - Contains blacklisted substring: .jpg
+2025-07-30 05:28:00,380 - WARNING - Invalid email: careers_volunteer_mobile_short@2x1-1.jpg (ID: 1858) - Contains blacklisted substring: .jpg
+2025-07-30 05:28:00,680 - WARNING - Invalid email: careers_dog_mobile_short@2x1.jpg (ID: 1859) - Contains blacklisted substring: .jpg
+2025-07-30 05:28:00,997 - WARNING - Invalid email: careers_dog_desktop_short@2x-1536x1229.jpg (ID: 1860) - Contains blacklisted substring: .jpg
+2025-07-30 05:28:01,319 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-1151x1536.jpg (ID: 1861) - Contains blacklisted substring: .jpg
+2025-07-30 05:28:01,746 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-767x1024.jpg (ID: 1862) - Contains blacklisted substring: .jpg
+2025-07-30 05:28:02,045 - WARNING - Invalid email: careers_dog_desktop_short@2x.jpg (ID: 1863) - Contains blacklisted substring: .jpg
+2025-07-30 05:28:02,488 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x-1534x2048.jpg (ID: 1864) - Contains blacklisted substring: .jpg
+2025-07-30 05:28:02,787 - WARNING - Invalid email: careers_volunteer_desktop_tall@2x.jpg (ID: 1865) - Contains blacklisted substring: .jpg
+2025-07-30 05:28:03,195 - WARNING - Invalid email: careers_dog_desktop_short@2x-300x240.jpg (ID: 1867) - Contains blacklisted substring: .jpg
+2025-07-30 05:28:03,588 - WARNING - Invalid email: careers_dog_desktop_short@2x-1024x819.jpg (ID: 1868) - Contains blacklisted substring: .jpg
+2025-07-30 05:28:03,924 - WARNING - Invalid email: cta-dark-bg@2x-2-scaled.jpg (ID: 1871) - Contains blacklisted substring: .jpg
+2025-07-30 05:28:04,915 - WARNING - Invalid email: cta-dark-bg@2x.jpg (ID: 1872) - Contains blacklisted substring: .jpg
+2025-07-30 05:28:05,236 - WARNING - Invalid email: cta-dark-bg@2x-2-scaled.jpg (ID: 1876) - Contains blacklisted substring: .jpg
+2025-07-30 05:28:05,710 - WARNING - Invalid email: cta-dark-bg@2x.jpg (ID: 1877) - Contains blacklisted substring: .jpg
+2025-07-30 05:28:06,030 - INFO - Email cleaning completed. Processed 395 leads.
+2025-07-30 05:28:06,031 - INFO - 
+============================================================
+2025-07-30 05:28:06,031 - INFO - EMAIL VALIDATION STATISTICS
+2025-07-30 05:28:06,032 - INFO - ============================================================
+2025-07-30 05:28:06,032 - INFO - Total processed: 395
+2025-07-30 05:28:06,032 - INFO - Valid emails: 330
+2025-07-30 05:28:06,033 - INFO - Corrected typos: 0
+2025-07-30 05:28:06,033 - INFO - Invalid format: 0
+2025-07-30 05:28:06,033 - INFO - Blacklisted: 64
+2025-07-30 05:28:06,033 - INFO - Suspicious TLD: 0
+2025-07-30 05:28:06,034 - INFO - Too long: 0
+2025-07-30 05:28:06,034 - INFO - MX record failed: 1
+2025-07-30 05:28:06,034 - INFO - Cleaned/removed: 65
+2025-07-30 05:28:06,034 - INFO - Valid email rate: 83.54%
+2025-07-30 05:28:06,035 - INFO - ============================================================
+2025-07-30 05:28:06,394 - INFO - 
+ EMAIL CLEANING COMPLETED
+2025-07-30 05:28:06,395 - INFO - Cleaned 65 invalid emails
+2025-07-30 05:28:06,396 - INFO - Corrected 0 typos
+2025-07-30 23:55:35,806 - INFO - Django setup successful
+2025-07-30 23:55:37,876 - INFO - Starting email cleaning process...
+2025-07-30 23:55:37,876 - INFO - Mode: LIVE CLEANING
+2025-07-30 23:55:37,880 - INFO - API validation: DISABLED
+2025-07-30 23:55:37,880 - INFO - Batch size: 1000
+2025-07-30 23:55:37,880 - INFO - Max workers: 4
+2025-07-30 23:55:38,515 - INFO - Found 368 leads with email addresses
+2025-07-30 23:55:40,190 - INFO - Processing batch 1 (368 leads)
+2025-07-30 23:56:58,910 - INFO - Processed 100/368 leads...
+2025-07-30 23:58:38,138 - INFO - Processed 200/368 leads...
+2025-07-31 00:00:32,739 - WARNING - Invalid email: user@domain.com (ID: 1888) - Contains blacklisted substring: @domain
+2025-07-31 00:00:37,431 - WARNING - Invalid email: user@domain.com (ID: 1894) - Contains blacklisted substring: @domain
+2025-07-31 00:00:55,553 - INFO - Processed 300/368 leads...
+2025-07-31 00:01:51,142 - INFO - Email cleaning completed. Processed 368 leads.
+2025-07-31 00:01:51,143 - INFO - 
+============================================================
+2025-07-31 00:01:51,144 - INFO - EMAIL VALIDATION STATISTICS
+2025-07-31 00:01:51,144 - INFO - ============================================================
+2025-07-31 00:01:51,145 - INFO - Total processed: 368
+2025-07-31 00:01:51,145 - INFO - Valid emails: 366
+2025-07-31 00:01:51,145 - INFO - Corrected typos: 0
+2025-07-31 00:01:51,146 - INFO - Invalid format: 0
+2025-07-31 00:01:51,146 - INFO - Blacklisted: 2
+2025-07-31 00:01:51,146 - INFO - Suspicious TLD: 0
+2025-07-31 00:01:51,146 - INFO - Too long: 0
+2025-07-31 00:01:51,146 - INFO - MX record failed: 0
+2025-07-31 00:01:51,147 - INFO - Cleaned/removed: 2
+2025-07-31 00:01:51,147 - INFO - Valid email rate: 99.46%
+2025-07-31 00:01:51,147 - INFO - ============================================================
+2025-07-31 00:01:51,455 - INFO - 
+ EMAIL CLEANING COMPLETED
+2025-07-31 00:01:51,455 - INFO - Cleaned 2 invalid emails
+2025-07-31 00:01:51,456 - INFO - Corrected 0 typos
