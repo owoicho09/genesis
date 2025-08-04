@@ -123,7 +123,7 @@ Great for:
 genesis/
 │
 ├── core/               # Django project core
-├── scraper/            # Google Maps scraping logic (Playwright)
+├── agent/              # Django app [containing tools folder which holds scripts that power genesis
 ├── outreach/           # Email rotation + GPT personalization
 ├── blog/               # SEO blog generation and GitHub publishing
 ├── rag_engine/         # Prompt interpretation and decision layer
