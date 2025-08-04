@@ -5,3 +5,14 @@ db.sqlite3
 staticfiles/
 media/
 .env
+email_cleaning.log
+email_scraper.log
+extraction_results.json
+fitness_businesses.csv
+followup_outreach.log
+full_data.json
+outreach.log
+profile.txt
+prompt samples.txt
+warmup.log
+csv-json/

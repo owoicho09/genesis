@@ -268,7 +268,7 @@ def create_lead(username, company_name, email,phone, niche, address, source_url,
     )
 
 
-async def process_csv_and_scrape(csv_path):
+async def process_csv_and_scrape(csv_path, niche):
     """Main function to process CSV and scrape websites"""
     print(f"🚀 Starting CSV processing and scraping...")
     print(f"📁 CSV file: {csv_path}")
@@ -339,6 +339,7 @@ async def process_csv_and_scrape(csv_path):
                                         username=email.split('@')[0],
                                         company_name=name,
                                         email=email,
+                                        niche=niche,
                                         source_url=url,
                                         phone=phone,
                                         address=address,
@@ -429,7 +430,7 @@ def validate_csv_structure(csv_path):
         return False
 
 
-def run_email_extractor(csv_file: str, validate=True, verbose=True):
+def run_email_extractor(csv_file: str, niche: str, validate=True, verbose=True):
     """
     Run the email extractor on a given CSV file.
     :param csv_file: Path to the CSV file.
@@ -444,13 +445,21 @@ def run_email_extractor(csv_file: str, validate=True, verbose=True):
     if not validate or validate_csv_structure(csv_file):
         if verbose:
             print("\n🚀 Starting scraping process...")
-        return asyncio.run(process_csv_and_scrape(csv_file))
+        return asyncio.run(process_csv_and_scrape(csv_file, niche))
     else:
         if verbose:
             print("❌ Please fix CSV structure before running.")
         return []
 
+import argparse
 
 if __name__ == "__main__":
-    csv_file = "csv-json/real_estate_agent_in_New_York.csv"
-    run_email_extractor(csv_file)
+    parser = argparse.ArgumentParser(description="Run email extractor on a CSV file.")
+    parser.add_argument("niche", help="Niche label to associate with scraped leads.")
+
+    args = parser.parse_args()
+
+    csv_file = "csv-json/home_staging_in_Utah.csv"
+    run_email_extractor(csv_file, niche=args.niche)
+
+

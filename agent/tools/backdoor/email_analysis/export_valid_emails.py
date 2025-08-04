@@ -100,13 +100,14 @@ def export_leads_to_csv(niche, file_path):
 
     with open(file_path, mode='w', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
-        writer.writerow(['Name', 'Email', 'Phone', 'Niche', 'Website'])
+        writer.writerow(['Name', 'Email', 'Phone', 'Address', 'Niche', 'Website'])
 
         for lead in leads:
             writer.writerow([
                 lead.username,
                 lead.email,
                 lead.phone or '',
+                lead.address or '',
                 lead.niche,
                 lead.source_url or ''
             ])

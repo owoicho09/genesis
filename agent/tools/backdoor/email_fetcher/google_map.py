@@ -5,10 +5,16 @@ import os
 from urllib.parse import quote, urlparse, unquote
 from playwright.sync_api import sync_playwright
 import re
-from agent.tools.utils.send_email_update import send_scraping_update
 import sys
 sys.stdout.reconfigure(encoding='utf-8')
 
+import django
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../..'))
+sys.path.insert(0, PROJECT_ROOT)
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings")  # <- replace with your project
+
+django.setup()
+from agent.tools.utils.send_email_update import send_scraping_update
 
 class MapsBusinessScraper:
     def __init__(self, headless=True):
@@ -333,6 +339,19 @@ class MapsBusinessScraper:
 
         return ""
 
+
+
+    def extract_rating_from_text(self, text):
+        # Extract float rating from "4.7 stars" or similar
+        match = re.search(r"([0-5]\.\d)", text)
+        return float(match.group(1)) if match else None
+
+    def extract_review_count_from_text(self, text):
+        # Extract number from "123 reviews"
+        match = re.search(r"([\d,]+)", text)
+        if match:
+            return int(match.group(1).replace(",", ""))
+        return None
 
 
     def extract_business_info(self, page):
@@ -786,6 +805,35 @@ class MapsBusinessScraper:
 
 
 
+            # ⭐ RATING AND REVIEW COUNT EXTRACTION
+            print("🔍 Extracting rating and review count...")
+
+            rating = ""
+            review_count = ""
+
+            try:
+                # Rating selector (stars)
+                rating_element = page.locator('span[aria-label*="stars"], .MW4etd').first
+                if rating_element.count() > 0:
+                    rating_text = rating_element.inner_text().strip()
+                    rating = self.extract_rating_from_text(rating_text)
+                    print(f"✅ Found rating: {rating}")
+
+                # Review count selector
+                review_count_element = page.locator('span:has-text("review"), span:has-text("reviews")').first
+                if review_count_element.count() > 0:
+                    review_text = review_count_element.inner_text().strip()
+                    review_count = self.extract_review_count_from_text(review_text)
+                    print(f"✅ Found review count: {review_count}")
+
+            except Exception as e:
+                print(f"⚠️ Error extracting rating/reviews: {e}")
+
+            business_info["rating"] = rating
+            business_info["review_count"] = review_count
+
+
+
         except Exception as e:
             print(f"⚠️ Error extracting business info: {e}")
 
@@ -954,14 +1002,12 @@ class MapsBusinessScraper:
         print(f"\n🧹 PERFORMING CLEAN SWEEP OF UNVISITED URLS")
         print("=" * 60)
 
-        # First, discover all cards
         discovered_urls = self.discover_all_cards(page)
 
         if not discovered_urls:
             print("❌ No cards discovered")
             return 0
 
-        # Get unvisited cards
         unvisited_urls = self.get_unvisited_cards_from_discovered(discovered_urls)
 
         if not unvisited_urls:
@@ -969,7 +1015,6 @@ class MapsBusinessScraper:
             return 0
 
         processed_count = 0
-
         print(f"\n🎯 PROCESSING {len(unvisited_urls)} UNVISITED CARDS...")
 
         for i, card_url in enumerate(unvisited_urls):
@@ -983,46 +1028,66 @@ class MapsBusinessScraper:
             print(f"📊 Progress: {processed_count}/{max_results}")
 
             try:
-                # Navigate directly to the card
                 if self.navigate_to_card_directly(page, card_url):
-
-                    # Mark as visited
                     self.visited_urls.add(card_url)
-
-                    # Extract business information
                     business_info = self.extract_business_info(page)
 
-                    # Check for duplicates
-                    business_name_lower = business_info["name"].strip().lower()
+                    business_name = business_info.get("name", "").strip()
+                    if not business_name or business_name.lower() == "unknown business":
+                        print("⚠️ Could not extract valid business name")
+                        continue
+
+                    business_name_lower = business_name.lower()
                     if business_name_lower in self.seen_names:
                         print(f"⚠️ Skipping duplicate business: {business_info['name']}")
                         continue
 
-                    if business_info["name"] and business_info["name"] != "Unknown Business":
-                        self.seen_names.add(business_name_lower)
-                        self.results.append(business_info)
-                        processed_count += 1
+                    # Grab rating and review count safely
+                    raw_rating = business_info.get("rating")
+                    raw_review_count = business_info.get("review_count")
 
-                        print(f"✅ SUCCESS! Business {processed_count} saved:")
-                        print(f"   📍 Name: {business_info['name']}")
-                        print(f"   🌐 Website: {business_info['website'] or 'Not found'}")
-                        print(f"   📞 Phone: {business_info['phone'] or 'Not found'}")
-                        print(f"   📌 Address: {business['address'] or 'No address found'}")
+                    if raw_review_count is None:
+                        print(f"❌ Skipped: Missing rating or review count")
+                        continue
 
-                        # Save intermediate results every 3 businesses
-                        if processed_count % 3 == 0:
-                            self.save_to_csv(output_csv)
-                            self.save_visited_urls()
-                            print(f"💾 Intermediate save completed")
-                    else:
-                        print("⚠️ Could not extract valid business name")
+                    try:
+                        #rating = float(raw_rating)
+                        review_count = int(raw_review_count)
+                    except (ValueError, TypeError):
+                        print(f"❌ Skipped: Rating/Review count not a valid number")
+                        continue
 
+                    # Filters
+                    if review_count < 10 or review_count > 50:
+                        print(f"⚠️ Skipped {business_info['name']} ({review_count} reviews outside target range)")
+                        continue
+
+                    #if rating > 3.8:
+                    #    print(f"⚠️ Skipped {business_info['name']} (rating too high)")
+                    #    continue
+
+                    self.seen_names.add(business_name_lower)
+                    self.results.append(business_info)
+                    processed_count += 1
+
+                    print(f"✅ SUCCESS! Business {processed_count} saved:")
+                    print(f"   📍 Name: {business_info['name']}")
+                    print(f"   🌐 Website: {business_info['website'] or 'Not found'}")
+                    print(f"   📞 Phone: {business_info['phone'] or 'Not found'}")
+                    print(f"   📌 Address: {business_info['address'] or 'No address found'}")
+                    print(f"   ⭐ Rating: Nil for now | 🗣 Reviews: {review_count}")
+
+                    if processed_count % 3 == 0:
+                        self.save_to_csv(output_csv)
+                        self.save_visited_urls()
+                        print(f"💾 Intermediate save completed")
                 else:
                     print("❌ Failed to navigate to card")
 
             except Exception as e:
                 print(f"❌ Error processing card: {e}")
 
+        print(f"\n✅ CLEAN SWEEP COMPLETED: {processed_count} businesses saved")
         return processed_count
 
     def scrape(self, query, max_results=15, output_csv=None, continue_from_last=True, clean_sweep=True):
@@ -1117,7 +1182,7 @@ class MapsBusinessScraper:
             if os.path.exists(filename):
                 try:
                     with open(filename, mode="r", newline="", encoding="utf-8") as f:
-                        reader = csv.DictReader(f)
+                        reader = tivare.DictReader(f)
                         for row in reader:
                             existing_businesses.append(row)
                             existing_names.add(row['name'].strip().lower())
@@ -1144,7 +1209,7 @@ class MapsBusinessScraper:
 
             # Save the merged data
             with open(filename, mode="w", newline="", encoding="utf-8") as f:
-                writer = csv.DictWriter(f, fieldnames=["name", "website", "phone", "address"])
+                writer = csv.DictWriter(f, fieldnames=["name", "website", "phone", "address", "rating", "review_count"])
                 writer.writeheader()
                 writer.writerows(all_businesses)
 
@@ -1196,7 +1261,7 @@ class MapsBusinessScraper:
             print(f"\n⚠️ {unvisited_count} URLs remain unvisited. Run with clean_sweep=True to process them.")
 
 
-def google_map(niche: str,location: str, max_results: int = 70, clean_sweep: bool = True):
+def google_map(niche: str,location: str, max_results: int = 100, clean_sweep: bool = True):
     scraper = MapsBusinessScraper(headless=True)
 
     query = f"{niche} in {location}"
